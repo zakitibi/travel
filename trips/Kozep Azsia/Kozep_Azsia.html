@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Közép-Ázsia + Koh Samui · Ápr.24 – Máj.13</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#08070A;
+  --s1:#111018;
+  --s2:#181520;
+  --s3:#201D2A;
+  --border:rgba(200,185,240,0.10);
+  --border2:rgba(200,185,240,0.06);
+  --text:#EDE8F5;
+  --muted:#9A90B0;
+  --dim:#4A4560;
+  --sand:#C8B87A;
+
+  --uz:#60D0B0;    /* Üzbegisztán = türkiz */
+  --tm:#E8943A;    /* Türkmenisztán = narancs */
+  --th:#F0C040;    /* Thaiföld = arany */
+  --fly:#5090D8;
+  --train:#C8901A;
+  --car:#50A860;
+  --walk:#A0A050;
+}
+
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-weight:300;min-height:100vh;}
+
+/* ── HERO ── */
+.hero{
+  padding:60px 40px 50px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  border-bottom:1px solid var(--border);
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 0%, rgba(96,80,180,0.18) 0%, transparent 70%);
+  pointer-events:none;
+}
+.hero-eyebrow{
+  font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--dim);margin-bottom:14px;
+}
+.hero h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(28px,5vw,52px);
+  font-weight:700;color:#EDE8F5;
+  line-height:1.1;margin-bottom:10px;
+}
+.hero h1 em{font-style:italic;color:#B8A8E8;}
+.hero-sub{font-size:14px;color:var(--muted);margin-bottom:28px;line-height:1.6;}
+.hero-stats{display:flex;gap:32px;justify-content:center;flex-wrap:wrap;}
+.stat{display:flex;flex-direction:column;align-items:center;gap:3px;}
+.stat-val{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;}
+.stat-lbl{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--dim);}
+.stat.uz .stat-val{color:var(--uz);}
+.stat.tm .stat-val{color:var(--tm);}
+.stat.th .stat-val{color:var(--th);}
+.stat.total .stat-val{color:#B8A8E8;}
+
+/* ── NAV TABS ── */
+.nav-tabs{
+  display:flex;justify-content:center;gap:4px;padding:16px 20px;
+  border-bottom:1px solid var(--border);background:var(--s1);
+  position:sticky;top:0;z-index:20;flex-wrap:wrap;
+}
+.tab-btn{
+  padding:6px 16px;border-radius:100px;border:1px solid var(--border);
+  background:transparent;color:var(--muted);font-family:'DM Sans',sans-serif;
+  font-size:11px;font-weight:500;cursor:pointer;transition:all .2s;white-space:nowrap;
+}
+.tab-btn:hover{border-color:var(--border);background:var(--s2);color:var(--text);}
+.tab-btn.active{background:var(--s3);color:var(--text);border-color:rgba(200,185,240,.25);}
+.tab-btn.uz{--hc:var(--uz);}
+.tab-btn.tm{--hc:var(--tm);}
+.tab-btn.th{--hc:var(--th);}
+.tab-btn.uz.active,.tab-btn.uz:hover{border-color:var(--uz);color:var(--uz);}
+.tab-btn.tm.active,.tab-btn.tm:hover{border-color:var(--tm);color:var(--tm);}
+.tab-btn.th.active,.tab-btn.th:hover{border-color:var(--th);color:var(--th);}
+
+/* ── SECTIONS ── */
+.section{display:none;padding:32px 24px 60px;max-width:1100px;margin:0 auto;}
+.section.active{display:block;}
+
+/* ── SECTION HEADER ── */
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:28px;flex-wrap:wrap;}
+.sec-head h2{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;line-height:1.1;}
+.sec-head h2 span{display:block;font-size:13px;font-weight:300;font-family:'DM Sans',sans-serif;color:var(--muted);margin-bottom:4px;letter-spacing:.05em;}
+.country-badge{padding:5px 14px;border-radius:100px;font-size:11px;font-weight:500;border:1px solid;}
+.uz-badge{border-color:var(--uz);color:var(--uz);background:rgba(96,208,176,.08);}
+.tm-badge{border-color:var(--tm);color:var(--tm);background:rgba(232,148,58,.08);}
+.th-badge{border-color:var(--th);color:var(--th);background:rgba(240,192,64,.08);}
+
+/* ── FLIGHT CARD ── */
+.flight-card{
+  display:flex;align-items:center;gap:16px;padding:14px 18px;
+  border-radius:12px;border:1px solid rgba(80,144,216,.2);
+  background:rgba(80,144,216,.05);margin-bottom:20px;flex-wrap:wrap;
+}
+.flight-card .fc-icon{font-size:20px;flex-shrink:0;}
+.flight-card .fc-main{flex:1;}
+.flight-card .fc-route{font-size:14px;font-weight:500;color:var(--text);}
+.flight-card .fc-detail{font-size:11px;color:var(--muted);margin-top:2px;}
+.flight-card .fc-date{font-family:'Cormorant Garamond',serif;font-size:16px;color:#5090D8;flex-shrink:0;}
+
+/* ── DAY CARDS ── */
+.days{display:flex;flex-direction:column;gap:16px;}
+.day-card{
+  border-radius:14px;border:1px solid var(--border2);
+  background:var(--s1);overflow:hidden;
+  transition:border-color .2s;
+}
+.day-card:hover{border-color:var(--border);}
+
+.day-head{
+  display:flex;align-items:center;gap:14px;padding:14px 18px;
+  cursor:pointer;user-select:none;
+}
+.day-num{
+  font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;
+  line-height:1;flex-shrink:0;width:42px;text-align:center;
+}
+.day-uz .day-num{color:var(--uz);}
+.day-tm .day-num{color:var(--tm);}
+.day-th .day-num{color:var(--th);}
+.day-head-info{flex:1;}
+.day-date{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-bottom:2px;}
+.day-title{font-size:14px;font-weight:500;color:var(--text);line-height:1.3;}
+.day-sub{font-size:11px;color:var(--muted);margin-top:2px;}
+.day-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:5px;}
+.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:9px;font-weight:500;}
+.tag-hotel{background:rgba(80,144,216,.15);color:#70A0E0;}
+.tag-unesco{background:rgba(200,160,60,.15);color:#D0B060;}
+.tag-nature{background:rgba(80,160,80,.15);color:#70C080;}
+.tag-food{background:rgba(200,80,80,.15);color:#D08080;}
+.tag-transit{background:rgba(160,160,80,.15);color:#C0C060;}
+.tag-fire{background:rgba(200,80,30,.15);color:#D08050;}
+.chevron{font-size:12px;color:var(--dim);transition:transform .3s;flex-shrink:0;}
+.day-card.open .chevron{transform:rotate(180deg);}
+
+.day-body{display:none;padding:0 18px 16px;}
+.day-card.open .day-body{display:block;}
+
+/* Activities */
+.activities{display:flex;flex-direction:column;gap:0;}
+.act{display:flex;gap:12px;padding:8px 0;border-bottom:1px solid var(--border2);}
+.act:last-child{border-bottom:none;}
+.act-time{font-size:10px;color:var(--dim);width:46px;flex-shrink:0;padding-top:2px;text-align:right;}
+.act-icon{font-size:16px;flex-shrink:0;width:22px;text-align:center;padding-top:1px;}
+.act-content{flex:1;}
+.act-name{font-size:12px;font-weight:500;color:var(--text);line-height:1.3;}
+.act-detail{font-size:10px;color:var(--muted);margin-top:2px;line-height:1.5;}
+.act-pill{display:inline-flex;align-items:center;gap:2px;padding:1px 6px;border-radius:3px;font-size:8.5px;font-weight:500;margin-top:3px;}
+.pill-fly{background:rgba(80,144,216,.2);color:#70A8E8;}
+.pill-train{background:rgba(200,144,26,.2);color:#D0A030;}
+.pill-car{background:rgba(80,168,96,.2);color:#70C080;}
+.pill-walk{background:rgba(160,160,60,.2);color:#C0C050;}
+.pill-4x4{background:rgba(160,120,40,.2);color:#C09050;}
+.tip-box{margin-top:8px;padding:8px 12px;border-radius:8px;background:rgba(200,185,240,.05);border-left:2px solid rgba(200,185,240,.2);font-size:10px;color:var(--muted);line-height:1.5;}
+.tip-box strong{color:var(--text);}
+
+/* ── NOTES SECTION ── */
+.notes-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-top:20px;}
+.note-card{padding:16px 18px;border-radius:12px;border:1px solid var(--border2);background:var(--s1);}
+.note-card h3{font-size:12px;font-weight:500;color:var(--text);margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.note-card ul{list-style:none;display:flex;flex-direction:column;gap:5px;}
+.note-card li{font-size:11px;color:var(--muted);padding-left:14px;position:relative;line-height:1.5;}
+.note-card li::before{content:'—';position:absolute;left:0;color:var(--dim);}
+.note-card li strong{color:var(--text);}
+.warn{border-color:rgba(200,100,50,.2);background:rgba(200,100,50,.05);}
+.warn h3{color:#C07050;}
+.info-c{border-color:rgba(80,144,216,.2);background:rgba(80,144,216,.05);}
+.info-c h3{color:#70A8E8;}
+.good{border-color:rgba(80,168,96,.2);background:rgba(80,168,96,.05);}
+.good h3{color:#70C080;}
+
+/* ── TIMELINE OVERVIEW ── */
+.timeline{display:flex;flex-direction:column;gap:4px;margin-bottom:32px;}
+.tl-row{display:flex;align-items:center;gap:10px;padding:6px 14px;border-radius:8px;}
+.tl-row:hover{background:var(--s2);}
+.tl-date{font-size:10px;color:var(--dim);width:56px;flex-shrink:0;}
+.tl-bar{flex:1;height:5px;border-radius:3px;min-width:4px;}
+.tl-label{font-size:11px;color:var(--muted);width:220px;}
+.tl-loc{font-size:10px;color:var(--dim);}
+.tl-bar.uz{background:var(--uz);}
+.tl-bar.tm{background:var(--tm);}
+.tl-bar.th{background:var(--th);}
+.tl-bar.fly{background:var(--fly);opacity:.6;}
+
+/* ── SCROLL ANIM ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+.day-card{animation:fadeUp .4s ease both;}
+.day-card:nth-child(1){animation-delay:.05s;}
+.day-card:nth-child(2){animation-delay:.10s;}
+.day-card:nth-child(3){animation-delay:.15s;}
+.day-card:nth-child(4){animation-delay:.20s;}
+.day-card:nth-child(5){animation-delay:.25s;}
+.day-card:nth-child(6){animation-delay:.30s;}
+.day-card:nth-child(7){animation-delay:.35s;}
+
+@media(max-width:600px){
+  .hero{padding:40px 20px 36px;}
+  .section{padding:24px 16px 48px;}
+  .day-head{padding:12px 14px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ HERO ═══ -->
+<div class="hero">
+  <div class="hero-eyebrow">Utazási terv · 2026</div>
+  <h1>Közép-Ázsia &<br><em>Koh Samui</em></h1>
+  <div class="hero-sub">Üzbegisztán · Türkmenisztán · Thaiföld<br>Ápr. 24 – Máj. 13 · 20 nap</div>
+  <div class="hero-stats">
+    <div class="stat uz"><div class="stat-val">7</div><div class="stat-lbl">nap 🇺🇿</div></div>
+    <div class="stat tm"><div class="stat-val">7</div><div class="stat-lbl">nap 🇹🇲</div></div>
+    <div class="stat th"><div class="stat-val">6</div><div class="stat-lbl">nap 🇹🇭</div></div>
+    <div class="stat total"><div class="stat-val">6</div><div class="stat-lbl">UNESCO</div></div>
+  </div>
+</div>
+
+<!-- ═══ NAV TABS ═══ -->
+<div class="nav-tabs">
+  <button class="tab-btn active" onclick="showTab('overview')">🗺 Áttekintés</button>
+  <button class="tab-btn uz" onclick="showTab('uzbek')">🇺🇿 Üzbegisztán</button>
+  <button class="tab-btn tm" onclick="showTab('turkmen')">🇹🇲 Türkmenisztán</button>
+  <button class="tab-btn th" onclick="showTab('thailand')">🇹🇭 Koh Samui</button>
+  <button class="tab-btn" onclick="showTab('notes')">📋 Praktikus infók</button>
+</div>
+
+<!-- ═══ OVERVIEW ═══ -->
+<div class="section active" id="tab-overview">
+  <div class="sec-head">
+    <h2><span>Teljes útvonal</span>Ápr.24 – Máj.13</h2>
+  </div>
+
+  <div class="timeline">
+    <div class="tl-row"><div class="tl-date">Ápr. 24</div><div class="tl-bar fly" style="width:30px"></div><div class="tl-label">✈️ Budapest → Ashgabat → Urgench</div></div>
+    <div class="tl-row"><div class="tl-date">Ápr. 24</div><div class="tl-bar tm" style="width:8px"></div><div class="tl-label">Érkezés Urgenchbe</div><div class="tl-loc">Khiva</div></div>
+    <div class="tl-row"><div class="tl-date">Ápr. 25–26</div><div class="tl-bar uz" style="width:60px"></div><div class="tl-label">🇺🇿 Khiva — Ichan-Kala óváros</div><div class="tl-loc">Khiva hotel</div></div>
+    <div class="tl-row"><div class="tl-date">Ápr. 27–28</div><div class="tl-bar uz" style="width:60px"></div><div class="tl-label">🇺🇿 Bukhara — Kalon, Ark, Lyabi-Hauz</div><div class="tl-loc">Bukhara hotel</div></div>
+    <div class="tl-row"><div class="tl-date">Ápr. 29–30</div><div class="tl-bar uz" style="width:60px"></div><div class="tl-label">🇺🇿 Szamarkand — Regisztán, Shah-i-Zinda</div><div class="tl-loc">Szamarkand hotel</div></div>
+    <div class="tl-row"><div class="tl-date">Máj. 1</div><div class="tl-bar uz" style="width:30px"></div><div class="tl-label">🇺🇿 Szamarkand → Shavat határ → Kunya Urgench</div><div class="tl-loc">🚶 határátkelő</div></div>
+    <div class="tl-row"><div class="tl-date">Máj. 1–2</div><div class="tl-bar tm" style="width:60px"></div><div class="tl-label">🇹🇲 Kunya Urgench → Darwaza 🔥</div><div class="tl-loc">Jurt</div></div>
+    <div class="tl-row"><div class="tl-date">Máj. 3–4</div><div class="tl-bar tm" style="width:60px"></div><div class="tl-label">🇹🇲 Ashgabat — városnézés, Nissa</div><div class="tl-loc">Ashgabat hotel</div></div>
+    <div class="tl-row"><div class="tl-date">Máj. 5</div><div class="tl-bar tm" style="width:30px"></div><div class="tl-label">🇹🇲 Merv (UNESCO) + Mary repülő</div><div class="tl-loc">Ashgabat hotel</div></div>
+    <div class="tl-row"><div class="tl-date">Máj. 6–7</div><div class="tl-bar tm" style="width:60px"></div><div class="tl-label">🇹🇲 Yangikala 4x4 · Nohur 🥾 · Kow-Ata 🌊</div><div class="tl-loc">Balkanabad</div></div>
+    <div class="tl-row"><div class="tl-date">Máj. 7</div><div class="tl-bar fly" style="width:30px"></div><div class="tl-label">✈️ Ashgabat → Koh Samui</div></div>
+    <div class="tl-row"><div class="tl-date">Máj. 7–13</div><div class="tl-bar th" style="width:120px"></div><div class="tl-label">🇹🇭 Koh Samui — pihenés</div><div class="tl-loc">Beach resort</div></div>
+    <div class="tl-row"><div class="tl-date">Máj. 13</div><div class="tl-bar fly" style="width:30px"></div><div class="tl-label">✈️ Koh Samui → Budapest</div></div>
+  </div>
+
+  <div class="notes-grid">
+    <div class="note-card info-c">
+      <h3>✈️ Repülők</h3>
+      <ul>
+        <li>Ápr.24: <strong>BUD → UGC</strong> (Urgench)</li>
+        <li>Máj.7: <strong>ASB → USM</strong> (Koh Samui)</li>
+        <li>Máj.13: <strong>USM → BUD</strong></li>
+        <li>TM belföldi: Mary→Ashgabat · Dashoguz→Ashgabat (ORG foglal)</li>
+      </ul>
+    </div>
+    <div class="note-card warn">
+      <h3>⚠ Kritikus tennivalók</h3>
+      <ul>
+        <li><strong>LOI vízum TM</strong> — 3-4 hét feldolgozás, azonnal igényelni!</li>
+        <li><strong>railway.uz</strong> — vonatjegyek UZ-ban előre</li>
+        <li><strong>Darwaza tábor</strong> — előre foglalni</li>
+        <li><strong>USD készpénz</strong> — csak TM-ban, 2008 utáni bankjegyek</li>
+      </ul>
+    </div>
+    <div class="note-card good">
+      <h3>✅ UNESCO helyszínek</h3>
+      <ul>
+        <li>🇺🇿 <strong>Khiva</strong> — Ichan-Kala óváros</li>
+        <li>🇺🇿 <strong>Bukhara</strong> — történelmi városközpont</li>
+        <li>🇺🇿 <strong>Szamarkand</strong> — Selyemút kereszteződése</li>
+        <li>🇹🇲 <strong>Kunya Urgench</strong> — középkori Khorezm</li>
+        <li>🇹🇲 <strong>Merv</strong> — ókori Selyemút-város</li>
+        <li>🇹🇲 <strong>Nissa</strong> — Parthus királyok erődje</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ ÜZBEGISZTÁN ═══ -->
+<div class="section" id="tab-uzbek">
+  <div class="sec-head">
+    <h2><span>Ápr. 24 – Máj. 1 · 7 nap</span>🇺🇿 Üzbegisztán</h2>
+    <span class="country-badge uz-badge">Khiva · Bukhara · Szamarkand</span>
+  </div>
+
+  <!-- Repülő info -->
+  <div class="flight-card">
+    <div class="fc-icon">✈️</div>
+    <div class="fc-main">
+      <div class="fc-route">Budapest (BUD) → Urgench (UGC)</div>
+      <div class="fc-detail">Valószínűleg Isztambulon vagy Moszkvián át · Urgenchből taxi Khivába (~20 perc)</div>
+    </div>
+    <div class="fc-date">Ápr. 24</div>
+  </div>
+
+  <div class="days">
+
+    <!-- NAP 1 -->
+    <div class="day-card day-uz open">
+      <div class="day-head" onclick="toggleDay(this)">
+        <div class="day-num">1</div>
+        <div class="day-head-info">
+          <div class="day-date">Április 24 · Csütörtök</div>
+          <div class="day-title">Érkezés — Urgench → Khiva</div>
+          <div class="day-sub">Éjszakai érkezés · szállás Khivában</div>
+          <div class="day-tags"><span class="tag tag-hotel">🛏 Khiva hotel</span><span class="tag tag-transit">✈️ érkezés</span></div>
+        </div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="day-body">
+        <div class="activities">
+          <div class="act"><div class="act-time">este</div><div class="act-icon">✈️</div><div class="act-content"><div class="act-name">Urgench repülőtér (UGC) érkezés</div><div class="act-detail">Taxi Urgenchből Khivába — kb. 20 perc, ~5-8 USD</div><span class="act-pill pill-car">🚗 taxi</span></div></div>
+          <div class="act"><div class="act-time">éjjel</div><div class="act-icon">🏨</div><div class="act-content"><div class="act-name">Khiva hotel — bejelentkezés</div><div class="act-detail">Ha még nyitva az Ichan-Kala, érdemes egy rövid esti sétát tenni — kivilágítva gyönyörű</div></div></div>
+        </div>
+        <div class="tip-box"><strong>Tipp:</strong> Szállj az óváros falain belül (Ichan-Kala) ha lehet — teljesen más élmény, mint kívülről.</div>
+      </div>
+    </div>
+
+    <!-- NAP 2 -->
+    <div class="day-card day-uz">
+      <div class="day-head" onclick="toggleDay(this)">
+        <div class="day-num">2</div>
+        <div class="day-head-info">
+          <div class="day-date">Április 25 · Péntek</div>
+          <div class="day-title">Khiva — Ichan-Kala teljes nap</div>
+          <div class="day-sub">UNESCO óváros · falak tetején séta</div>
+          <div class="day-tags"><span class="tag tag-unesco">★ UNESCO</span><span class="tag tag-hotel">🛏 Khiva hotel</span></div>
+        </div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="day-body">
+        <div class="activities">
+          <div class="act"><div class="act-time">reggel</div><div class="act-icon">🕌</div><div class="act-content"><div class="act-name">Kalta Minor minaret</div><div class="act-detail">A befejezetlen türkizkék csíkos minaret — Khiva ikonja</div></div></div>
+          <div class="act"><div class="act-time">délelőtt</div><div class="act-icon">🏛</div><div class="act-content"><div class="act-name">Djuma mecset + Pahlavon Mahmud mauzóleum</div><div class="act-detail">212 oszlopos mecset (különböző korokból) · Khiva védőszentjének síremléke türkizkék kupolával</div></div></div>
+          <div class="act"><div class="act-time">dél</div><div class="act-icon">🍽</div><div class="act-content"><div class="act-name">Ebéd az óvárosban</div><div class="act-detail">Helyi éttermek a falak között · Plov, lagman, samsa</div></div></div>
+          <div class="act"><div class="act-time">délután</div><div class="act-icon">🚶</div><div class="act-content"><div class="act-name">Falak tetején séta + keleti kapu</div><div class="act-detail">Körbesétálhatod az óvárost a falakon · panoráma a sivatagra</div></div></div>
+          <div class="act"><div class="act-time">este</div><div class="act-icon">🌙</div><div class="act-content"><div class="act-name">Esti séta kivilágítva</div><div class="act-detail">Az Ichan-Kala este a legszebb — szinte üres, mesebeli hangulat</div></div></div>
+        </div>
+        <div class="tip-box"><strong>Belépő:</strong> Az Ichan-Kalába egy kombinált jeggyel lehet belépni (~25 USD), ami a legtöbb épületet lefedi. Alkudni nem érdemes — fix ár.</div>
+      </div>
+    </div>
+
+    <!-- NAP 3 -->
+    <div class="day-card day-uz">
+      <div class="day-head" onclick="toggleDay(this)">
+        <div class="day-num">3</div>
+        <div class="day-head-info">
+          <div class="day-date">Április 26 · Szombat</div>
+          <div class="day-title">Khiva → Bukhara</div>
+          <div class="day-sub">Autóval (~5 ó) vagy éjszakai vonattal</div>
+          <div class="day-tags"><span class="tag tag-transit">🚗 transzfer</span><span class="tag tag-hotel">🛏 Bukhara hotel</span></div>
+        </div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="day-body">
+        <div class="activities">
+          <div class="act"><div class="act-time">reggel</div><div class="act-icon">🏨</div><div class="act-content"><div class="act-name">Khiva checkout</div><div class="act-detail">Reggeli után indulás</div></div></div>
+          <div class="act"><div class="act-time">egész nap</div><div class="act-icon">🚗</div><div class="act-content"><div class="act-name">Khiva → Bukhara autóval</div><div class="act-detail">~450 km, 5-6 óra · sivatagi táj · opcionális megálló Amudarjánál</div><span class="act-pill pill-car">🚗 ~5-6 óra</span></div></div>
+          <div class="act"><div class="act-time">este</div><div class="act-icon">🏨</div><div class="act-content"><div class="act-name">Bukhara érkezés · Lyabi-Hauz tér este</div><div class="act-detail">A téren vacsora — este nagyon élénk, helyi és turista vegyesen</div></div></div>
+        </div>
+        <div class="tip-box"><strong>Alternatíva:</strong> Éjszakai vonat Khivából (Urgenchből indul) Bukharába — olcsóbb, de hosszabb (~9 ó). Ha nem bánod a vonatos éjszakát, reggel frissen érkezel Bukharába.</div>
+      </div>
+    </div>
+
+    <!-- NAP 4 -->
+    <div class="day-card day-uz">
+      <div class="day-head" onclick="toggleDay(this)">
+        <div class="day-num">4</div>
+        <div class="day-head-info">
+          <div class="day-date">Április 27 · Vasárnap</div>
+          <div class="day-title">Bukhara — Poi-Kalon + Ark</div>
+          <div class="day-sub">UNESCO · Közép-Ázsia legszebb mecsetegyüttese</div>
+          <div class="day-tags"><span class="tag tag-unesco">★ UNESCO</span><span class="tag tag-hotel">🛏 Bukhara hotel</span></div>
+        </div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="day-body">
+        <div class="activities">
+          <div class="act"><div class="act-time">reggel</div><div class="act-icon">🕌</div><div class="act-content"><div class="act-name">Poi-Kalon együttes</div><div class="act-detail">Kalon minaret (47 m, 1127) + Kalon mecset + Mir-i-Arab medressa — egymással szemben, lélegzetelállító</div></div></div>
+          <div class="act"><div class="act-time">délelőtt</div><div class="act-icon">🏰</div><div class="act-content"><div class="act-name">Ark citadella</div><div class="act-detail">2000+ éves erőd, Bukhara emírjeinek palotája · múzeum belül</div></div></div>
+          <div class="act"><div class="act-time">dél</div><div class="act-icon">🍽</div><div class="act-content"><div class="act-name">Ebéd — Lyabi-Hauz tér</div><div class="act-detail">A medencés téren több jó étterem · Plov kötelező Bukharában</div></div></div>
+          <div class="act"><div class="act-time">délután</div><div class="act-icon">🕍</div><div class="act-content"><div class="act-name">Kalon minaretre felmászni</div><div class="act-detail">Engedéllyel felmászható — panoráma az egész óvárosra</div></div></div>
+          <div class="act"><div class="act-time">este</div><div class="act-icon">🛍</div><div class="act-content"><div class="act-name">Régi bazárok + kézműves boltok</div><div class="act-detail">Tim Abdullakhan · Toki bazárok · selyem, kerámia, szőnyeg</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAP 5 -->
+    <div class="day-card day-uz">
+      <div class="day-head" onclick="toggleDay(this)">
+        <div class="day-num">5</div>
+        <div class="day-head-info">
+          <div class="day-date">Április 28 · Hétfő</div>
+          <div class="day-title">Bukhara → Szamarkand</div>
+          <div class="day-sub">Afrosiyob gyorsvonat · 2,5 óra</div>
+          <div class="day-tags"><span class="tag tag-transit">🚄 vonat</span><span class="tag tag-hotel">🛏 Szamarkand hotel</span></div>
+        </div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="day-body">
+        <div class="activities">
+          <div class="act"><div class="act-time">reggel</div><div class="act-icon">🚄</div><div class="act-content"><div class="act-name">Afrosiyob vonat Bukharából Szamarkandba</div><div class="act-detail">~2,5 óra · kellemes utazás · railway.uz-on előre foglalj</div><span class="act-pill pill-train">🚄 Afrosiyob ~2,5 ó</span></div></div>
+          <div class="act"><div class="act-time">délután</div><div class="act-icon">🏛</div><div class="act-content"><div class="act-name">Regisztán tér — első látogatás</div><div class="act-detail">3 medressa egymással szemben · Szamarkand lelke · este még szebb kivilágítva</div></div></div>
+          <div class="act"><div class="act-time">este</div><div class="act-icon">✨</div><div class="act-content"><div class="act-name">Regisztán tér este · kivilágítás</div><div class="act-detail">Az egész utazás egyik csúcspontja — este különösen lenyűgöző</div></div></div>
+        </div>
+        <div class="tip-box"><strong>Vonatjegy:</strong> railway.uz · Bukhara (Kagan) → Samarkand · Afrosiyob vagy Sharq járat · Foglalj legalább 1-2 héttel előre!</div>
+      </div>
+    </div>
+
+    <!-- NAP 6 -->
+    <div class="day-card day-uz">
+      <div class="day-head" onclick="toggleDay(this)">
+        <div class="day-num">6</div>
+        <div class="day-head-info">
+          <div class="day-date">Április 29 · Kedd</div>
+          <div class="day-title">Szamarkand — Shah-i-Zinda + Gur-e-Amir</div>
+          <div class="day-sub">UNESCO · Timur mauzóleuma · kékcsempés nekropolisz</div>
+          <div class="day-tags"><span class="tag tag-unesco">★ UNESCO</span><span class="tag tag-hotel">🛏 Szamarkand hotel</span></div>
+        </div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="day-body">
+        <div class="activities">
+          <div class="act"><div class="act-time">reggel</div><div class="act-icon">🕌</div><div class="act-content"><div class="act-name">Shah-i-Zinda nekropolisz</div><div class="act-detail">Egymás melletti mauzóleumok sora kék-türkiz csempékkel · a leglátványosabb helyszín Szamarkandban</div></div></div>
+          <div class="act"><div class="act-time">délelőtt</div><div class="act-icon">👑</div><div class="act-content"><div class="act-name">Gur-e-Amir mauzóleum</div><div class="act-detail">Timur (Tamerlán) és utódainak síremléke · hatalmas bordás kupola</div></div></div>
+          <div class="act"><div class="act-time">dél</div><div class="act-icon">🍽</div><div class="act-content"><div class="act-name">Ebéd a városban</div></div></div>
+          <div class="act"><div class="act-time">délután</div><div class="act-icon">🕌</div><div class="act-content"><div class="act-name">Bibi-Khanym mecset</div><div class="act-detail">Timur hatalmas mecsetje · részben rekonstruált · impozáns méretű</div></div></div>
+          <div class="act"><div class="act-time">este</div><div class="act-icon">🌙</div><div class="act-content"><div class="act-name">Regisztán tér este · fény-hang show</div><div class="act-detail">Ha van fény-hang show azon a napon, kötelező megnézni</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAP 7 -->
+    <div class="day-card day-uz">
+      <div class="day-head" onclick="toggleDay(this)">
+        <div class="day-num">7</div>
+        <div class="day-head-info">
+          <div class="day-date">Április 30 · Szerda</div>
+          <div class="day-title">Szamarkand → Shavat határ</div>
+          <div class="day-sub">Autóval a TM határig · délután átkelés</div>
+          <div class="day-tags"><span class="tag tag-transit">🚶 határátkelő</span></div>
+        </div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="day-body">
+        <div class="activities">
+          <div class="act"><div class="act-time">reggel</div><div class="act-icon">🏨</div><div class="act-content"><div class="act-name">Szamarkand checkout</div><div class="act-detail">Reggeli után indulás a határ felé</div></div></div>
+          <div class="act"><div class="act-time">egész nap</div><div class="act-icon">🚗</div><div class="act-content"><div class="act-name">Szamarkand → Shavat/Shabat határátkelő</div><div class="act-detail">~350 km · autóval ~4-5 óra · Urgench/Nukus irányba</div><span class="act-pill pill-car">🚗 ~4-5 óra</span></div></div>
+          <div class="act"><div class="act-time">délután</div><div class="act-icon">🚶</div><div class="act-content"><div class="act-name">Shavat határátkelő — Türkmenisztánba lépés</div><div class="act-detail">2-4 óra várakozás lehet · LOI és útlevél előkészítve · türelmet igényel</div><span class="act-pill pill-walk">🚶 határátkelő</span></div></div>
+          <div class="act"><div class="act-time">este</div><div class="act-icon">🏨</div><div class="act-content"><div class="act-name">🇹🇲 Türkmenisztán — fogadás és szállás</div><div class="act-detail">Az ORG guide vár a türkmén oldalon · Dashoguz hotel vagy Kunya Urgench</div></div></div>
+        </div>
+        <div class="tip-box"><strong>Fontos:</strong> A Shavat határátkelő lassú lehet. Legyen nálad nyomtatva az LOI, az útlevél érvényes, és USD készpénz a vízum díjra (85+4 USD) és migrációs adóra (10+4 USD).</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ TÜRKMENISZTÁN ═══ -->
+<div class="section" id="tab-turkmen">
+  <div class="sec-head">
+    <h2><span>Máj. 1 – Máj. 7 · 7 nap</span>🇹🇲 Türkmenisztán</h2>
+    <span class="country-badge tm-badge">ORG Final program alapján</span>
+  </div>
+
+  <div class="days">
+
+    <!-- NAP 1 TM -->
+    <div class="day-card day-tm open">
+      <div class="day-head" onclick="toggleDay(this)">
+        <div class="day-num">1</div>
+        <div class="day-head-info">
+          <div class="day-date">Május 1 · Péntek</div>
+          <div class="day-title">Kunya Urgench (UNESCO)</div>
+          <div class="day-sub">Határ után — középkori Khorezm főváros</div>
+          <div class="day-tags"><span class="tag tag-unesco">★ UNESCO</span><span class="tag tag-hotel">🛏 Dashoguz hotel</span></div>
+        </div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="day-body">
+        <div class="activities">
+          <div class="act"><div class="act-time">délelőtt</div><div class="act-icon">🕌</div><div class="act-content"><div class="act-name">Kunya Urgench — teljes UNESCO látogatás</div><div class="act-detail">Kutlug Timur minaret (62 m, Közép-Ázsia legmagasabb) · Tyurabek-Khanum mauzóleum · Sultan Tekesh · Fakhreddin Razi</div></div></div>
+          <div class="act"><div class="act-time">este</div><div class="act-icon">🏨</div><div class="act-content"><div class="act-name">Dashoguz hotel</div><div class="act-detail">Az ORG guide-dal továbbtervezés</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAP 2 TM -->
+    <div class="day-card day-tm">
+      <div class="day-head" onclick="toggleDay(this)">
+        <div class="day-num">2</div>
+        <div class="day-head-info">
+          <div class="day-date">Május 2 · Szombat</div>
+          <div class="day-title">Dashoguz → Darwaza 🔥</div>
+          <div class="day-sub">Karakum sivatag · "Pokol Kapuja" · jurt éjszaka</div>
+          <div class="day-tags"><span class="tag tag-fire">🔥 Darwaza</span><span class="tag tag-hotel">🛏 Jurt tábor</span></div>
+        </div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="day-body">
+        <div class="activities">
+          <div class="act"><div class="act-time">reggel</div><div class="act-icon">🚗</div><div class="act-content"><div class="act-name">Dashoguz → Darwaza</div><div class="act-detail">~5 óra autóút a Karakum sivatagon át</div><span class="act-pill pill-car">🚗 ~5 ó sivatag</span></div></div>
+          <div class="act"><div class="act-time">napkelte</div><div class="act-icon">🔥</div><div class="act-content"><div class="act-name">Darwaza gázkráter — első látogatás nappal</div><div class="act-detail">70 m széles, 1971 óta ég folyamatosan · nappal is látványos</div></div></div>
+          <div class="act"><div class="act-time">este</div><div class="act-icon">🍖</div><div class="act-content"><div class="act-name">BBQ vacsora a kráter közelében</div><div class="act-detail">Tradicionális türkmén BBQ · csillagos ég</div></div></div>
+          <div class="act"><div class="act-time">éjjel</div><div class="act-icon">🌙</div><div class="act-content"><div class="act-name">Kráter éjjel — kötelező séta</div><div class="act-detail">A legintenzívebb élmény — a tűz éjjel messzire látszik, hőt érezni</div></div></div>
+        </div>
+        <div class="tip-box"><strong>Praktikus:</strong> Hozz fejlámpát, szél elleni kabátot (éjjel hideg a sivatagban). A jurttáborban nincs zuhany, alapvető WC van. Előre foglalj!</div>
+      </div>
+    </div>
+
+    <!-- NAP 3 TM -->
+    <div class="day-card day-tm">
+      <div class="day-head" onclick="toggleDay(this)">
+        <div class="day-num">3</div>
+        <div class="day-head-info">
+          <div class="day-date">Május 3 · Vasárnap</div>
+          <div class="day-title">Darwaza → Ashgabat</div>
+          <div class="day-sub">Két kis kráter útközben · városba érkezés</div>
+          <div class="day-tags"><span class="tag tag-hotel">🛏 Ashgabat hotel</span></div>
+        </div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="day-body">
+        <div class="activities">
+          <div class="act"><div class="act-time">hajnal</div><div class="act-icon">🌅</div><div class="act-content"><div class="act-name">Kráter napfelkeltekor</div><div class="act-detail">Reggeli fény a kráter felett — fotózáshoz ideális</div></div></div>
+          <div class="act"><div class="act-time">reggel</div><div class="act-icon">🚗</div><div class="act-content"><div class="act-name">Darwaza → Ashgabat · 2 kis kráter megállóval</div><div class="act-detail">Iszapkráter + vízkráter útközben · ~4 óra összesen</div><span class="act-pill pill-4x4">4x4 ~4 ó</span></div></div>
+          <div class="act"><div class="act-time">este</div><div class="act-icon">🏙</div><div class="act-content"><div class="act-name">Ashgabat — fehér márványváros</div><div class="act-detail">Szállás, pihenés · este opcionálisan Alem Ferris kerék kivilágítva</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAP 4 TM -->
+    <div class="day-card day-tm">
+      <div class="day-head" onclick="toggleDay(this)">
+        <div class="day-num">4</div>
+        <div class="day-head-info">
+          <div class="day-date">Május 4 · Hétfő</div>
+          <div class="day-title">Ashgabat városnézés + Nissa (UNESCO)</div>
+          <div class="day-sub">Fehér márványváros · Kipchak mecset · Parthus romok</div>
+          <div class="day-tags"><span class="tag tag-unesco">★ UNESCO</span><span class="tag tag-hotel">🛏 Ashgabat hotel</span></div>
+        </div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="day-body">
+        <div class="activities">
+          <div class="act"><div class="act-time">reggel</div><div class="act-icon">🕌</div><div class="act-content"><div class="act-name">Turkmenbashi Ruhi Mosque (Kipchak)</div><div class="act-detail">Közép-Ázsia legnagyobb mecsetje · Niyazov elnök mauzóleuma mellette</div></div></div>
+          <div class="act"><div class="act-time">délelőtt</div><div class="act-icon">🏛</div><div class="act-content"><div class="act-name">Nissa (UNESCO) — Parthus erőd</div><div class="act-detail">Kr.e. 3 – Kr.u. 3. sz. · a Kopet-dag hegyek lábánál · kilátás Ashgabatra</div></div></div>
+          <div class="act"><div class="act-time">délután</div><div class="act-icon">🏙</div><div class="act-content"><div class="act-name">Ashgabat városnézés</div><div class="act-detail">Semlegességi Ív · Függetlenségi Park · Gulistan bazár · fehér márványépületek</div></div></div>
+          <div class="act"><div class="act-time">este</div><div class="act-icon">🎡</div><div class="act-content"><div class="act-name">Alem Center · Ferris kerék · Palace of Happiness</div><div class="act-detail">Guinness-rekord ferriskerék · éjjel kivilágítva különösen látványos</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAP 5 TM -->
+    <div class="day-card day-tm">
+      <div class="day-head" onclick="toggleDay(this)">
+        <div class="day-num">5</div>
+        <div class="day-head-info">
+          <div class="day-date">Május 5 · Kedd</div>
+          <div class="day-title">✈️ Ashgabat → Merv (UNESCO) → Mary</div>
+          <div class="day-sub">Selyemút legnagyobb városa · belföldi repülővel</div>
+          <div class="day-tags"><span class="tag tag-unesco">★ UNESCO</span><span class="tag tag-transit">✈️ belföldi</span><span class="tag tag-hotel">🛏 Ashgabat hotel</span></div>
+        </div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="day-body">
+        <div class="activities">
+          <div class="act"><div class="act-time">hajnal</div><div class="act-icon">✈️</div><div class="act-content"><div class="act-name">✈️ Ashgabat → Mary (belföldi)</div><div class="act-detail">Korai reggeli járat · ~50 perc · az ORG foglalja</div><span class="act-pill pill-fly">✈️ belföldi</span></div></div>
+          <div class="act"><div class="act-time">reggel</div><div class="act-icon">🏛</div><div class="act-content"><div class="act-name">Anau romváros útközben</div><div class="act-detail">7000 éves település romjai · Ashgabat közelében</div></div></div>
+          <div class="act"><div class="act-time">délelőtt</div><div class="act-icon">🏟</div><div class="act-content"><div class="act-name">Merv (UNESCO) — teljes látogatás</div><div class="act-detail">Sultan Sanjar mauzóleum · Gyz Gala · Erk Gala · Oglan Gala · Yusuf Hamadani mecset · 4000 éves történelem</div></div></div>
+          <div class="act"><div class="act-time">délután</div><div class="act-icon">✈️</div><div class="act-content"><div class="act-name">Mary repülőtér → ✈️ Ashgabat</div><span class="act-pill pill-fly">✈️ Mary → Ashgabat</span></div></div>
+          <div class="act"><div class="act-time">este</div><div class="act-icon">🏨</div><div class="act-content"><div class="act-name">Ashgabat hotel · pihenés</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAP 6 TM -->
+    <div class="day-card day-tm">
+      <div class="day-head" onclick="toggleDay(this)">
+        <div class="day-num">6</div>
+        <div class="day-head-info">
+          <div class="day-date">Május 6 · Szerda</div>
+          <div class="day-title">Ashgabat → Yangikala 4x4 → Balkanabad</div>
+          <div class="day-sub">Karakum-kanyonok · 4x4 terepjáró · Gozli Ata</div>
+          <div class="day-tags"><span class="tag tag-nature">🏔 Yangikala</span><span class="tag tag-hotel">🛏 Balkanabad hotel</span></div>
+        </div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="day-body">
+        <div class="activities">
+          <div class="act"><div class="act-time">reggel</div><div class="act-icon">🚗</div><div class="act-content"><div class="act-name">Ashgabat → Turkmenbashi irány → Yangikala</div><div class="act-detail">~390 km · reggel indulás · útközben Gozli Ata zarándokhely</div><span class="act-pill pill-4x4">4x4 ~390 km</span></div></div>
+          <div class="act"><div class="act-time">délelőtt</div><div class="act-icon">🏔</div><div class="act-content"><div class="act-name">Yangikala kanyonok</div><div class="act-detail">Fehér-rózsaszín-narancs mészkősziklák · "Közép-Ázsia Grand Canyonja" · picnic ebéd</div></div></div>
+          <div class="act"><div class="act-time">délután</div><div class="act-icon">🕌</div><div class="act-content"><div class="act-name">Gozli Ata zarándokhely</div><div class="act-detail">Helyi muzulmán zarándokhelyszín · különleges atmoszféra</div></div></div>
+          <div class="act"><div class="act-time">este</div><div class="act-icon">🏨</div><div class="act-content"><div class="act-name">Balkanabad — Nebitchi hotel</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAP 7 TM -->
+    <div class="day-card day-tm">
+      <div class="day-head" onclick="toggleDay(this)">
+        <div class="day-num">7</div>
+        <div class="day-head-info">
+          <div class="day-date">Május 7 · Csütörtök</div>
+          <div class="day-title">Nohur 🥾 + Kow-Ata 🌊 → Ashgabat ✈️</div>
+          <div class="day-sub">Hegyifalu · 34°C barlangitó · repülő Koh Samui-ra</div>
+          <div class="day-tags"><span class="tag tag-nature">🥾 Nohur</span><span class="tag tag-nature">🌊 Kow-Ata</span><span class="tag tag-transit">✈️ ASB→USM</span></div>
+        </div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="day-body">
+        <div class="activities">
+          <div class="act"><div class="act-time">reggel</div><div class="act-icon">🥾</div><div class="act-content"><div class="act-name">Nohur hegyifalu — gyalogos túra</div><div class="act-detail">Kopet-dag · öreg Chinar fa · törzsi temető kos szarvakkal · picnic</div><span class="act-pill pill-4x4">4x4</span></div></div>
+          <div class="act"><div class="act-time">délután</div><div class="act-icon">🌊</div><div class="act-content"><div class="act-name">Kow-Ata barlangitó</div><div class="act-detail">Föld alatti ásványos tó · 34-37°C · úszni lehet · természetes wellness</div></div></div>
+          <div class="act"><div class="act-time">este</div><div class="act-icon">🚗</div><div class="act-content"><div class="act-name">→ Ashgabat repülőtér</div><span class="act-pill pill-car">🚗 autó</span></div></div>
+          <div class="act"><div class="act-time">éjjel</div><div class="act-icon">✈️</div><div class="act-content"><div class="act-name">✈️ Ashgabat (ASB) → Koh Samui (USM)</div><div class="act-detail">Valószínűleg Bangkok (BKK) átszállással · éjszakai repülés</div><span class="act-pill pill-fly">✈️ ASB → USM</span></div></div>
+        </div>
+        <div class="tip-box"><strong>Fontos:</strong> A program utolsó napja intenzív — Nohur + Kow-Ata után este kell a repülőtérre érni. Az ORG-gal egyeztetni a menetrendet!</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ KOH SAMUI ═══ -->
+<div class="section" id="tab-thailand">
+  <div class="sec-head">
+    <h2><span>Máj. 7 – Máj. 13 · 6 nap</span>🇹🇭 Koh Samui</h2>
+    <span class="country-badge th-badge">Pihenés · Beach · Megérdemelt nyaralás</span>
+  </div>
+
+  <!-- Repülő info -->
+  <div class="flight-card">
+    <div class="fc-icon">✈️</div>
+    <div class="fc-main">
+      <div class="fc-route">Ashgabat (ASB) → Koh Samui (USM)</div>
+      <div class="fc-detail">Bangkok (BKK/DMK) átszállással · éjszakai repülés · reggel érkezés Samui-ra</div>
+    </div>
+    <div class="fc-date">Máj. 7 → 8</div>
+  </div>
+
+  <div class="days">
+
+    <div class="day-card day-th open">
+      <div class="day-head" onclick="toggleDay(this)">
+        <div class="day-num">1</div>
+        <div class="day-head-info">
+          <div class="day-date">Május 8 · Péntek</div>
+          <div class="day-title">Érkezés Koh Samuira — pihenés</div>
+          <div class="day-sub">Resort bejelentkezés · strand · semmi program</div>
+          <div class="day-tags"><span class="tag tag-hotel">🛏 Beach resort</span></div>
+        </div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="day-body">
+        <div class="activities">
+          <div class="act"><div class="act-time">reggel</div><div class="act-icon">✈️</div><div class="act-content"><div class="act-name">Koh Samui (USM) — érkezés</div><div class="act-detail">Bangkok után rövid belföldi · resort transzfer</div></div></div>
+          <div class="act"><div class="act-time">egész nap</div><div class="act-icon">🏖</div><div class="act-content"><div class="act-name">Strand · úszás · pihenés</div><div class="act-detail">Chaweng, Lamai vagy Bophut beach · megérdemelt relaxálás a sivatag után</div></div></div>
+        </div>
+        <div class="tip-box">Koh Samui egyik legjobb strandja: <strong>Bophut (Fisherman's Village)</strong> — csendesebb, este szép sétáló utca halászhajókkal. A turistásabb de jobb strandért: <strong>Chaweng</strong>.</div>
+      </div>
+    </div>
+
+    <div class="day-card day-th">
+      <div class="day-head" onclick="toggleDay(this)">
+        <div class="day-num">2–5</div>
+        <div class="day-head-info">
+          <div class="day-date">Május 9–12</div>
+          <div class="day-title">Koh Samui — szabad program</div>
+          <div class="day-sub">Strand · snorkeling · thai masszázs · Ang Thong Nemzeti Park</div>
+          <div class="day-tags"><span class="tag tag-nature">🤿 snorkel</span><span class="tag tag-food">🍜 thai konyha</span></div>
+        </div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="day-body">
+        <div class="activities">
+          <div class="act"><div class="act-time">opció</div><div class="act-icon">🏝</div><div class="act-content"><div class="act-name">Ang Thong Nemzeti Park kirándulás</div><div class="act-detail">Szigetcsoport kajakozással · egy napos túra Samui-ból · előre foglalj</div></div></div>
+          <div class="act"><div class="act-time">opció</div><div class="act-icon">🤿</div><div class="act-content"><div class="act-name">Snorkeling / búvárkodás</div><div class="act-detail">Koh Tao a legjobb búvárhelyszín a közelben · ferry-vel ~2 óra</div></div></div>
+          <div class="act"><div class="act-time">opció</div><div class="act-icon">🛵</div><div class="act-content"><div class="act-name">Motoros körtúra a szigeten</div><div class="act-detail">Nagy Buddha szobor · Wat Plai Laem · Namuang vízesés</div></div></div>
+          <div class="act"><div class="act-time">este</div><div class="act-icon">🍜</div><div class="act-content"><div class="act-name">Thai street food + masszázs</div><div class="act-detail">Fisherman's Village péntek esti piac · thai masszázs ~10 USD/óra</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-card day-th">
+      <div class="day-head" onclick="toggleDay(this)">
+        <div class="day-num">6</div>
+        <div class="day-head-info">
+          <div class="day-date">Május 13 · Szerda</div>
+          <div class="day-title">Koh Samui → Budapest ✈️</div>
+          <div class="day-sub">Hazaút · USM → BUD</div>
+          <div class="day-tags"><span class="tag tag-transit">✈️ hazaút</span></div>
+        </div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="day-body">
+        <div class="activities">
+          <div class="act"><div class="act-time">nap</div><div class="act-icon">🏖</div><div class="act-content"><div class="act-name">Utolsó délelőtt a strandon</div></div></div>
+          <div class="act"><div class="act-time">este</div><div class="act-icon">✈️</div><div class="act-content"><div class="act-name">✈️ Koh Samui (USM) → Budapest (BUD)</div><div class="act-detail">Bangkok átszállással · valószínűleg éjszakai repülés haza</div><span class="act-pill pill-fly">✈️ USM → BUD</span></div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ PRAKTIKUS INFÓK ═══ -->
+<div class="section" id="tab-notes">
+  <div class="sec-head">
+    <h2><span>Tennivalók és figyelmeztetések</span>Praktikus infók</h2>
+  </div>
+
+  <div class="notes-grid">
+    <div class="note-card warn">
+      <h3>🔴 Azonnali tennivalók</h3>
+      <ul>
+        <li><strong>LOI vízum TM</strong> — azonnal igényelni az ORG-on keresztül (3-4 hét!)</li>
+        <li><strong>Darwaza tábor</strong> — előre foglalni</li>
+        <li><strong>railway.uz</strong> — Khiva→Bukhara, Bukhara→Szamarkand vonatjegyek</li>
+        <li><strong>ASB→USM repülő</strong> — Máj.1 vagy Máj.7 döntés véglegesítése</li>
+      </ul>
+    </div>
+    <div class="note-card warn">
+      <h3>💵 Pénz — Türkmenisztán</h3>
+      <ul>
+        <li><strong>Csak USD készpénz</strong> — kártya nem fogadott</li>
+        <li><strong>2008 utáni bankjegyek</strong> — régi, gyűrött nem fogadott</li>
+        <li>Vízum: <strong>85+4 USD</strong> repülőtéren</li>
+        <li>Migrációs adó: <strong>10+4 USD</strong> repülőtéren</li>
+        <li>PCR teszt: <strong>33 USD</strong> (változhat)</li>
+        <li>Tipp guide-nak + sofőrnek: <strong>~10-20 USD/nap</strong></li>
+      </ul>
+    </div>
+    <div class="note-card info-c">
+      <h3>🇺🇿 Üzbegisztán praktikák</h3>
+      <ul>
+        <li><strong>Nincs vízum</strong> — magyaroknak nem szükséges</li>
+        <li>Fizetés: <strong>USD vagy UZS</strong>, kártya sok helyen működik</li>
+        <li><strong>Offline térkép</strong> — Maps.Me letöltés előre</li>
+        <li>Taxi: <strong>Yandex Go app</strong> — olcsó és megbízható</li>
+        <li>Vonat: <strong>railway.uz</strong> — foglalj 1-2 héttel előre</li>
+      </ul>
+    </div>
+    <div class="note-card info-c">
+      <h3>🇹🇲 Türkmenisztán szabályok</h3>
+      <ul>
+        <li><strong>Guide kötelező</strong> — minden programhoz</li>
+        <li><strong>Dróntilalom</strong> — be sem szabad hozni</li>
+        <li>Fényképezés: <strong>kormányépületek</strong> tilos</li>
+        <li>Internet: <strong>nagyon korlátozott</strong>, VPN ajánlott</li>
+        <li>Alkohol: nehezen kapható, drága</li>
+        <li>Útlevél: <strong>regisztrációhoz átveszik</strong> néhány órára</li>
+      </ul>
+    </div>
+    <div class="note-card good">
+      <h3>🎒 Csomagolás — sivatag</h3>
+      <ul>
+        <li>Fejlámpa — Darwaza éjszakára kötelező</li>
+        <li>Szél elleni könnyű kabát — sivatag éjjel hideg</li>
+        <li>Naptej + fejfedő — 35-40°C nappal</li>
+        <li>Kényelmes túracipő — Yangikala, Nohur</li>
+        <li>Fürdőruha — Kow-Ata barlangitóhoz</li>
+        <li>Powerbank — ritkán van töltési lehetőség</li>
+      </ul>
+    </div>
+    <div class="note-card good">
+      <h3>📱 Alkalmazások</h3>
+      <ul>
+        <li><strong>Maps.Me</strong> — offline térkép UZ+TM</li>
+        <li><strong>Yandex Go</strong> — taxi Üzbegisztánban</li>
+        <li><strong>railway.uz</strong> — üzbég vonatok</li>
+        <li><strong>Google Translate</strong> — orosz/türkmén offline</li>
+        <li>VPN — TM-ban szükséges lehet</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+function showTab(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  event.target.classList.add('active');
+}
+
+function toggleDay(head) {
+  const card = head.parentElement;
+  card.classList.toggle('open');
+}
+
+// Auto-open first card in each section
+document.querySelectorAll('.day-card:first-of-type').forEach(c => c.classList.add('open'));
+</script>
+</body>
+</html>
