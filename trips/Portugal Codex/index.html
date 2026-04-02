@@ -10,7 +10,7 @@
   <div class="page-shell">
     <header class="hero">
       <div class="hero-top">
-        <div>
+        <div class="hero-copy">
           <h1 id="hero-title"></h1>
           <p id="hero-subtitle"></p>
         </div>
@@ -90,6 +90,65 @@
             </div>
             <div class="stack">
               <section class="card">
+                <h2 class="section-title">🗺 Áttekintő térkép</h2>
+                <svg class="overview-map" viewBox="0 0 360 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Portugal Codex útvonal">
+                  <rect x="0" y="0" width="360" height="430" rx="18" fill="#f8f3eb"/>
+                  <path d="M78 28 L150 20 L194 35 L214 58 L227 92 L232 126 L236 164 L238 208 L234 250 L229 294 L221 332 L205 364 L186 388 L162 401 L139 400 L119 388 L103 365 L91 338 L84 306 L79 266 L75 226 L72 186 L72 145 L73 104 L75 64 Z" fill="#d9e5c9" stroke="#90aa69" stroke-width="2"/>
+                  <path d="M194 35 L225 28 L278 34 L322 52 L336 86 L332 140 L322 200 L315 258 L306 314 L288 354 L258 380 L222 387 L205 364 L221 332 L229 294 L234 250 L238 208 L236 164 L232 126 L227 92 L214 58 Z" fill="#e3e0db" stroke="#c4bfb5" stroke-width="1.5"/>
+                  <text x="300" y="212" class="map-note" transform="rotate(90 300 212)">Spanyolország</text>
+                  <text x="28" y="245" class="map-note" transform="rotate(-90 28 245)">Atlanti-óceán</text>
+
+                  <path d="M138 318 L116 275 L110 230 L126 190 L150 150 L165 120 L144 86" fill="none" stroke="#b8860b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M144 86 L170 84 L195 78" fill="none" stroke="#233d7b" stroke-width="4" stroke-linecap="round"/>
+                  <path d="M195 78 L185 120 L170 158" fill="none" stroke="#b8860b" stroke-width="4" stroke-linecap="round"/>
+                  <path d="M170 158 L153 230 L140 318" fill="none" stroke="#8a2e52" stroke-width="3" stroke-dasharray="7 6" stroke-linecap="round"/>
+
+                  <g class="map-node" onclick="activateTab('d2')">
+                    <circle cx="138" cy="318" r="12" fill="#1f5a3e"/>
+                    <text x="157" y="322" class="map-label">Lisszabon</text>
+                    <text x="157" y="336" class="map-note">04.03–04.06</text>
+                  </g>
+                  <g class="map-node" onclick="activateTab('d3')">
+                    <circle cx="117" cy="333" r="7" fill="#8a4f24"/>
+                    <text x="77" y="337" class="map-label">Sintra</text>
+                  </g>
+                  <g class="map-node" onclick="activateTab('d5')">
+                    <circle cx="116" cy="276" r="7" fill="#8a4f24"/>
+                    <text x="73" y="280" class="map-label">Óbidos</text>
+                  </g>
+                  <g class="map-node" onclick="activateTab('d5')">
+                    <circle cx="110" cy="231" r="7" fill="#8a4f24"/>
+                    <text x="63" y="235" class="map-label">Nazaré</text>
+                  </g>
+                  <g class="map-node" onclick="activateTab('d5')">
+                    <circle cx="126" cy="191" r="7" fill="#8a4f24"/>
+                    <text x="66" y="195" class="map-label">Batalha</text>
+                  </g>
+                  <g class="map-node" onclick="activateTab('d5')">
+                    <circle cx="149" cy="151" r="7" fill="#8a4f24"/>
+                    <text x="101" y="155" class="map-label">Fátima</text>
+                  </g>
+                  <g class="map-node" onclick="activateTab('d6')">
+                    <circle cx="144" cy="87" r="12" fill="#233d7b"/>
+                    <text x="163" y="91" class="map-label">Porto</text>
+                    <text x="163" y="105" class="map-note">04.07–04.08</text>
+                  </g>
+                  <g class="map-node" onclick="activateTab('d7')">
+                    <circle cx="170" cy="84" r="7" fill="#b8860b"/>
+                    <text x="182" y="73" class="map-label">Régua</text>
+                  </g>
+                  <g class="map-node" onclick="activateTab('d7')">
+                    <circle cx="195" cy="78" r="9" fill="#b8860b"/>
+                    <text x="208" y="82" class="map-label">Pinhão</text>
+                    <text x="208" y="96" class="map-note">04.09</text>
+                  </g>
+                  <g class="map-node" onclick="activateTab('d8')">
+                    <circle cx="140" cy="318" r="5" fill="#8a2e52"/>
+                    <text x="158" y="306" class="map-note">04.10 visszaút LIS</text>
+                  </g>
+                </svg>
+              </section>
+              <section class="card">
                 <h2 class="section-title">⚠️ Most fontos</h2>
                 <ul class="badge-list">
                   ${tripData.overview.urgent.map((item) => `<li><span class="badge gold">FOGLALÁS</span><strong>${item}</strong></li>`).join("")}
@@ -108,6 +167,8 @@
     }
 
     function renderDay(day) {
+      const mapStops = day.mapStops || [];
+      const stopSpacing = mapStops.length > 1 ? 240 / (mapStops.length - 1) : 0;
       return `
         <section class="view" data-view="${day.id}">
           <article class="day-card">
@@ -125,14 +186,39 @@
                   <div class="schedule-row">
                     <div class="schedule-time">${item.time}</div>
                     <div>
-                      <h3 class="schedule-title">${item.title}</h3>
+                      <h3 class="schedule-title">
+                        ${item.maps ? `<a href="${item.maps}" target="_blank" rel="noreferrer">${item.title}</a>` : item.title}
+                      </h3>
                       <p class="schedule-detail">${item.detail}</p>
                       ${item.meta ? `<p class="schedule-meta">${item.meta}</p>` : ""}
+                      ${(item.wikipedia || item.googleRating || item.price) ? `
+                        <div class="schedule-links">
+                          ${item.wikipedia ? `<a class="wiki-icon" href="${item.wikipedia}" target="_blank" rel="noreferrer" aria-label="Wikipedia">W</a>` : ""}
+                          ${item.googleRating ? `<span>⭐ ${item.googleRating}</span>` : ""}
+                          ${item.price ? `<span>${item.price}</span>` : ""}
+                        </div>
+                      ` : ""}
                     </div>
                   </div>
                 `).join("")}
               </div>
               <aside class="mini-block">
+                ${mapStops.length ? `
+                  <section class="day-map">
+                    <h4>${day.mapTitle || "Napi útvonal"}</h4>
+                    <svg viewBox="0 0 300 92" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${day.title}">
+                      <line x1="30" y1="38" x2="270" y2="38" stroke="#ccbca5" stroke-width="3" stroke-linecap="round"/>
+                      ${mapStops.map((stop, index) => {
+                        const x = 30 + index * stopSpacing;
+                        return `
+                          <circle cx="${x}" cy="38" r="${index === 0 || index === mapStops.length - 1 ? 9 : 7}" fill="${stop.color}" />
+                          <text x="${x}" y="63" text-anchor="middle" font-size="10" font-weight="700" fill="#1f1a17">${stop.label}</text>
+                          ${stop.note ? `<text x="${x}" y="77" text-anchor="middle" font-size="8" fill="#6d655d">${stop.note}</text>` : ""}
+                        `;
+                      }).join("")}
+                    </svg>
+                  </section>
+                ` : ""}
                 <section class="card">
                   <h3>${day.stay}</h3>
                   <ul class="plain-list">
@@ -140,6 +226,29 @@
                   </ul>
                 </section>
                 <div class="note-box">${day.note}</div>
+                ${day.guides ? day.guides.map((guide) => `
+                  <article class="guide-card">
+                    <h4>${guide.title}</h4>
+                    <p>${guide.text}</p>
+                    <a href="${guide.url}" target="_blank" rel="noreferrer">${guide.linkLabel || "Megnyitás"}</a>
+                  </article>
+                `).join("") : ""}
+                ${day.daySights ? `
+                  <section class="day-sights">
+                    <h4 class="day-sights-title">🏛 Napi látnivalók összefoglalva</h4>
+                    ${day.daySights.map((sight) => `
+                      <article class="guide-card">
+                        <h4>${sight.name} (⭐ ${sight.googleRating})</h4>
+                        <p>${sight.text}</p>
+                        <div class="meta-links">
+                          ${sight.wikipedia ? `<a href="${sight.wikipedia}" target="_blank" rel="noreferrer">Wikipedia</a>` : ""}
+                          ${sight.maps ? `<a href="${sight.maps}" target="_blank" rel="noreferrer">Google Maps</a>` : ""}
+                          ${sight.price ? `<span>${sight.price}</span>` : ""}
+                        </div>
+                      </article>
+                    `).join("")}
+                  </section>
+                ` : ""}
               </aside>
             </div>
           </article>
@@ -159,7 +268,7 @@
                   ${group.items.map((item) => `
                     <article class="list-card">
                       <h3><a href="${item.url}" target="_blank" rel="noreferrer">${item.name}</a></h3>
-                      <p>${item.type}</p>
+                      <p>${item.type} · ⭐ Google ${item.googleRating} · ${item.priceLevel}</p>
                       <div class="food-tags">${item.tags.map((tag) => `<span class="food-tag">${tag}</span>`).join("")}</div>
                       <p>${item.description}</p>
                       <div class="meta">${item.meta}</div>
@@ -180,9 +289,13 @@
           <div class="group-grid">
             ${tripData.sights.map((sight) => `
               <article class="list-card">
-                <h3>${sight.name}</h3>
+                <h3>${sight.name} (⭐ ${sight.googleRating})</h3>
                 <p>${sight.detail}</p>
-                <div class="meta">${sight.when} · ${sight.rating} · ${sight.price}</div>
+                <div class="meta">${sight.when} · ${sight.price}</div>
+                <div class="meta-links">
+                  ${sight.wikipedia ? `<a href="${sight.wikipedia}" target="_blank" rel="noreferrer">Wikipedia</a>` : ""}
+                  ${sight.maps ? `<a href="${sight.maps}" target="_blank" rel="noreferrer">Google Maps</a>` : ""}
+                </div>
               </article>
             `).join("")}
           </div>
