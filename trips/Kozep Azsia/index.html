@@ -3,808 +3,1449 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Közép-Ázsia + Koh Samui · Ápr.24 – Máj.13</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<title>Közép-Ázsia + Koh Samui · 2026. ápr. 24 – máj. 13.</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#08070A;
-  --s1:#111018;
-  --s2:#181520;
-  --s3:#201D2A;
-  --border:rgba(200,185,240,0.10);
-  --border2:rgba(200,185,240,0.06);
-  --text:#EDE8F5;
-  --muted:#9A90B0;
-  --dim:#4A4560;
-  --sand:#C8B87A;
-
-  --uz:#60D0B0;    /* Üzbegisztán = türkiz */
-  --tm:#E8943A;    /* Türkmenisztán = narancs */
-  --th:#F0C040;    /* Thaiföld = arany */
-  --fly:#5090D8;
-  --train:#C8901A;
-  --car:#50A860;
-  --walk:#A0A050;
+  --bg:#f5f0e8;
+  --surface:#fffdf8;
+  --surface-2:#f2ebe0;
+  --surface-3:#ebe2d4;
+  --line:rgba(94,74,45,.14);
+  --line-2:rgba(94,74,45,.08);
+  --text:#2e261e;
+  --muted:#6d5c49;
+  --dim:#9b896f;
+  --uz:#60d0b0;
+  --tm:#e8943a;
+  --th:#f0c040;
+  --fly:#6fa8ff;
+  --train:#d8a43f;
 }
-
-html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-weight:300;min-height:100vh;}
-
-/* ── HERO ── */
+html{scroll-behavior:smooth}
+body{
+  background:
+    radial-gradient(circle at top, rgba(111,168,255,.08), transparent 28%),
+    linear-gradient(180deg,#fbf7f0 0%,var(--bg) 100%);
+  color:var(--text);
+  font-family:'DM Sans',sans-serif;
+  font-weight:300;
+}
+.page{width:min(1220px,calc(100% - 28px));margin:0 auto;padding:22px 0 56px}
 .hero{
-  padding:60px 40px 50px;
-  text-align:center;
-  position:relative;
-  overflow:hidden;
-  border-bottom:1px solid var(--border);
+  background:linear-gradient(135deg,#fffdf8,#f1eadf);
+  border:1px solid var(--line);
+  border-radius:26px;
+  padding:18px 20px 16px;
+  box-shadow:0 18px 42px rgba(92,71,44,.10);
 }
-.hero::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse 80% 60% at 50% 0%, rgba(96,80,180,0.18) 0%, transparent 70%);
-  pointer-events:none;
-}
-.hero-eyebrow{
-  font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--dim);margin-bottom:14px;
-}
-.hero h1{
+.hero-top{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;flex-wrap:wrap}
+.hero-copy{flex:1 1 420px;min-width:280px}
+.hero-copy h1{
   font-family:'Cormorant Garamond',serif;
-  font-size:clamp(28px,5vw,52px);
-  font-weight:700;color:#EDE8F5;
-  line-height:1.1;margin-bottom:10px;
+  font-size:clamp(30px,4.4vw,48px);
+  line-height:1.02;
+  margin-bottom:8px;
 }
-.hero h1 em{font-style:italic;color:#B8A8E8;}
-.hero-sub{font-size:14px;color:var(--muted);margin-bottom:28px;line-height:1.6;}
-.hero-stats{display:flex;gap:32px;justify-content:center;flex-wrap:wrap;}
-.stat{display:flex;flex-direction:column;align-items:center;gap:3px;}
-.stat-val{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;}
-.stat-lbl{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--dim);}
-.stat.uz .stat-val{color:var(--uz);}
-.stat.tm .stat-val{color:var(--tm);}
-.stat.th .stat-val{color:var(--th);}
-.stat.total .stat-val{color:#B8A8E8;}
-
-/* ── NAV TABS ── */
-.nav-tabs{
-  display:flex;justify-content:center;gap:4px;padding:16px 20px;
-  border-bottom:1px solid var(--border);background:var(--s1);
-  position:sticky;top:0;z-index:20;flex-wrap:wrap;
+.hero-copy p{font-size:12px;line-height:1.45;color:var(--muted)}
+.flight-pills{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end;flex:0 1 auto}
+.flight-pill{
+  min-width:215px;
+  background:rgba(255,255,255,.72);
+  border:1px solid rgba(94,74,45,.16);
+  border-radius:12px;
+  padding:8px 10px;
+  font-size:10.5px;
+  line-height:1.35;
+}
+.flight-pill strong{display:block;font-size:11px;margin-bottom:2px}
+.flight-pill a{color:#436ba4;text-decoration:none}
+.flight-pill a:hover{text-decoration:underline}
+.hero-stats{display:flex;gap:24px;flex-wrap:wrap;margin-top:12px}
+.hero-stat{display:flex;flex-direction:column;gap:2px}
+.hero-stat strong{font-family:'Cormorant Garamond',serif;font-size:26px;line-height:1}
+.hero-stat span{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.hero-stat.uz strong{color:var(--uz)}
+.hero-stat.tm strong{color:var(--tm)}
+.hero-stat.th strong{color:var(--th)}
+.hero-stat.total strong{color:#cdbef1}
+.route{
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+  margin-top:12px;
+}
+.route-stop,.route-sep{
+  border-radius:999px;
+  padding:5px 10px;
+  font-size:10px;
+  font-weight:700;
+}
+.route-stop{color:var(--text)}
+.route-stop.uz{background:rgba(96,208,176,.18);border:1px solid rgba(96,208,176,.28);color:#1f7d65}
+.route-stop.tm{background:rgba(232,148,58,.18);border:1px solid rgba(232,148,58,.28);color:#9c5817}
+.route-stop.th{background:rgba(240,192,64,.20);border:1px solid rgba(240,192,64,.30);color:#926a00}
+.route-stop.city{background:rgba(255,255,255,.70);border:1px solid rgba(94,74,45,.14)}
+.route-stop.flight{background:rgba(111,168,255,.16);border:1px solid rgba(111,168,255,.28);color:#305f9f}
+.route-sep{
+  background:transparent;
+  color:rgba(46,38,30,.68);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:24px;
+  gap:1px;
+}
+.route-sep .sep-arrow{font-size:13px;line-height:1}
+.route-sep .sep-icon{font-size:18px;line-height:1}
+.route-sep .sep-icon.fly{font-size:22px}
+.tabs{
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  padding:8px 10px;
+  margin:14px 0 18px;
+  background:rgba(255,255,255,.60);
+  border:1px solid var(--line);
+  border-radius:999px;
 }
 .tab-btn{
-  padding:6px 16px;border-radius:100px;border:1px solid var(--border);
-  background:transparent;color:var(--muted);font-family:'DM Sans',sans-serif;
-  font-size:11px;font-weight:500;cursor:pointer;transition:all .2s;white-space:nowrap;
+  border:0;
+  background:transparent;
+  color:var(--muted);
+  border-radius:999px;
+  padding:8px 12px;
+  cursor:pointer;
+  font:inherit;
+  font-size:12px;
+  font-weight:700;
+  white-space:nowrap;
 }
-.tab-btn:hover{border-color:var(--border);background:var(--s2);color:var(--text);}
-.tab-btn.active{background:var(--s3);color:var(--text);border-color:rgba(200,185,240,.25);}
-.tab-btn.uz{--hc:var(--uz);}
-.tab-btn.tm{--hc:var(--tm);}
-.tab-btn.th{--hc:var(--th);}
-.tab-btn.uz.active,.tab-btn.uz:hover{border-color:var(--uz);color:var(--uz);}
-.tab-btn.tm.active,.tab-btn.tm:hover{border-color:var(--tm);color:var(--tm);}
-.tab-btn.th.active,.tab-btn.th:hover{border-color:var(--th);color:var(--th);}
-
-/* ── SECTIONS ── */
-.section{display:none;padding:32px 24px 60px;max-width:1100px;margin:0 auto;}
-.section.active{display:block;}
-
-/* ── SECTION HEADER ── */
-.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:28px;flex-wrap:wrap;}
-.sec-head h2{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;line-height:1.1;}
-.sec-head h2 span{display:block;font-size:13px;font-weight:300;font-family:'DM Sans',sans-serif;color:var(--muted);margin-bottom:4px;letter-spacing:.05em;}
-.country-badge{padding:5px 14px;border-radius:100px;font-size:11px;font-weight:500;border:1px solid;}
-.uz-badge{border-color:var(--uz);color:var(--uz);background:rgba(96,208,176,.08);}
-.tm-badge{border-color:var(--tm);color:var(--tm);background:rgba(232,148,58,.08);}
-.th-badge{border-color:var(--th);color:var(--th);background:rgba(240,192,64,.08);}
-
-/* ── FLIGHT CARD ── */
+.tab-btn:hover,.tab-btn.active{background:var(--surface-3);color:var(--text)}
+.view{display:none}
+.view.active{display:block}
+.overview-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(300px,.8fr);gap:18px}
+.card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:18px;
+  box-shadow:0 14px 40px rgba(0,0,0,.18);
+}
+.section-title{font-size:18px;margin-bottom:14px}
+.timeline-rail{
+  position:relative;
+  display:grid;
+  gap:12px;
+  padding-left:22px;
+}
+.timeline-rail::before{
+  content:"";
+  position:absolute;
+  left:7px;
+  top:4px;
+  bottom:4px;
+  width:2px;
+  background:linear-gradient(180deg,rgba(255,255,255,.18),rgba(255,255,255,.06));
+}
+.timeline-day-row{
+  position:relative;
+  border:1px solid var(--line-2);
+  border-radius:16px;
+  padding:12px 14px;
+  background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.01));
+}
+.timeline-day-row.tm{
+  background:linear-gradient(180deg,rgba(232,148,58,.11),rgba(255,255,255,.015));
+  border-color:rgba(232,148,58,.16);
+}
+.timeline-day-row.uz{
+  background:linear-gradient(180deg,rgba(96,208,176,.11),rgba(255,255,255,.015));
+  border-color:rgba(96,208,176,.16);
+}
+.timeline-day-row.th{
+  background:linear-gradient(180deg,rgba(240,192,64,.10),rgba(255,255,255,.015));
+  border-color:rgba(240,192,64,.16);
+}
+.timeline-day-row.fly{
+  background:linear-gradient(180deg,rgba(111,168,255,.10),rgba(255,255,255,.015));
+  border-color:rgba(111,168,255,.16);
+}
+.timeline-day-row::before{
+  content:"";
+  position:absolute;
+  left:-20px;
+  top:16px;
+  width:12px;
+  height:12px;
+  border-radius:999px;
+  border:2px solid var(--surface);
+  box-shadow:0 0 0 2px rgba(255,255,255,.08);
+}
+.timeline-day-row.tm::before{background:var(--tm)}
+.timeline-day-row.uz::before{background:var(--uz)}
+.timeline-day-row.th::before{background:var(--th)}
+.timeline-day-row.fly::before{background:var(--fly)}
+.timeline-day-head{
+  display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:flex-start
+}
+.timeline-date{
+  font-size:10px;letter-spacing:.10em;text-transform:uppercase;color:var(--muted);font-weight:700
+}
+.timeline-day-row h3{font-size:14px;margin-top:4px}
+.timeline-note{
+  font-size:11px;color:var(--muted);line-height:1.55;margin-top:6px
+}
+.timeline-stay{
+  font-size:10px;color:var(--dim);font-weight:700;text-transform:uppercase;letter-spacing:.08em
+}
+.country-summary-stack{display:grid;gap:12px}
+.country-summary-box{
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:14px 16px;
+  background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.015));
+}
+.country-summary-box.tm{background:linear-gradient(180deg,rgba(232,148,58,.08),rgba(255,255,255,.015))}
+.country-summary-box.uz{background:linear-gradient(180deg,rgba(96,208,176,.08),rgba(255,255,255,.015))}
+.country-summary-box.th{background:linear-gradient(180deg,rgba(240,192,64,.07),rgba(255,255,255,.015))}
+.country-summary-box h3{font-size:15px;margin-bottom:8px}
+.country-summary-box p{font-size:11px;color:var(--muted);line-height:1.6;margin-bottom:8px}
+.country-summary-box ul{list-style:none;display:grid;gap:6px}
+.country-summary-box li{font-size:11px;color:var(--muted);line-height:1.55}
+.country-summary-box li strong{color:var(--text)}
+.summary-card.tm{
+  border-color:rgba(232,148,58,.18);
+  background:linear-gradient(180deg,rgba(232,148,58,.08),rgba(255,255,255,.015));
+}
+.summary-card.uz{
+  border-color:rgba(96,208,176,.18);
+  background:linear-gradient(180deg,rgba(96,208,176,.08),rgba(255,255,255,.015));
+}
+.summary-card.th{
+  border-color:rgba(240,192,64,.18);
+  background:linear-gradient(180deg,rgba(240,192,64,.07),rgba(255,255,255,.015));
+}
+.stack{display:grid;gap:14px}
+.summary-badges,.plain-list{list-style:none;display:grid;gap:9px}
+.summary-badges li,.plain-list li{font-size:13px;line-height:1.5;color:var(--muted)}
+.badge{
+  display:inline-block;
+  padding:4px 8px;
+  border-radius:999px;
+  font-size:10px;
+  font-weight:800;
+  margin-right:6px;
+}
+.badge.tm{background:rgba(232,148,58,.18);color:#ffbf7a}
+.badge.uz{background:rgba(96,208,176,.16);color:var(--uz)}
+.badge.th{background:rgba(240,192,64,.15);color:#f6d778}
+.overview-map-box{
+  border:1px solid var(--line-2);
+  border-radius:16px;
+  padding:14px;
+  background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01));
+}
+.overview-map-box h3{font-size:14px;margin-bottom:8px}
+.overview-map{
+  width:100%;
+  height:auto;
+  display:block;
+}
+.map-label{font-size:11px;font-weight:700;fill:var(--text)}
+.map-note{font-size:10px;fill:var(--muted)}
+.map-node{cursor:pointer}
+.map-node:hover{opacity:.9}
+.flight-strip{display:grid;gap:10px}
 .flight-card{
-  display:flex;align-items:center;gap:16px;padding:14px 18px;
-  border-radius:12px;border:1px solid rgba(80,144,216,.2);
-  background:rgba(80,144,216,.05);margin-bottom:20px;flex-wrap:wrap;
+  display:flex;align-items:flex-start;gap:14px;padding:14px 16px;border-radius:14px;
+  background:rgba(111,168,255,.06);border:1px solid rgba(111,168,255,.18)
 }
-.flight-card .fc-icon{font-size:20px;flex-shrink:0;}
-.flight-card .fc-main{flex:1;}
-.flight-card .fc-route{font-size:14px;font-weight:500;color:var(--text);}
-.flight-card .fc-detail{font-size:11px;color:var(--muted);margin-top:2px;}
-.flight-card .fc-date{font-family:'Cormorant Garamond',serif;font-size:16px;color:#5090D8;flex-shrink:0;}
-
-/* ── DAY CARDS ── */
-.days{display:flex;flex-direction:column;gap:16px;}
+.flight-card.train{background:rgba(216,164,63,.06);border-color:rgba(216,164,63,.18)}
+.flight-card .icon{font-size:18px;line-height:1}
+.flight-card h3{font-size:13px;margin-bottom:4px}
+.flight-card p{font-size:11px;color:var(--muted);line-height:1.5}
+.section-head{
+  display:flex;justify-content:space-between;gap:14px;align-items:flex-end;flex-wrap:wrap;margin-bottom:20px
+}
+.section-head h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:34px;
+  line-height:1.05;
+}
+.section-head h2 span{
+  display:block;
+  font-family:'DM Sans',sans-serif;
+  font-size:12px;
+  color:var(--muted);
+  margin-bottom:4px;
+}
+.country-pill{
+  padding:6px 14px;border-radius:999px;font-size:11px;font-weight:700;border:1px solid
+}
+.country-pill.uz{border-color:rgba(96,208,176,.35);color:var(--uz);background:rgba(96,208,176,.08)}
+.country-pill.tm{border-color:rgba(232,148,58,.35);color:#ffbf7a;background:rgba(232,148,58,.08)}
+.country-pill.th{border-color:rgba(240,192,64,.35);color:#f6d778;background:rgba(240,192,64,.08)}
+.country-context{
+  margin-bottom:16px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:rgba(255,255,255,.62);
+  overflow:hidden;
+}
+.country-context summary{
+  list-style:none;
+  cursor:pointer;
+  padding:14px 16px;
+  font-size:14px;
+  font-weight:800;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.country-context summary::-webkit-details-marker{display:none}
+.country-context summary::after{
+  content:"▾";
+  color:var(--dim);
+  font-size:12px;
+}
+.country-context[open] summary::after{content:"▴"}
+.country-context.tm summary{background:linear-gradient(180deg,rgba(232,148,58,.12),rgba(255,255,255,.40))}
+.country-context.uz summary{background:linear-gradient(180deg,rgba(96,208,176,.12),rgba(255,255,255,.40))}
+.country-context-body{
+  padding:0 16px 16px;
+}
+.context-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+}
+.context-card{
+  border:1px solid var(--line-2);
+  border-radius:14px;
+  padding:12px;
+  background:rgba(255,255,255,.46);
+}
+.context-card h3{font-size:12px;margin-bottom:6px}
+.context-card p{font-size:11px;color:var(--muted);line-height:1.6}
+.context-sources{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:12px;
+}
+.context-map{
+  margin-top:12px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:12px;
+  background:rgba(255,255,255,.52);
+}
+.context-map img{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:12px;
+}
+.context-map p{
+  font-size:10.5px;
+  color:var(--muted);
+  line-height:1.5;
+  margin-top:8px;
+}
+.source-chip{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  padding:4px 8px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.72);
+  color:#436ba4;
+  text-decoration:none;
+  font-size:10px;
+  font-weight:700;
+}
+.source-chip:hover{text-decoration:underline}
+.days{display:grid;gap:16px}
 .day-card{
-  border-radius:14px;border:1px solid var(--border2);
-  background:var(--s1);overflow:hidden;
-  transition:border-color .2s;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:18px;
+  overflow:hidden;
 }
-.day-card:hover{border-color:var(--border);}
-
 .day-head{
-  display:flex;align-items:center;gap:14px;padding:14px 18px;
-  cursor:pointer;user-select:none;
+  display:flex;gap:14px;align-items:flex-start;padding:14px 16px;cursor:pointer
 }
 .day-num{
-  font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;
-  line-height:1;flex-shrink:0;width:42px;text-align:center;
+  font-family:'Cormorant Garamond',serif;font-size:30px;line-height:1;min-width:34px;text-align:center;color:var(--uz)
 }
-.day-uz .day-num{color:var(--uz);}
-.day-tm .day-num{color:var(--tm);}
-.day-th .day-num{color:var(--th);}
-.day-head-info{flex:1;}
-.day-date{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-bottom:2px;}
-.day-title{font-size:14px;font-weight:500;color:var(--text);line-height:1.3;}
-.day-sub{font-size:11px;color:var(--muted);margin-top:2px;}
-.day-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:5px;}
-.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:9px;font-weight:500;}
-.tag-hotel{background:rgba(80,144,216,.15);color:#70A0E0;}
-.tag-unesco{background:rgba(200,160,60,.15);color:#D0B060;}
-.tag-nature{background:rgba(80,160,80,.15);color:#70C080;}
-.tag-food{background:rgba(200,80,80,.15);color:#D08080;}
-.tag-transit{background:rgba(160,160,80,.15);color:#C0C060;}
-.tag-fire{background:rgba(200,80,30,.15);color:#D08050;}
-.chevron{font-size:12px;color:var(--dim);transition:transform .3s;flex-shrink:0;}
-.day-card.open .chevron{transform:rotate(180deg);}
-
-.day-body{display:none;padding:0 18px 16px;}
-.day-card.open .day-body{display:block;}
-
-/* Activities */
-.activities{display:flex;flex-direction:column;gap:0;}
-.act{display:flex;gap:12px;padding:8px 0;border-bottom:1px solid var(--border2);}
-.act:last-child{border-bottom:none;}
-.act-time{font-size:10px;color:var(--dim);width:46px;flex-shrink:0;padding-top:2px;text-align:right;}
-.act-icon{font-size:16px;flex-shrink:0;width:22px;text-align:center;padding-top:1px;}
-.act-content{flex:1;}
-.act-name{font-size:12px;font-weight:500;color:var(--text);line-height:1.3;}
-.act-detail{font-size:10px;color:var(--muted);margin-top:2px;line-height:1.5;}
-.act-pill{display:inline-flex;align-items:center;gap:2px;padding:1px 6px;border-radius:3px;font-size:8.5px;font-weight:500;margin-top:3px;}
-.pill-fly{background:rgba(80,144,216,.2);color:#70A8E8;}
-.pill-train{background:rgba(200,144,26,.2);color:#D0A030;}
-.pill-car{background:rgba(80,168,96,.2);color:#70C080;}
-.pill-walk{background:rgba(160,160,60,.2);color:#C0C050;}
-.pill-4x4{background:rgba(160,120,40,.2);color:#C09050;}
-.tip-box{margin-top:8px;padding:8px 12px;border-radius:8px;background:rgba(200,185,240,.05);border-left:2px solid rgba(200,185,240,.2);font-size:10px;color:var(--muted);line-height:1.5;}
-.tip-box strong{color:var(--text);}
-
-/* ── NOTES SECTION ── */
-.notes-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-top:20px;}
-.note-card{padding:16px 18px;border-radius:12px;border:1px solid var(--border2);background:var(--s1);}
-.note-card h3{font-size:12px;font-weight:500;color:var(--text);margin-bottom:8px;display:flex;align-items:center;gap:6px;}
-.note-card ul{list-style:none;display:flex;flex-direction:column;gap:5px;}
-.note-card li{font-size:11px;color:var(--muted);padding-left:14px;position:relative;line-height:1.5;}
-.note-card li::before{content:'—';position:absolute;left:0;color:var(--dim);}
-.note-card li strong{color:var(--text);}
-.warn{border-color:rgba(200,100,50,.2);background:rgba(200,100,50,.05);}
-.warn h3{color:#C07050;}
-.info-c{border-color:rgba(80,144,216,.2);background:rgba(80,144,216,.05);}
-.info-c h3{color:#70A8E8;}
-.good{border-color:rgba(80,168,96,.2);background:rgba(80,168,96,.05);}
-.good h3{color:#70C080;}
-
-/* ── TIMELINE OVERVIEW ── */
-.timeline{display:flex;flex-direction:column;gap:4px;margin-bottom:32px;}
-.tl-row{display:flex;align-items:center;gap:10px;padding:6px 14px;border-radius:8px;}
-.tl-row:hover{background:var(--s2);}
-.tl-date{font-size:10px;color:var(--dim);width:56px;flex-shrink:0;}
-.tl-bar{flex:1;height:5px;border-radius:3px;min-width:4px;}
-.tl-label{font-size:11px;color:var(--muted);width:220px;}
-.tl-loc{font-size:10px;color:var(--dim);}
-.tl-bar.uz{background:var(--uz);}
-.tl-bar.tm{background:var(--tm);}
-.tl-bar.th{background:var(--th);}
-.tl-bar.fly{background:var(--fly);opacity:.6;}
-
-/* ── SCROLL ANIM ── */
-@keyframes fadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
-.day-card{animation:fadeUp .4s ease both;}
-.day-card:nth-child(1){animation-delay:.05s;}
-.day-card:nth-child(2){animation-delay:.10s;}
-.day-card:nth-child(3){animation-delay:.15s;}
-.day-card:nth-child(4){animation-delay:.20s;}
-.day-card:nth-child(5){animation-delay:.25s;}
-.day-card:nth-child(6){animation-delay:.30s;}
-.day-card:nth-child(7){animation-delay:.35s;}
-
-@media(max-width:600px){
-  .hero{padding:40px 20px 36px;}
-  .section{padding:24px 16px 48px;}
-  .day-head{padding:12px 14px;}
+.day-info{flex:1}
+.day-date{font-size:10px;letter-spacing:.10em;text-transform:uppercase;color:var(--dim);margin-bottom:3px}
+.day-title{font-size:15px;font-weight:700;line-height:1.3}
+.day-sub{font-size:12px;color:var(--muted);margin-top:3px;line-height:1.45}
+.day-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.tag{padding:3px 8px;border-radius:999px;font-size:9.5px;font-weight:700}
+.tag-hotel{background:rgba(111,168,255,.12);color:#bcd4ff}
+.tag-train{background:rgba(216,164,63,.14);color:#f0c879}
+.tag-unesco{background:rgba(96,208,176,.12);color:var(--uz)}
+.tag-food{background:rgba(228,120,120,.12);color:#efb3b3}
+.chevron{font-size:12px;color:var(--dim);transition:transform .25s}
+.day-card.open .chevron{transform:rotate(180deg)}
+.day-body{display:none;padding:0 16px 16px}
+.day-card.open .day-body{display:block}
+.activities{display:grid;gap:0}
+.act{
+  display:grid;grid-template-columns:58px 22px 1fr;gap:10px;align-items:start;
+  padding:8px 0;border-bottom:1px solid var(--line-2)
+}
+.act:last-child{border-bottom:0}
+.act-time{font-size:10px;color:var(--dim);text-align:right;padding-top:2px}
+.act-icon{font-size:15px;text-align:center;padding-top:1px}
+.act-name{font-size:12.5px;font-weight:700;line-height:1.3}
+.act-title{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.act-detail{font-size:11px;color:var(--muted);line-height:1.5;margin-top:2px}
+.mini-rate{
+  display:inline-flex;align-items:center;gap:4px;
+  padding:2px 7px;border-radius:999px;
+  background:rgba(255,255,255,.06);
+  border:1px solid var(--line-2);
+  color:#f6d778;font-size:9px;font-weight:700
+}
+.act-pill{
+  display:inline-flex;gap:4px;align-items:center;padding:2px 7px;border-radius:999px;
+  font-size:9px;font-weight:700;margin-top:4px
+}
+.pill-train{background:rgba(216,164,63,.14);color:#f0c879}
+.pill-fly{background:rgba(111,168,255,.12);color:#bcd4ff}
+.pill-walk{background:rgba(240,192,64,.12);color:#f6d778}
+.tip-box{
+  margin-top:10px;padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.03);
+  border:1px solid var(--line-2);font-size:11px;color:var(--muted);line-height:1.55
+}
+.tip-box strong{color:var(--text)}
+.place-box{
+  margin-top:8px;
+  padding:10px 12px;
+  border-radius:12px;
+  background:rgba(255,255,255,.04);
+  border:1px solid var(--line-2);
+}
+.place-box + .place-box{margin-top:8px}
+.place-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;flex-wrap:wrap}
+.place-head h4{font-size:12px;line-height:1.35}
+.place-meta{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.place-meta a,.source-links a,.restaurant-name a{
+  color:#bcd4ff;text-decoration:none
+}
+.place-meta a:hover,.source-links a:hover,.restaurant-name a:hover{text-decoration:underline}
+.wiki-link{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:20px;height:20px;border-radius:999px;
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.12);
+  color:var(--text);font-size:10px;font-weight:800
+}
+.maps-link{
+  padding:2px 7px;border-radius:999px;
+  background:rgba(111,168,255,.12);
+  border:1px solid rgba(111,168,255,.22);
+  font-size:9px;font-weight:700
+}
+.place-box p{font-size:11px;color:var(--muted);line-height:1.55;margin-top:7px}
+.source-links{
+  display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;
+  font-size:10px;color:var(--dim)
+}
+.city-summary{
+  margin-top:14px;
+  border-radius:16px;
+  border:1px solid var(--line);
+  background:linear-gradient(135deg,rgba(96,208,176,.08),rgba(111,168,255,.05));
+  overflow:hidden;
+}
+.city-summary summary{
+  list-style:none;
+  cursor:pointer;
+  padding:14px 16px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  font-size:15px;
+  font-weight:800;
+}
+.city-summary summary::-webkit-details-marker{display:none}
+.city-summary summary::after{
+  content:"▾";
+  color:var(--dim);
+  font-size:12px;
+}
+.city-summary[open] summary::after{content:"▴"}
+.city-summary-body{padding:0 16px 16px}
+.city-summary h3{font-size:15px;margin-bottom:8px}
+.city-summary p{font-size:11px;color:var(--muted);line-height:1.6;margin-bottom:8px}
+.city-summary ul{list-style:none;display:grid;gap:6px}
+.city-summary li{font-size:11px;color:var(--muted);line-height:1.55}
+.city-summary li strong{color:var(--text)}
+.restaurants-grid{display:grid;gap:18px}
+.restaurant-city{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:16px;
+}
+.restaurant-city h3{font-size:15px;margin-bottom:12px}
+.restaurant-row{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:12px;
+}
+.restaurant-card{
+  border:1px solid var(--line-2);
+  border-radius:14px;
+  padding:14px;
+  background:rgba(255,255,255,.03);
+}
+.restaurant-top{display:flex;gap:10px;align-items:flex-start}
+.rate-badge{
+  flex:0 0 auto;
+  min-width:62px;
+  padding:6px 10px;
+  border-radius:12px;
+  background:#ffd54a;
+  color:#302400;
+  font-size:12px;
+  font-weight:800;
+  text-align:center;
+}
+.restaurant-name{font-size:14px;font-weight:800;line-height:1.3}
+.restaurant-meta{font-size:10.5px;color:var(--muted);line-height:1.5;margin-top:4px}
+.restaurant-card p{font-size:11px;color:var(--muted);line-height:1.6;margin-top:10px}
+.dish-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:12px;
+  margin-top:12px;
+}
+.dish-card{
+  border:1px solid var(--line-2);
+  border-radius:14px;
+  padding:12px;
+  background:rgba(255,255,255,.03);
+}
+.dish-card h4{font-size:12px;margin-bottom:6px}
+.dish-card p{font-size:11px;color:var(--muted);line-height:1.55}
+.summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.summary-card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:16px;
+}
+.summary-card h3{font-size:14px;margin-bottom:8px}
+.summary-card p{font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:10px}
+.summary-card ul{list-style:none;display:grid;gap:6px}
+.summary-card li{font-size:11px;color:var(--muted);line-height:1.5}
+.summary-card li strong{color:var(--text)}
+.note-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.note-card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:16px;
+}
+.note-card h3{font-size:14px;margin-bottom:8px}
+.note-card ul{list-style:none;display:grid;gap:6px}
+.note-card li{font-size:11px;line-height:1.55;color:var(--muted)}
+.note-card li strong{color:var(--text)}
+.warn{border-color:rgba(232,148,58,.18);background:rgba(232,148,58,.05)}
+.info{border-color:rgba(111,168,255,.18);background:rgba(111,168,255,.05)}
+.good{border-color:rgba(96,208,176,.18);background:rgba(96,208,176,.05)}
+@media(max-width:960px){
+  .overview-grid{grid-template-columns:1fr}
+  .context-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:640px){
+  .page{width:min(100% - 18px,1220px)}
+  .hero{padding:16px}
+  .act{grid-template-columns:1fr;gap:4px}
+  .act-time{text-align:left}
+  .context-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
-
-<!-- ═══ HERO ═══ -->
-<div class="hero">
-  <div class="hero-eyebrow">Utazási terv · 2026</div>
-  <h1>Közép-Ázsia &<br><em>Koh Samui</em></h1>
-  <div class="hero-sub">Üzbegisztán · Türkmenisztán · Thaiföld<br>Ápr. 24 – Máj. 13 · 20 nap</div>
-  <div class="hero-stats">
-    <div class="stat uz"><div class="stat-val">7</div><div class="stat-lbl">nap 🇺🇿</div></div>
-    <div class="stat tm"><div class="stat-val">7</div><div class="stat-lbl">nap 🇹🇲</div></div>
-    <div class="stat th"><div class="stat-val">6</div><div class="stat-lbl">nap 🇹🇭</div></div>
-    <div class="stat total"><div class="stat-val">6</div><div class="stat-lbl">UNESCO</div></div>
-  </div>
-</div>
-
-<!-- ═══ NAV TABS ═══ -->
-<div class="nav-tabs">
-  <button class="tab-btn active" onclick="showTab('overview')">🗺 Áttekintés</button>
-  <button class="tab-btn uz" onclick="showTab('uzbek')">🇺🇿 Üzbegisztán</button>
-  <button class="tab-btn tm" onclick="showTab('turkmen')">🇹🇲 Türkmenisztán</button>
-  <button class="tab-btn th" onclick="showTab('thailand')">🇹🇭 Koh Samui</button>
-  <button class="tab-btn" onclick="showTab('notes')">📋 Praktikus infók</button>
-</div>
-
-<!-- ═══ OVERVIEW ═══ -->
-<div class="section active" id="tab-overview">
-  <div class="sec-head">
-    <h2><span>Teljes útvonal</span>Ápr.24 – Máj.13</h2>
-  </div>
-
-  <div class="timeline">
-    <div class="tl-row"><div class="tl-date">Ápr. 24</div><div class="tl-bar fly" style="width:30px"></div><div class="tl-label">✈️ Budapest → Ashgabat → Urgench</div></div>
-    <div class="tl-row"><div class="tl-date">Ápr. 24</div><div class="tl-bar tm" style="width:8px"></div><div class="tl-label">Érkezés Urgenchbe</div><div class="tl-loc">Khiva</div></div>
-    <div class="tl-row"><div class="tl-date">Ápr. 25–26</div><div class="tl-bar uz" style="width:60px"></div><div class="tl-label">🇺🇿 Khiva — Ichan-Kala óváros</div><div class="tl-loc">Khiva hotel</div></div>
-    <div class="tl-row"><div class="tl-date">Ápr. 27–28</div><div class="tl-bar uz" style="width:60px"></div><div class="tl-label">🇺🇿 Bukhara — Kalon, Ark, Lyabi-Hauz</div><div class="tl-loc">Bukhara hotel</div></div>
-    <div class="tl-row"><div class="tl-date">Ápr. 29–30</div><div class="tl-bar uz" style="width:60px"></div><div class="tl-label">🇺🇿 Szamarkand — Regisztán, Shah-i-Zinda</div><div class="tl-loc">Szamarkand hotel</div></div>
-    <div class="tl-row"><div class="tl-date">Máj. 1</div><div class="tl-bar uz" style="width:30px"></div><div class="tl-label">🇺🇿 Szamarkand → Shavat határ → Kunya Urgench</div><div class="tl-loc">🚶 határátkelő</div></div>
-    <div class="tl-row"><div class="tl-date">Máj. 1–2</div><div class="tl-bar tm" style="width:60px"></div><div class="tl-label">🇹🇲 Kunya Urgench → Darwaza 🔥</div><div class="tl-loc">Jurt</div></div>
-    <div class="tl-row"><div class="tl-date">Máj. 3–4</div><div class="tl-bar tm" style="width:60px"></div><div class="tl-label">🇹🇲 Ashgabat — városnézés, Nissa</div><div class="tl-loc">Ashgabat hotel</div></div>
-    <div class="tl-row"><div class="tl-date">Máj. 5</div><div class="tl-bar tm" style="width:30px"></div><div class="tl-label">🇹🇲 Merv (UNESCO) + Mary repülő</div><div class="tl-loc">Ashgabat hotel</div></div>
-    <div class="tl-row"><div class="tl-date">Máj. 6–7</div><div class="tl-bar tm" style="width:60px"></div><div class="tl-label">🇹🇲 Yangikala 4x4 · Nohur 🥾 · Kow-Ata 🌊</div><div class="tl-loc">Balkanabad</div></div>
-    <div class="tl-row"><div class="tl-date">Máj. 7</div><div class="tl-bar fly" style="width:30px"></div><div class="tl-label">✈️ Ashgabat → Koh Samui</div></div>
-    <div class="tl-row"><div class="tl-date">Máj. 7–13</div><div class="tl-bar th" style="width:120px"></div><div class="tl-label">🇹🇭 Koh Samui — pihenés</div><div class="tl-loc">Beach resort</div></div>
-    <div class="tl-row"><div class="tl-date">Máj. 13</div><div class="tl-bar fly" style="width:30px"></div><div class="tl-label">✈️ Koh Samui → Budapest</div></div>
-  </div>
-
-  <div class="notes-grid">
-    <div class="note-card info-c">
-      <h3>✈️ Repülők</h3>
-      <ul>
-        <li>Ápr.24: <strong>BUD → UGC</strong> (Urgench)</li>
-        <li>Máj.7: <strong>ASB → USM</strong> (Koh Samui)</li>
-        <li>Máj.13: <strong>USM → BUD</strong></li>
-        <li>TM belföldi: Mary→Ashgabat · Dashoguz→Ashgabat (ORG foglal)</li>
-      </ul>
-    </div>
-    <div class="note-card warn">
-      <h3>⚠ Kritikus tennivalók</h3>
-      <ul>
-        <li><strong>LOI vízum TM</strong> — 3-4 hét feldolgozás, azonnal igényelni!</li>
-        <li><strong>railway.uz</strong> — vonatjegyek UZ-ban előre</li>
-        <li><strong>Darwaza tábor</strong> — előre foglalni</li>
-        <li><strong>USD készpénz</strong> — csak TM-ban, 2008 utáni bankjegyek</li>
-      </ul>
-    </div>
-    <div class="note-card good">
-      <h3>✅ UNESCO helyszínek</h3>
-      <ul>
-        <li>🇺🇿 <strong>Khiva</strong> — Ichan-Kala óváros</li>
-        <li>🇺🇿 <strong>Bukhara</strong> — történelmi városközpont</li>
-        <li>🇺🇿 <strong>Szamarkand</strong> — Selyemút kereszteződése</li>
-        <li>🇹🇲 <strong>Kunya Urgench</strong> — középkori Khorezm</li>
-        <li>🇹🇲 <strong>Merv</strong> — ókori Selyemút-város</li>
-        <li>🇹🇲 <strong>Nissa</strong> — Parthus királyok erődje</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<!-- ═══ ÜZBEGISZTÁN ═══ -->
-<div class="section" id="tab-uzbek">
-  <div class="sec-head">
-    <h2><span>Ápr. 24 – Máj. 1 · 7 nap</span>🇺🇿 Üzbegisztán</h2>
-    <span class="country-badge uz-badge">Khiva · Bukhara · Szamarkand</span>
-  </div>
-
-  <!-- Repülő info -->
-  <div class="flight-card">
-    <div class="fc-icon">✈️</div>
-    <div class="fc-main">
-      <div class="fc-route">Budapest (BUD) → Urgench (UGC)</div>
-      <div class="fc-detail">Valószínűleg Isztambulon vagy Moszkvián át · Urgenchből taxi Khivába (~20 perc)</div>
-    </div>
-    <div class="fc-date">Ápr. 24</div>
-  </div>
-
-  <div class="days">
-
-    <!-- NAP 1 -->
-    <div class="day-card day-uz open">
-      <div class="day-head" onclick="toggleDay(this)">
-        <div class="day-num">1</div>
-        <div class="day-head-info">
-          <div class="day-date">Április 24 · Csütörtök</div>
-          <div class="day-title">Érkezés — Urgench → Khiva</div>
-          <div class="day-sub">Éjszakai érkezés · szállás Khivában</div>
-          <div class="day-tags"><span class="tag tag-hotel">🛏 Khiva hotel</span><span class="tag tag-transit">✈️ érkezés</span></div>
+<div class="page">
+  <header class="hero">
+    <div class="hero-top">
+      <div class="hero-copy">
+        <h1>Közép-Ázsia + Koh Samui</h1>
+        <p>Türkmenisztán · Üzbegisztán · Koh Samui<br>2026. április 24 – május 13. · üzbég részletes terv + guide-alapú türkmen szakasz + pihenős thai lezárás</p>
+        <div class="hero-stats">
+          <div class="hero-stat tm"><strong>7</strong><span>nap Türkmenisztán</span></div>
+          <div class="hero-stat uz"><strong>6</strong><span>nap Üzbegisztán</span></div>
+          <div class="hero-stat th"><strong>6</strong><span>nap Koh Samui</span></div>
+          <div class="hero-stat total"><strong>20</strong><span>teljes nap</span></div>
         </div>
-        <div class="chevron">▼</div>
       </div>
-      <div class="day-body">
-        <div class="activities">
-          <div class="act"><div class="act-time">este</div><div class="act-icon">✈️</div><div class="act-content"><div class="act-name">Urgench repülőtér (UGC) érkezés</div><div class="act-detail">Taxi Urgenchből Khivába — kb. 20 perc, ~5-8 USD</div><span class="act-pill pill-car">🚗 taxi</span></div></div>
-          <div class="act"><div class="act-time">éjjel</div><div class="act-icon">🏨</div><div class="act-content"><div class="act-name">Khiva hotel — bejelentkezés</div><div class="act-detail">Ha még nyitva az Ichan-Kala, érdemes egy rövid esti sétát tenni — kivilágítva gyönyörű</div></div></div>
+      <div class="flight-pills">
+        <div class="flight-pill">
+          <strong>✈ Turkish Airlines · TK1036 + TK320</strong>
+          <div>BUD → IST → ASB · 2026.04.24</div>
+          <div>09:00 - 12:15 · 14:15 - 19:50</div>
         </div>
-        <div class="tip-box"><strong>Tipp:</strong> Szállj az óváros falain belül (Ichan-Kala) ha lehet — teljesen más élmény, mint kívülről.</div>
-      </div>
-    </div>
-
-    <!-- NAP 2 -->
-    <div class="day-card day-uz">
-      <div class="day-head" onclick="toggleDay(this)">
-        <div class="day-num">2</div>
-        <div class="day-head-info">
-          <div class="day-date">Április 25 · Péntek</div>
-          <div class="day-title">Khiva — Ichan-Kala teljes nap</div>
-          <div class="day-sub">UNESCO óváros · falak tetején séta</div>
-          <div class="day-tags"><span class="tag tag-unesco">★ UNESCO</span><span class="tag tag-hotel">🛏 Khiva hotel</span></div>
+        <div class="flight-pill">
+          <strong>✈ Uzbekistan Airways · HY 531</strong>
+          <div>TAS → BKK · 2026.05.07</div>
+          <div>22:30 - 06:40</div>
         </div>
-        <div class="chevron">▼</div>
-      </div>
-      <div class="day-body">
-        <div class="activities">
-          <div class="act"><div class="act-time">reggel</div><div class="act-icon">🕌</div><div class="act-content"><div class="act-name">Kalta Minor minaret</div><div class="act-detail">A befejezetlen türkizkék csíkos minaret — Khiva ikonja</div></div></div>
-          <div class="act"><div class="act-time">délelőtt</div><div class="act-icon">🏛</div><div class="act-content"><div class="act-name">Djuma mecset + Pahlavon Mahmud mauzóleum</div><div class="act-detail">212 oszlopos mecset (különböző korokból) · Khiva védőszentjének síremléke türkizkék kupolával</div></div></div>
-          <div class="act"><div class="act-time">dél</div><div class="act-icon">🍽</div><div class="act-content"><div class="act-name">Ebéd az óvárosban</div><div class="act-detail">Helyi éttermek a falak között · Plov, lagman, samsa</div></div></div>
-          <div class="act"><div class="act-time">délután</div><div class="act-icon">🚶</div><div class="act-content"><div class="act-name">Falak tetején séta + keleti kapu</div><div class="act-detail">Körbesétálhatod az óvárost a falakon · panoráma a sivatagra</div></div></div>
-          <div class="act"><div class="act-time">este</div><div class="act-icon">🌙</div><div class="act-content"><div class="act-name">Esti séta kivilágítva</div><div class="act-detail">Az Ichan-Kala este a legszebb — szinte üres, mesebeli hangulat</div></div></div>
-        </div>
-        <div class="tip-box"><strong>Belépő:</strong> Az Ichan-Kalába egy kombinált jeggyel lehet belépni (~25 USD), ami a legtöbb épületet lefedi. Alkudni nem érdemes — fix ár.</div>
-      </div>
-    </div>
-
-    <!-- NAP 3 -->
-    <div class="day-card day-uz">
-      <div class="day-head" onclick="toggleDay(this)">
-        <div class="day-num">3</div>
-        <div class="day-head-info">
-          <div class="day-date">Április 26 · Szombat</div>
-          <div class="day-title">Khiva → Bukhara</div>
-          <div class="day-sub">Autóval (~5 ó) vagy éjszakai vonattal</div>
-          <div class="day-tags"><span class="tag tag-transit">🚗 transzfer</span><span class="tag tag-hotel">🛏 Bukhara hotel</span></div>
-        </div>
-        <div class="chevron">▼</div>
-      </div>
-      <div class="day-body">
-        <div class="activities">
-          <div class="act"><div class="act-time">reggel</div><div class="act-icon">🏨</div><div class="act-content"><div class="act-name">Khiva checkout</div><div class="act-detail">Reggeli után indulás</div></div></div>
-          <div class="act"><div class="act-time">egész nap</div><div class="act-icon">🚗</div><div class="act-content"><div class="act-name">Khiva → Bukhara autóval</div><div class="act-detail">~450 km, 5-6 óra · sivatagi táj · opcionális megálló Amudarjánál</div><span class="act-pill pill-car">🚗 ~5-6 óra</span></div></div>
-          <div class="act"><div class="act-time">este</div><div class="act-icon">🏨</div><div class="act-content"><div class="act-name">Bukhara érkezés · Lyabi-Hauz tér este</div><div class="act-detail">A téren vacsora — este nagyon élénk, helyi és turista vegyesen</div></div></div>
-        </div>
-        <div class="tip-box"><strong>Alternatíva:</strong> Éjszakai vonat Khivából (Urgenchből indul) Bukharába — olcsóbb, de hosszabb (~9 ó). Ha nem bánod a vonatos éjszakát, reggel frissen érkezel Bukharába.</div>
-      </div>
-    </div>
-
-    <!-- NAP 4 -->
-    <div class="day-card day-uz">
-      <div class="day-head" onclick="toggleDay(this)">
-        <div class="day-num">4</div>
-        <div class="day-head-info">
-          <div class="day-date">Április 27 · Vasárnap</div>
-          <div class="day-title">Bukhara — Poi-Kalon + Ark</div>
-          <div class="day-sub">UNESCO · Közép-Ázsia legszebb mecsetegyüttese</div>
-          <div class="day-tags"><span class="tag tag-unesco">★ UNESCO</span><span class="tag tag-hotel">🛏 Bukhara hotel</span></div>
-        </div>
-        <div class="chevron">▼</div>
-      </div>
-      <div class="day-body">
-        <div class="activities">
-          <div class="act"><div class="act-time">reggel</div><div class="act-icon">🕌</div><div class="act-content"><div class="act-name">Poi-Kalon együttes</div><div class="act-detail">Kalon minaret (47 m, 1127) + Kalon mecset + Mir-i-Arab medressa — egymással szemben, lélegzetelállító</div></div></div>
-          <div class="act"><div class="act-time">délelőtt</div><div class="act-icon">🏰</div><div class="act-content"><div class="act-name">Ark citadella</div><div class="act-detail">2000+ éves erőd, Bukhara emírjeinek palotája · múzeum belül</div></div></div>
-          <div class="act"><div class="act-time">dél</div><div class="act-icon">🍽</div><div class="act-content"><div class="act-name">Ebéd — Lyabi-Hauz tér</div><div class="act-detail">A medencés téren több jó étterem · Plov kötelező Bukharában</div></div></div>
-          <div class="act"><div class="act-time">délután</div><div class="act-icon">🕍</div><div class="act-content"><div class="act-name">Kalon minaretre felmászni</div><div class="act-detail">Engedéllyel felmászható — panoráma az egész óvárosra</div></div></div>
-          <div class="act"><div class="act-time">este</div><div class="act-icon">🛍</div><div class="act-content"><div class="act-name">Régi bazárok + kézműves boltok</div><div class="act-detail">Tim Abdullakhan · Toki bazárok · selyem, kerámia, szőnyeg</div></div></div>
+        <div class="flight-pill">
+          <strong>✈ Bangkok Airways + Turkish</strong>
+          <div>USM → BKK → IST → BUD · 2026.05.13</div>
+          <div>19:45 - 21:15 · 23:15 - 05:30 · 07:10 - 08:05</div>
         </div>
       </div>
     </div>
+    <div class="route">
+      <span class="route-stop flight">BUD</span>
+      <span class="route-sep"><span class="sep-arrow">→</span><span class="sep-icon fly">✈</span><span class="sep-arrow">→</span></span>
+      <span class="route-stop city">IST</span>
+      <span class="route-sep"><span class="sep-arrow">→</span><span class="sep-icon fly">✈</span><span class="sep-arrow">→</span></span>
+      <span class="route-stop tm">Ashgabat</span>
+      <span class="route-stop tm">Türkmenisztán</span>
+      <span class="route-sep"><span class="sep-arrow">→</span><span class="sep-icon">🚆</span><span class="sep-arrow">→</span></span>
+      <span class="route-stop uz">Khiva</span>
+      <span class="route-stop uz">Bukhara</span>
+      <span class="route-stop uz">Samarkand</span>
+      <span class="route-stop uz">Tashkent</span>
+      <span class="route-sep"><span class="sep-arrow">→</span><span class="sep-icon fly">✈</span><span class="sep-arrow">→</span></span>
+      <span class="route-stop th">Koh Samui</span>
+      <span class="route-sep"><span class="sep-arrow">→</span><span class="sep-icon fly">✈</span><span class="sep-arrow">→</span></span>
+      <span class="route-stop flight">BUD</span>
+    </div>
+  </header>
 
-    <!-- NAP 5 -->
-    <div class="day-card day-uz">
-      <div class="day-head" onclick="toggleDay(this)">
-        <div class="day-num">5</div>
-        <div class="day-head-info">
-          <div class="day-date">Április 28 · Hétfő</div>
-          <div class="day-title">Bukhara → Szamarkand</div>
-          <div class="day-sub">Afrosiyob gyorsvonat · 2,5 óra</div>
-          <div class="day-tags"><span class="tag tag-transit">🚄 vonat</span><span class="tag tag-hotel">🛏 Szamarkand hotel</span></div>
+  <nav class="tabs" id="tabs">
+    <button class="tab-btn active" data-tab="overview">📋 Áttekintés</button>
+    <button class="tab-btn" data-tab="turkmen">🇹🇲 Türkmenisztán</button>
+    <button class="tab-btn" data-tab="uzbek">🇺🇿 Üzbegisztán</button>
+    <button class="tab-btn" data-tab="samui">🇹🇭 Koh Samui</button>
+    <button class="tab-btn" data-tab="food">🍽 Éttermek</button>
+    <button class="tab-btn" data-tab="practical">🧳 Praktikus</button>
+  </nav>
+
+  <section class="view active" data-view="overview">
+    <div class="overview-grid">
+      <section class="card">
+        <h2 class="section-title">📅 Napi idővonal</h2>
+        <div class="timeline-rail">
+          <article class="timeline-day-row fly">
+            <div class="timeline-day-head"><div class="timeline-date">2026. ápr. 24., péntek</div><div class="timeline-stay">utazás + érkezés</div></div>
+            <h3>Budapest → Isztambul → Ashgabat</h3>
+            <div class="timeline-note">TK1036 `09:00 - 12:15`, majd TK320 `14:15 - 19:50`. Ez az egész út gerince: ugyanazon a napon megvan az ashgabati érkezés és indul a türkmen szakasz.</div>
+          </article>
+          <article class="timeline-day-row tm">
+            <div class="timeline-day-head"><div class="timeline-date">ápr. 25., szombat</div><div class="timeline-stay">Türkmenisztán · 1/7</div></div>
+            <h3>Türkmenisztán</h3>
+            <div class="timeline-note">Ashgabat bázis, guide-vezérelt program. Itt még nem a részletes önálló planning a fontos, hanem a belépési és helyi ritmus felvétele.</div>
+          </article>
+          <article class="timeline-day-row tm">
+            <div class="timeline-day-head"><div class="timeline-date">ápr. 26., vasárnap</div><div class="timeline-stay">Türkmenisztán · 2/7</div></div>
+            <h3>Türkmenisztán</h3>
+            <div class="timeline-note">Továbbra is egyhelyben futó, guide-vezérelt nap. Az overviewn itt az látszik jól, hogy nincs külön ország- vagy városváltás.</div>
+          </article>
+          <article class="timeline-day-row tm">
+            <div class="timeline-day-head"><div class="timeline-date">ápr. 27., hétfő</div><div class="timeline-stay">Türkmenisztán · 3/7</div></div>
+            <h3>Türkmenisztán</h3>
+            <div class="timeline-note">Újabb teljes türkmen nap. Még mindig az első nagy, összefüggő országblokk tart, utazási törés nélkül.</div>
+          </article>
+          <article class="timeline-day-row tm">
+            <div class="timeline-day-head"><div class="timeline-date">ápr. 28., kedd</div><div class="timeline-stay">Türkmenisztán · 4/7</div></div>
+            <h3>Türkmenisztán</h3>
+            <div class="timeline-note">A türkmen rész közepe. Ezen a ponton már jól látszik a timeline-on, hogy ez a szakasz hosszabb, mint bármelyik üzbég városblokk.</div>
+          </article>
+          <article class="timeline-day-row tm">
+            <div class="timeline-day-head"><div class="timeline-date">ápr. 29., szerda</div><div class="timeline-stay">Türkmenisztán · 5/7</div></div>
+            <h3>Türkmenisztán</h3>
+            <div class="timeline-note">Fix szervezett nap, továbbra is ugyanazon országon belül. Az overviewn ez a stabil, kevésbé szabdalt ritmus a lényeg.</div>
+          </article>
+          <article class="timeline-day-row tm">
+            <div class="timeline-day-head"><div class="timeline-date">ápr. 30., csütörtök</div><div class="timeline-stay">Türkmenisztán · 6/7</div></div>
+            <h3>Türkmenisztán</h3>
+            <div class="timeline-note">Utolsó előtti türkmen nap. Még mindig guide-logika dominál, nincs önállóan felbontott sightseeing szakasz.</div>
+          </article>
+          <article class="timeline-day-row tm">
+            <div class="timeline-day-head"><div class="timeline-date">máj. 1., péntek</div><div class="timeline-stay">Türkmenisztán · 7/7</div></div>
+            <h3>A türkmen rész lezárása</h3>
+            <div class="timeline-note">Utolsó türkmen nap. A fő logika itt már az, hogy a május 2-i khivai indulás és a délutáni 126ФА vonat simán következzen.</div>
+          </article>
+          <article class="timeline-day-row uz">
+            <div class="timeline-day-head"><div class="timeline-date">máj. 2., szombat</div><div class="timeline-stay">Üzbegisztán · 1/6</div></div>
+            <h3>Khiva → 126ФА → Bukhara</h3>
+            <div class="timeline-note">Rövid khivai blokk, majd kötött vonat `15:15 - 21:22`. Itt indul az önálló, részletesen tervezett üzbég szakasz.</div>
+          </article>
+          <article class="timeline-day-row uz">
+            <div class="timeline-day-head"><div class="timeline-date">máj. 3., vasárnap</div><div class="timeline-stay">Üzbegisztán · 2/6</div></div>
+            <h3>Bukhara teljes nap</h3>
+            <div class="timeline-note">Ez az első teljes, nyugodt üzbég városnap. A timeline-on itt kezd látszani, hogy Bukhara kap valódi súlyt, nem csak átutazás.</div>
+          </article>
+          <article class="timeline-day-row uz">
+            <div class="timeline-day-head"><div class="timeline-date">máj. 4., hétfő</div><div class="timeline-stay">Üzbegisztán · 3/6</div></div>
+            <h3>Bukhara második nap</h3>
+            <div class="timeline-note">Második teljes bukhara-i nap. Ez külön kis dobozként már jobban mutatja, mennyi idő marad ugyanabban a városban.</div>
+          </article>
+          <article class="timeline-day-row uz">
+            <div class="timeline-day-head"><div class="timeline-date">máj. 5., kedd</div><div class="timeline-stay">Üzbegisztán · 4/6</div></div>
+            <h3>Bukhara → 711ФА → Samarkand</h3>
+            <div class="timeline-note">Korai vonat `05:17 - 07:38`, utána már Samarkand fő látnivalói jönnek. Ez egyértelmű váltás a két nagy történelmi város között.</div>
+          </article>
+          <article class="timeline-day-row uz">
+            <div class="timeline-day-head"><div class="timeline-date">máj. 6., szerda</div><div class="timeline-stay">Üzbegisztán · 5/6</div></div>
+            <h3>Samarkand → 767Ф → Tashkent</h3>
+            <div class="timeline-note">Még egy teljes samarkandi nap, majd esti vonat `17:40 - 20:07` Tashkentbe. Itt látszik jól, hogy Samarkand rövidebb, de nagyon intenzív blokk.</div>
+          </article>
+          <article class="timeline-day-row uz">
+            <div class="timeline-day-head"><div class="timeline-date">máj. 7., csütörtök</div><div class="timeline-stay">Üzbegisztán · 6/6</div></div>
+            <h3>Tashkent nap + HY531 Bangkokba</h3>
+            <div class="timeline-note">Rövid fővárosi átmeneti nap, majd HY531 `22:30 - 06:40`. Az üzbég rész lezárása itt már inkább logisztikai kifutás.</div>
+          </article>
+          <article class="timeline-day-row th">
+            <div class="timeline-day-head"><div class="timeline-date">máj. 8., péntek</div><div class="timeline-stay">Koh Samui · 1/6</div></div>
+            <h3>Bangkok → PG115 → Koh Samui</h3>
+            <div class="timeline-note">Reggeli bangkoki érkezés után PG115 `09:15 - 10:45`. Ezzel az út ritmusa teljesen átvált pihenős lezárásra.</div>
+          </article>
+          <article class="timeline-day-row th">
+            <div class="timeline-day-head"><div class="timeline-date">máj. 9., szombat</div><div class="timeline-stay">Koh Samui · 2/6</div></div>
+            <h3>Szabad nap a szigeten</h3>
+            <div class="timeline-note">Már tisztán pihenős nap, komolyabb utazási logisztika nélkül.</div>
+          </article>
+          <article class="timeline-day-row th">
+            <div class="timeline-day-head"><div class="timeline-date">máj. 10., vasárnap</div><div class="timeline-stay">Koh Samui · 3/6</div></div>
+            <h3>Szabad nap a szigeten</h3>
+            <div class="timeline-note">A timeline-on itt látszik jól, hogy a thai szakasz hosszabb, laza lezárásra van hagyva.</div>
+          </article>
+          <article class="timeline-day-row th">
+            <div class="timeline-day-head"><div class="timeline-date">máj. 11., hétfő</div><div class="timeline-stay">Koh Samui · 4/6</div></div>
+            <h3>Szabad nap a szigeten</h3>
+            <div class="timeline-note">Újabb teljes szabad nap. A hosszú közép-ázsiai mozgás után itt már nem a program a hangsúly.</div>
+          </article>
+          <article class="timeline-day-row th">
+            <div class="timeline-day-head"><div class="timeline-date">máj. 12., kedd</div><div class="timeline-stay">Koh Samui · 5/6</div></div>
+            <h3>Utolsó teljes szabad nap</h3>
+            <div class="timeline-note">Az utolsó teljes, helyben töltött nap a hazautazás előtt.</div>
+          </article>
+          <article class="timeline-day-row th">
+            <div class="timeline-day-head"><div class="timeline-date">máj. 13., szerda</div><div class="timeline-stay">Koh Samui · 6/6</div></div>
+            <h3>Nappal még Samui, este indulás</h3>
+            <div class="timeline-note">A nap eleje még a szigeté, este viszont már indul a több szegmenses hazautazás.</div>
+          </article>
+          <article class="timeline-day-row fly">
+            <div class="timeline-day-head"><div class="timeline-date">máj. 13., szerda</div><div class="timeline-stay">hazautazás</div></div>
+            <h3>USM → BKK → IST → BUD</h3>
+            <div class="timeline-note">TK7563 `19:45 - 21:15`, TK53 `23:15 - 05:30`, TK1035 `07:10 - 08:05`. Záró, tisztán logisztikai nap.</div>
+          </article>
         </div>
-        <div class="chevron">▼</div>
-      </div>
-      <div class="day-body">
-        <div class="activities">
-          <div class="act"><div class="act-time">reggel</div><div class="act-icon">🚄</div><div class="act-content"><div class="act-name">Afrosiyob vonat Bukharából Szamarkandba</div><div class="act-detail">~2,5 óra · kellemes utazás · railway.uz-on előre foglalj</div><span class="act-pill pill-train">🚄 Afrosiyob ~2,5 ó</span></div></div>
-          <div class="act"><div class="act-time">délután</div><div class="act-icon">🏛</div><div class="act-content"><div class="act-name">Regisztán tér — első látogatás</div><div class="act-detail">3 medressa egymással szemben · Szamarkand lelke · este még szebb kivilágítva</div></div></div>
-          <div class="act"><div class="act-time">este</div><div class="act-icon">✨</div><div class="act-content"><div class="act-name">Regisztán tér este · kivilágítás</div><div class="act-detail">Az egész utazás egyik csúcspontja — este különösen lenyűgöző</div></div></div>
-        </div>
-        <div class="tip-box"><strong>Vonatjegy:</strong> railway.uz · Bukhara (Kagan) → Samarkand · Afrosiyob vagy Sharq járat · Foglalj legalább 1-2 héttel előre!</div>
+      </section>
+      <div class="stack">
+        <section class="card">
+          <h2 class="section-title">🧭 Országonként</h2>
+          <div class="country-summary-stack">
+            <article class="country-summary-box tm">
+              <h3>Türkmenisztán · 7 nap</h3>
+              <p>Az első nagy blokk egyhelyben, guide-alapú szervezéssel. Itt nem a kézi részletezés a fontos, hanem az, hogy ez egy hosszabb, összefüggő ország-szakasz.</p>
+              <ul>
+                <li><strong>Időtartam:</strong> ápr. 24 esti érkezéstől máj. 1-ig.</li>
+                <li><strong>Ritmus:</strong> guide vezeti, kevés saját improvizációval.</li>
+                <li><strong>Mit látsz az overviewn:</strong> sok egymás utáni nap országváltás nélkül.</li>
+              </ul>
+            </article>
+            <article class="country-summary-box uz">
+              <h3>Üzbegisztán · 6 nap</h3>
+              <p>Ez az út legsűrűbben szervezett, leginkább városról városra épülő része. Itt váltakozik legjobban a helyben töltött idő és a kötött közlekedés.</p>
+              <ul>
+                <li><strong>Fő súlypont:</strong> Bukhara és Samarkand.</li>
+                <li><strong>Kötött szakaszok:</strong> 126ФА, 711ФА, 767Ф, majd HY531.</li>
+                <li><strong>Mit látsz az overviewn:</strong> rövidebb blokkok, több átmenettel.</li>
+              </ul>
+            </article>
+            <article class="country-summary-box th">
+              <h3>Koh Samui · 6 nap</h3>
+              <p>A záró szakasz már nem sightseeing-fókuszú, hanem tudatos tempóváltás. Az overviewn itt látszik a leghosszabb valódi pihenős időablak.</p>
+              <ul>
+                <li><strong>Érkezés:</strong> máj. 8. reggel Bangkokon át.</li>
+                <li><strong>Szabad napok:</strong> máj. 9–12.</li>
+                <li><strong>Mit látsz az overviewn:</strong> kevés mozgás, hosszabb helyben maradás.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+        <section class="card">
+          <h2 class="section-title">🗺 Sematikus útvonal</h2>
+          <div class="overview-map-box">
+            <h3>Türkmenisztán → Üzbegisztán → Koh Samui</h3>
+            <svg class="overview-map" viewBox="0 0 360 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Közép-Ázsia sematikus térkép">
+              <rect x="0" y="0" width="360" height="260" rx="16" fill="#120f18"/>
+              <path d="M58 150 L108 116 L154 110 L202 122 L246 104 L300 130" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="26" stroke-linecap="round"/>
+              <path d="M52 155 L100 120 L140 116" fill="none" stroke="#e8943a" stroke-width="4" stroke-linecap="round"/>
+              <path d="M140 116 L184 128 L230 118" fill="none" stroke="#60d0b0" stroke-width="4" stroke-linecap="round"/>
+              <path d="M230 118 L280 140 L320 180" fill="none" stroke="#6fa8ff" stroke-width="3" stroke-dasharray="7 6" stroke-linecap="round"/>
+              <path d="M320 180 L336 206" fill="none" stroke="#f0c040" stroke-width="4" stroke-linecap="round"/>
+              <g class="map-node" onclick="activateTab('turkmen')">
+                <circle cx="100" cy="120" r="9" fill="#e8943a"/><text x="42" y="113" class="map-label">Ashgabat</text>
+                <text x="42" y="127" class="map-note">04.24–05.01</text>
+              </g>
+              <g class="map-node" onclick="activateTab('uzbek')">
+                <circle cx="140" cy="116" r="7" fill="#60d0b0"/><text x="126" y="100" class="map-label">Khiva</text>
+              </g>
+              <g class="map-node" onclick="activateTab('uzbek')">
+                <circle cx="184" cy="128" r="7" fill="#60d0b0"/><text x="170" y="147" class="map-label">Bukhara</text>
+              </g>
+              <g class="map-node" onclick="activateTab('uzbek')">
+                <circle cx="230" cy="118" r="7" fill="#60d0b0"/><text x="238" y="112" class="map-label">Samarkand</text>
+              </g>
+              <g class="map-node" onclick="activateTab('uzbek')">
+                <circle cx="280" cy="140" r="8" fill="#60d0b0"/><text x="288" y="136" class="map-label">Tashkent</text>
+                <text x="288" y="150" class="map-note">HY531</text>
+              </g>
+              <g class="map-node" onclick="activateTab('samui')">
+                <circle cx="336" cy="206" r="10" fill="#f0c040"/><text x="264" y="204" class="map-label">Koh Samui</text>
+                <text x="264" y="218" class="map-note">05.08–05.13</text>
+              </g>
+            </svg>
+          </div>
+        </section>
+        <section class="card">
+          <h2 class="section-title">✈ Fő utazások</h2>
+          <div class="flight-strip">
+            <div class="flight-card">
+              <div class="icon">✈</div>
+              <div><h3>BUD → IST → ASB</h3><p>TK1036 és TK320 · 2026.04.24 · Budapestből ugyanazon a napon megvan az ashgabati érkezés.</p></div>
+            </div>
+            <div class="flight-card train">
+              <div class="icon">🚆</div>
+              <div><h3>Üzbég kötött szakaszok</h3><p>Khiva → Bukhara · Bukhara → Samarkand · Samarkand → Tashkent, a megadott konkrét vonatokkal.</p></div>
+            </div>
+            <div class="flight-card">
+              <div class="icon">✈</div>
+              <div><h3>TAS → BKK → USM</h3><p>05.07 éjjel indulás Tashkentből, 05.08 reggel Koh Samui érkezéssel.</p></div>
+            </div>
+          </div>
+        </section>
+        <section class="card">
+          <h2 class="section-title">⚠️ Most fontos</h2>
+          <ul class="summary-badges">
+            <li><span class="badge tm">TM</span><strong>Türkmen guide és vízumlogika</strong> legyen fixálva időben.</li>
+            <li><span class="badge uz">UZ</span><strong>Üzbég vonatok</strong> a megadott számokkal kerüljenek lefoglalásra.</li>
+            <li><span class="badge th">TH</span><strong>Bangkok Airways PG115</strong> csatlakozásra hagyj tartalékot.</li>
+          </ul>
+        </section>
       </div>
     </div>
+  </section>
 
-    <!-- NAP 6 -->
-    <div class="day-card day-uz">
-      <div class="day-head" onclick="toggleDay(this)">
-        <div class="day-num">6</div>
-        <div class="day-head-info">
-          <div class="day-date">Április 29 · Kedd</div>
-          <div class="day-title">Szamarkand — Shah-i-Zinda + Gur-e-Amir</div>
-          <div class="day-sub">UNESCO · Timur mauzóleuma · kékcsempés nekropolisz</div>
-          <div class="day-tags"><span class="tag tag-unesco">★ UNESCO</span><span class="tag tag-hotel">🛏 Szamarkand hotel</span></div>
+  <section class="view" data-view="turkmen">
+    <div class="section-head">
+      <h2><span>2026. április 24 – május 1</span>Türkmenisztán</h2>
+      <span class="country-pill tm">Guide-alapú szakasz</span>
+    </div>
+    <details class="country-context tm" open>
+      <summary>📚 Türkmenisztán rövid országkép</summary>
+      <div class="country-context-body">
+        <div class="context-grid">
+          <article class="context-card">
+            <h3>Földrajz</h3>
+            <p>Türkmenisztán Közép-Ázsia délnyugati részén fekszik, nyugaton a Kaszpi-tengerrel, délen Iránnal, délkeleten Afganisztánnal, északon pedig Üzbegisztánnal és Kazahsztánnal határos. Területének döntő része a Karakum-sivataghoz tartozik, ezért a lakosság, a mezőgazdaság és a városi élet az oázisok, folyó menti térségek és a déli peremvidék felé sűrűsödik. Ez a földrajzi szerkezet adja az ország sajátos ritmusát is: nagy távolságok, sok üres tér, kevés sűrűn lakott csomópont.</p>
+          </article>
+          <article class="context-card">
+            <h3>Történelem</h3>
+            <p>A térség a korai selyemúti világ része volt, később türkmen törzsi világ, perzsa, türk és orosz-szovjet befolyások rétegződtek rá. A mai türkmen identitásban egyszerre van jelen a nomád törzsi múlt, az oázisvárosi emlékezet és a szovjet modernizáció öröksége. A modern Türkmenisztán a szovjet korszakból nőtt ki, 1991-ben lett független, utána pedig erősen személyi kultuszra épülő, zárt állami rendszer alakult ki, amely a mai napig meghatározza az ország nemzetközi képét.</p>
+          </article>
+          <article class="context-card">
+            <h3>Politikai rendszer</h3>
+            <p>Türkmenisztán erősen központosított, elnöki rendszerű állam. A függetlenség óta a politikai életet szűk hatalmi kör és korlátozott pluralizmus jellemzi; a jelenlegi államfő Serdar Berdimuhamedow. Utazóként ez főleg abban látszik, hogy a belépés, a guide-rendszer, a hivatalos engedélyek és a helyi mozgás jóval szabályozottabb, mint Üzbegisztánban. A politikai zártság nem elvont háttérinformáció, hanem a gyakorlatban is alakítja az utazás szabadságfokát.</p>
+          </article>
+          <article class="context-card">
+            <h3>Gazdaság</h3>
+            <p>A gazdaság kulcsa a földgáz, emellett fontos még a gyapot, a textilipar és a nagy állami infrastrukturális beruházások világa. A felszínen monumentális, államvezérelt modernizáció látszik, miközben a külső megfigyelők gyakran kiemelik a zárt információs közeget és a mindennapi ellátás egyenetlenségeit is. Ez a kettősség az egyik legérdekesebb vonása az országnak: egyszerre látványos reprezentáció és korlátozott, nehezebben hozzáférhető hétköznapi valóság.</p>
+          </article>
+          <article class="context-card">
+            <h3>Kultúra</h3>
+            <p>A türkmen identitásban erős a nomád örökség, a törzsi múlt, a ló- és szőnyegkultúra, valamint a sivatagi térélmény. A nemzeti szimbólumok között különösen hangsúlyos a türkmen szőnyeg, az Akhal-Teke ló és a Karakum-sivataghoz kötődő életforma emlékezete. Kulturálisan ez kevésbé a nagy, turistákra komponált műemléki csomópontokban jelenik meg, inkább a reprezentációban, a motívumvilágban és abban, ahogyan az állam a türkmen identitást önmagáról bemutatja.</p>
+          </article>
+          <article class="context-card">
+            <h3>Miért érdekes ezen az úton</h3>
+            <p>Ez a szakasz azért különleges, mert nem klasszikus backpacker-logikájú ország, hanem részben szervezett, guide-vezérelt élmény. Emiatt itt kevésbé a szabad városi csatangolás a lényeg, inkább az, hogy egy ritkábban látott, politikailag zártabb közép-ázsiai világba kapsz betekintést. A türkmen blokk ezért az egész út hangulatát is meghatározza: ez a nehezebben elérhető, különlegesebb, kevésbé hétköznapi első felvonás.</p>
+          </article>
         </div>
-        <div class="chevron">▼</div>
-      </div>
-      <div class="day-body">
-        <div class="activities">
-          <div class="act"><div class="act-time">reggel</div><div class="act-icon">🕌</div><div class="act-content"><div class="act-name">Shah-i-Zinda nekropolisz</div><div class="act-detail">Egymás melletti mauzóleumok sora kék-türkiz csempékkel · a leglátványosabb helyszín Szamarkandban</div></div></div>
-          <div class="act"><div class="act-time">délelőtt</div><div class="act-icon">👑</div><div class="act-content"><div class="act-name">Gur-e-Amir mauzóleum</div><div class="act-detail">Timur (Tamerlán) és utódainak síremléke · hatalmas bordás kupola</div></div></div>
-          <div class="act"><div class="act-time">dél</div><div class="act-icon">🍽</div><div class="act-content"><div class="act-name">Ebéd a városban</div></div></div>
-          <div class="act"><div class="act-time">délután</div><div class="act-icon">🕌</div><div class="act-content"><div class="act-name">Bibi-Khanym mecset</div><div class="act-detail">Timur hatalmas mecsetje · részben rekonstruált · impozáns méretű</div></div></div>
-          <div class="act"><div class="act-time">este</div><div class="act-icon">🌙</div><div class="act-content"><div class="act-name">Regisztán tér este · fény-hang show</div><div class="act-detail">Ha van fény-hang show azon a napon, kötelező megnézni</div></div></div>
+        <div class="context-map">
+          <img src="https://www.nationsonline.org/maps/turkmenistan-political-map.jpg" alt="Türkmenisztán politikai térképe a Nations Online oldaláról">
+          <p>Forrás: Nations Online Project. A térkép jelöli Ashgabatot, a főbb wilayat-központokat, utakat, vasútvonalakat, repülőtereket és a fontos földrajzi elemeket. A forrásoldal szerint oktatási célra használható, forrásmegjelöléssel.</p>
+        </div>
+        <div class="context-sources">
+          <a class="source-chip" href="https://en.wikipedia.org/wiki/Turkmenistan" target="_blank" rel="noopener noreferrer">Wikipedia · ország</a>
+          <a class="source-chip" href="https://en.wikipedia.org/wiki/Politics_of_Turkmenistan" target="_blank" rel="noopener noreferrer">Wikipedia · politika</a>
+          <a class="source-chip" href="https://en.wikipedia.org/wiki/Economy_of_Turkmenistan" target="_blank" rel="noopener noreferrer">Wikipedia · gazdaság</a>
+          <a class="source-chip" href="https://www.britannica.com/place/Turkmenistan" target="_blank" rel="noopener noreferrer">Britannica</a>
+          <a class="source-chip" href="https://nationsonline.org/oneworld/map/turkmenistan-political-map.htm" target="_blank" rel="noopener noreferrer">Nations Online · térkép</a>
         </div>
       </div>
+    </details>
+    <div class="summary-grid">
+      <article class="summary-card tm">
+        <h3>✈ Belépés és alaplogika</h3>
+        <p>Az út a megadott TK1036 + TK320 járatokkal indul: BUD → IST → ASB. Itt nem kell külön részletes napi itinerary, mert a türkmen rész guide-dal megy, ezért a fókusz a fix belépési és helyi szervezési logikán van.</p>
+        <ul>
+          <li><strong>04.24:</strong> BUD 09:00 → IST 12:15</li>
+          <li><strong>04.24:</strong> IST 14:15 → ASB 19:50</li>
+          <li><strong>04.25–05.01:</strong> 7 türkmen nap guide-dal</li>
+        </ul>
+      </article>
+      <article class="summary-card tm">
+        <h3>📍 Mit érdemes fejben tartani</h3>
+        <p>Mivel a türkmen szakaszt helyi guide viszi, itt az a fontos, hogy a napi részletek ne duplikálják a szervező anyagát. Ehelyett érdemes a fix átutazási pontokat, a papírokat, a készpénzt és a kommunikációt tisztán látni.</p>
+        <ul>
+          <li><strong>Guide kötelező</strong> és a program ritmusa hozzá igazodik.</li>
+          <li><strong>USD készpénz</strong> továbbra is kulcskérdés.</li>
+          <li><strong>Net / fotózás / admin</strong> erősen korlátozottabb, mint UZ-ban.</li>
+        </ul>
+      </article>
+      <article class="summary-card tm">
+        <h3>➡ Átmenet Üzbegisztánba</h3>
+        <p>A te megadott végleges logikád szerint az üzbég szakasz 2026. május 2-án indul Khivával, onnan rögtön délutáni vonattal Bukhara felé. Emiatt a türkmen lezárásnál az a fő cél, hogy a váltás a lehető legsimább legyen.</p>
+        <ul>
+          <li><strong>Máj. 2:</strong> már Khiva a kiindulópont</li>
+          <li><strong>15:15 - 21:22:</strong> Khiva → Bukhara vonat</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="view" data-view="uzbek">
+    <div class="section-head">
+      <h2><span>2026. május 2 – május 7</span>Üzbegisztán</h2>
+      <span class="country-pill uz">Részletes napi terv</span>
     </div>
 
-    <!-- NAP 7 -->
-    <div class="day-card day-uz">
-      <div class="day-head" onclick="toggleDay(this)">
-        <div class="day-num">7</div>
-        <div class="day-head-info">
-          <div class="day-date">Április 30 · Szerda</div>
-          <div class="day-title">Szamarkand → Shavat határ</div>
-          <div class="day-sub">Autóval a TM határig · délután átkelés</div>
-          <div class="day-tags"><span class="tag tag-transit">🚶 határátkelő</span></div>
+    <details class="country-context uz" open>
+      <summary>📚 Üzbegisztán rövid országkép</summary>
+      <div class="country-context-body">
+        <div class="context-grid">
+          <article class="context-card">
+            <h3>Földrajz</h3>
+            <p>Üzbegisztán tengerpart nélküli közép-ázsiai állam, amely a Turan-alföld, a Kizilkum-sivatag, a Fergana-medence és a keleti hegyvidékek között feszül ki. A történelmi városok főként a nagy oázisövezetekben és folyóvölgyi csomópontokban alakultak ki, ezért a földrajz közvetlenül meghatározza azt is, hogyan áll össze az utazási logika. A térképén jól látszik, hogy a városok nem véletlenszerűen szóródnak, hanem az egykori kereskedelmi és vízhez kötött tengelyeket követik.</p>
+          </article>
+          <article class="context-card">
+            <h3>Történelem</h3>
+            <p>Az ország területe a selyemúti civilizáció egyik központja volt, ahol perzsa, török, iszlám és mongol-timurida rétegek rakódtak egymásra. Samarkand és Bukhara évszázadokon át tudományos, vallási és kereskedelmi központ volt; a timurida korszak különösen erős művészeti és építészeti örökséget hagyott maga után. A modern állam a szovjet korszak után, 1991-ben vált függetlenné, de a mai nemzeti önképben egyszerre fontos a timurida múlt, a szovjet örökség és a független államépítés narratívája.</p>
+          </article>
+          <article class="context-card">
+            <h3>Politikai rendszer</h3>
+            <p>Üzbegisztán elnöki köztársaság, jelenlegi elnöke Shavkat Mirziyoyev. Az utóbbi években a külső nyitás, a turizmus és a gazdasági reformok hangsúlyosabbak lettek, ezért az ország ma sokkal nyitottabban és utazóbarátabban működik, mint a korábbi, zártabb időszakokban. Ez nem jelenti, hogy teljesen nyugati értelemben vett nyitott demokráciáról lenne szó, de a mindennapi utazói élményben jól érzékelhető a lazább, praktikusabb működés.</p>
+          </article>
+          <article class="context-card">
+            <h3>Gazdaság</h3>
+            <p>Az ország gazdaságában fontos a gyapot, az arany, a földgáz, a mezőgazdaság és az ipar, de az utazó számára leginkább az látszik, hogy a történelmi városok köré épülő turizmus erősödik. Bukhara és Samarkand nemcsak kulturális, hanem gazdasági kirakat is: jól mutatják az ország nyitását és szolgáltatási fejlődését. A vasúti kapcsolatok, a felújított központok és a turisztikai szolgáltatások együtt azt az érzetet adják, hogy az ország tudatosan építi magát regionális célpontként.</p>
+          </article>
+          <article class="context-card">
+            <h3>Kultúra</h3>
+            <p>Üzbegisztán kulturális magja a Selyemút-városokban, a timurida örökségben, az iszlám építészetben és a bazárkultúrában van. Samarkand monumentalitása, Bukhara vallási és kereskedelmi múltja, valamint a mindennapi tea- és kenyérkultúra együtt adják azt az élményt, amiért az ország ennyire erős utazási célpont. Kulturálisan ez az egyik legsűrűbb része Közép-Ázsiának: látványban, történetben és városi atmoszférában egyszerre sokat ad.</p>
+          </article>
+          <article class="context-card">
+            <h3>Miért érdekes ezen az úton</h3>
+            <p>Ez az út legjobban tervezhető része: egymás után jönnek a legerősebb történelmi városok, kötött vonatokkal összekötve. Pont ettől működik jól, hogy a politikai-gazdasági háttér mellett a kulturális sűrűség is magas, és rövid idő alatt nagyon sokat ad az ország. A türkmen blokk különlegessége után itt jön a klasszikus, vizuálisan legsűrűbb közép-ázsiai rész, amit a legtöbben fejben “Selyemút” alatt elképzelnek.</p>
+          </article>
         </div>
-        <div class="chevron">▼</div>
-      </div>
-      <div class="day-body">
-        <div class="activities">
-          <div class="act"><div class="act-time">reggel</div><div class="act-icon">🏨</div><div class="act-content"><div class="act-name">Szamarkand checkout</div><div class="act-detail">Reggeli után indulás a határ felé</div></div></div>
-          <div class="act"><div class="act-time">egész nap</div><div class="act-icon">🚗</div><div class="act-content"><div class="act-name">Szamarkand → Shavat/Shabat határátkelő</div><div class="act-detail">~350 km · autóval ~4-5 óra · Urgench/Nukus irányba</div><span class="act-pill pill-car">🚗 ~4-5 óra</span></div></div>
-          <div class="act"><div class="act-time">délután</div><div class="act-icon">🚶</div><div class="act-content"><div class="act-name">Shavat határátkelő — Türkmenisztánba lépés</div><div class="act-detail">2-4 óra várakozás lehet · LOI és útlevél előkészítve · türelmet igényel</div><span class="act-pill pill-walk">🚶 határátkelő</span></div></div>
-          <div class="act"><div class="act-time">este</div><div class="act-icon">🏨</div><div class="act-content"><div class="act-name">🇹🇲 Türkmenisztán — fogadás és szállás</div><div class="act-detail">Az ORG guide vár a türkmén oldalon · Dashoguz hotel vagy Kunya Urgench</div></div></div>
+        <div class="context-map">
+          <img src="https://www.nationsonline.org/maps/Uzbekistan-Map.jpg" alt="Üzbegisztán politikai térképe a Nations Online oldaláról">
+          <p>Forrás: Nations Online Project. A térkép jelöli Tashkentet, a viloyat-központokat, a főbb városokat, vasutakat, repülőtereket és a fő földrajzi elemeket. A forrásoldal szerint oktatási és hasonló célokra használható, forrásmegjelöléssel.</p>
         </div>
-        <div class="tip-box"><strong>Fontos:</strong> A Shavat határátkelő lassú lehet. Legyen nálad nyomtatva az LOI, az útlevél érvényes, és USD készpénz a vízum díjra (85+4 USD) és migrációs adóra (10+4 USD).</div>
+        <div class="context-sources">
+          <a class="source-chip" href="https://en.wikipedia.org/wiki/Uzbekistan" target="_blank" rel="noopener noreferrer">Wikipedia · ország</a>
+          <a class="source-chip" href="https://en.wikipedia.org/wiki/Politics_of_Uzbekistan" target="_blank" rel="noopener noreferrer">Wikipedia · politika</a>
+          <a class="source-chip" href="https://en.wikipedia.org/wiki/Economy_of_Uzbekistan" target="_blank" rel="noopener noreferrer">Wikipedia · gazdaság</a>
+          <a class="source-chip" href="https://www.britannica.com/place/Uzbekistan" target="_blank" rel="noopener noreferrer">Britannica</a>
+          <a class="source-chip" href="https://www.nationsonline.org/oneworld/map/uzbekistan-political-map.htm" target="_blank" rel="noopener noreferrer">Nations Online · térkép</a>
+        </div>
       </div>
-    </div>
+    </details>
 
-  </div>
-</div>
-
-<!-- ═══ TÜRKMENISZTÁN ═══ -->
-<div class="section" id="tab-turkmen">
-  <div class="sec-head">
-    <h2><span>Máj. 1 – Máj. 7 · 7 nap</span>🇹🇲 Türkmenisztán</h2>
-    <span class="country-badge tm-badge">ORG Final program alapján</span>
-  </div>
-
-  <div class="days">
-
-    <!-- NAP 1 TM -->
-    <div class="day-card day-tm open">
-      <div class="day-head" onclick="toggleDay(this)">
-        <div class="day-num">1</div>
-        <div class="day-head-info">
-          <div class="day-date">Május 1 · Péntek</div>
-          <div class="day-title">Kunya Urgench (UNESCO)</div>
-          <div class="day-sub">Határ után — középkori Khorezm főváros</div>
-          <div class="day-tags"><span class="tag tag-unesco">★ UNESCO</span><span class="tag tag-hotel">🛏 Dashoguz hotel</span></div>
+    <div class="card" style="margin-bottom:16px">
+      <h2 class="section-title">🚆 Kötött közlekedések</h2>
+      <div class="flight-strip">
+        <div class="flight-card train">
+          <div class="icon">🚆</div>
+          <div><h3>Khiva → Bukhara · 126ФА</h3><p>2026.05.02 · KHI → BUK · 15:15 - 21:22</p></div>
         </div>
-        <div class="chevron">▼</div>
-      </div>
-      <div class="day-body">
-        <div class="activities">
-          <div class="act"><div class="act-time">délelőtt</div><div class="act-icon">🕌</div><div class="act-content"><div class="act-name">Kunya Urgench — teljes UNESCO látogatás</div><div class="act-detail">Kutlug Timur minaret (62 m, Közép-Ázsia legmagasabb) · Tyurabek-Khanum mauzóleum · Sultan Tekesh · Fakhreddin Razi</div></div></div>
-          <div class="act"><div class="act-time">este</div><div class="act-icon">🏨</div><div class="act-content"><div class="act-name">Dashoguz hotel</div><div class="act-detail">Az ORG guide-dal továbbtervezés</div></div></div>
+        <div class="flight-card train">
+          <div class="icon">🚆</div>
+          <div><h3>Bukhara → Samarkand · 711ФА</h3><p>2026.05.05 · BUK → SAM · 05:17 - 07:38</p></div>
         </div>
-      </div>
-    </div>
-
-    <!-- NAP 2 TM -->
-    <div class="day-card day-tm">
-      <div class="day-head" onclick="toggleDay(this)">
-        <div class="day-num">2</div>
-        <div class="day-head-info">
-          <div class="day-date">Május 2 · Szombat</div>
-          <div class="day-title">Dashoguz → Darwaza 🔥</div>
-          <div class="day-sub">Karakum sivatag · "Pokol Kapuja" · jurt éjszaka</div>
-          <div class="day-tags"><span class="tag tag-fire">🔥 Darwaza</span><span class="tag tag-hotel">🛏 Jurt tábor</span></div>
-        </div>
-        <div class="chevron">▼</div>
-      </div>
-      <div class="day-body">
-        <div class="activities">
-          <div class="act"><div class="act-time">reggel</div><div class="act-icon">🚗</div><div class="act-content"><div class="act-name">Dashoguz → Darwaza</div><div class="act-detail">~5 óra autóút a Karakum sivatagon át</div><span class="act-pill pill-car">🚗 ~5 ó sivatag</span></div></div>
-          <div class="act"><div class="act-time">napkelte</div><div class="act-icon">🔥</div><div class="act-content"><div class="act-name">Darwaza gázkráter — első látogatás nappal</div><div class="act-detail">70 m széles, 1971 óta ég folyamatosan · nappal is látványos</div></div></div>
-          <div class="act"><div class="act-time">este</div><div class="act-icon">🍖</div><div class="act-content"><div class="act-name">BBQ vacsora a kráter közelében</div><div class="act-detail">Tradicionális türkmén BBQ · csillagos ég</div></div></div>
-          <div class="act"><div class="act-time">éjjel</div><div class="act-icon">🌙</div><div class="act-content"><div class="act-name">Kráter éjjel — kötelező séta</div><div class="act-detail">A legintenzívebb élmény — a tűz éjjel messzire látszik, hőt érezni</div></div></div>
-        </div>
-        <div class="tip-box"><strong>Praktikus:</strong> Hozz fejlámpát, szél elleni kabátot (éjjel hideg a sivatagban). A jurttáborban nincs zuhany, alapvető WC van. Előre foglalj!</div>
-      </div>
-    </div>
-
-    <!-- NAP 3 TM -->
-    <div class="day-card day-tm">
-      <div class="day-head" onclick="toggleDay(this)">
-        <div class="day-num">3</div>
-        <div class="day-head-info">
-          <div class="day-date">Május 3 · Vasárnap</div>
-          <div class="day-title">Darwaza → Ashgabat</div>
-          <div class="day-sub">Két kis kráter útközben · városba érkezés</div>
-          <div class="day-tags"><span class="tag tag-hotel">🛏 Ashgabat hotel</span></div>
-        </div>
-        <div class="chevron">▼</div>
-      </div>
-      <div class="day-body">
-        <div class="activities">
-          <div class="act"><div class="act-time">hajnal</div><div class="act-icon">🌅</div><div class="act-content"><div class="act-name">Kráter napfelkeltekor</div><div class="act-detail">Reggeli fény a kráter felett — fotózáshoz ideális</div></div></div>
-          <div class="act"><div class="act-time">reggel</div><div class="act-icon">🚗</div><div class="act-content"><div class="act-name">Darwaza → Ashgabat · 2 kis kráter megállóval</div><div class="act-detail">Iszapkráter + vízkráter útközben · ~4 óra összesen</div><span class="act-pill pill-4x4">4x4 ~4 ó</span></div></div>
-          <div class="act"><div class="act-time">este</div><div class="act-icon">🏙</div><div class="act-content"><div class="act-name">Ashgabat — fehér márványváros</div><div class="act-detail">Szállás, pihenés · este opcionálisan Alem Ferris kerék kivilágítva</div></div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- NAP 4 TM -->
-    <div class="day-card day-tm">
-      <div class="day-head" onclick="toggleDay(this)">
-        <div class="day-num">4</div>
-        <div class="day-head-info">
-          <div class="day-date">Május 4 · Hétfő</div>
-          <div class="day-title">Ashgabat városnézés + Nissa (UNESCO)</div>
-          <div class="day-sub">Fehér márványváros · Kipchak mecset · Parthus romok</div>
-          <div class="day-tags"><span class="tag tag-unesco">★ UNESCO</span><span class="tag tag-hotel">🛏 Ashgabat hotel</span></div>
-        </div>
-        <div class="chevron">▼</div>
-      </div>
-      <div class="day-body">
-        <div class="activities">
-          <div class="act"><div class="act-time">reggel</div><div class="act-icon">🕌</div><div class="act-content"><div class="act-name">Turkmenbashi Ruhi Mosque (Kipchak)</div><div class="act-detail">Közép-Ázsia legnagyobb mecsetje · Niyazov elnök mauzóleuma mellette</div></div></div>
-          <div class="act"><div class="act-time">délelőtt</div><div class="act-icon">🏛</div><div class="act-content"><div class="act-name">Nissa (UNESCO) — Parthus erőd</div><div class="act-detail">Kr.e. 3 – Kr.u. 3. sz. · a Kopet-dag hegyek lábánál · kilátás Ashgabatra</div></div></div>
-          <div class="act"><div class="act-time">délután</div><div class="act-icon">🏙</div><div class="act-content"><div class="act-name">Ashgabat városnézés</div><div class="act-detail">Semlegességi Ív · Függetlenségi Park · Gulistan bazár · fehér márványépületek</div></div></div>
-          <div class="act"><div class="act-time">este</div><div class="act-icon">🎡</div><div class="act-content"><div class="act-name">Alem Center · Ferris kerék · Palace of Happiness</div><div class="act-detail">Guinness-rekord ferriskerék · éjjel kivilágítva különösen látványos</div></div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- NAP 5 TM -->
-    <div class="day-card day-tm">
-      <div class="day-head" onclick="toggleDay(this)">
-        <div class="day-num">5</div>
-        <div class="day-head-info">
-          <div class="day-date">Május 5 · Kedd</div>
-          <div class="day-title">✈️ Ashgabat → Merv (UNESCO) → Mary</div>
-          <div class="day-sub">Selyemút legnagyobb városa · belföldi repülővel</div>
-          <div class="day-tags"><span class="tag tag-unesco">★ UNESCO</span><span class="tag tag-transit">✈️ belföldi</span><span class="tag tag-hotel">🛏 Ashgabat hotel</span></div>
-        </div>
-        <div class="chevron">▼</div>
-      </div>
-      <div class="day-body">
-        <div class="activities">
-          <div class="act"><div class="act-time">hajnal</div><div class="act-icon">✈️</div><div class="act-content"><div class="act-name">✈️ Ashgabat → Mary (belföldi)</div><div class="act-detail">Korai reggeli járat · ~50 perc · az ORG foglalja</div><span class="act-pill pill-fly">✈️ belföldi</span></div></div>
-          <div class="act"><div class="act-time">reggel</div><div class="act-icon">🏛</div><div class="act-content"><div class="act-name">Anau romváros útközben</div><div class="act-detail">7000 éves település romjai · Ashgabat közelében</div></div></div>
-          <div class="act"><div class="act-time">délelőtt</div><div class="act-icon">🏟</div><div class="act-content"><div class="act-name">Merv (UNESCO) — teljes látogatás</div><div class="act-detail">Sultan Sanjar mauzóleum · Gyz Gala · Erk Gala · Oglan Gala · Yusuf Hamadani mecset · 4000 éves történelem</div></div></div>
-          <div class="act"><div class="act-time">délután</div><div class="act-icon">✈️</div><div class="act-content"><div class="act-name">Mary repülőtér → ✈️ Ashgabat</div><span class="act-pill pill-fly">✈️ Mary → Ashgabat</span></div></div>
-          <div class="act"><div class="act-time">este</div><div class="act-icon">🏨</div><div class="act-content"><div class="act-name">Ashgabat hotel · pihenés</div></div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- NAP 6 TM -->
-    <div class="day-card day-tm">
-      <div class="day-head" onclick="toggleDay(this)">
-        <div class="day-num">6</div>
-        <div class="day-head-info">
-          <div class="day-date">Május 6 · Szerda</div>
-          <div class="day-title">Ashgabat → Yangikala 4x4 → Balkanabad</div>
-          <div class="day-sub">Karakum-kanyonok · 4x4 terepjáró · Gozli Ata</div>
-          <div class="day-tags"><span class="tag tag-nature">🏔 Yangikala</span><span class="tag tag-hotel">🛏 Balkanabad hotel</span></div>
-        </div>
-        <div class="chevron">▼</div>
-      </div>
-      <div class="day-body">
-        <div class="activities">
-          <div class="act"><div class="act-time">reggel</div><div class="act-icon">🚗</div><div class="act-content"><div class="act-name">Ashgabat → Turkmenbashi irány → Yangikala</div><div class="act-detail">~390 km · reggel indulás · útközben Gozli Ata zarándokhely</div><span class="act-pill pill-4x4">4x4 ~390 km</span></div></div>
-          <div class="act"><div class="act-time">délelőtt</div><div class="act-icon">🏔</div><div class="act-content"><div class="act-name">Yangikala kanyonok</div><div class="act-detail">Fehér-rózsaszín-narancs mészkősziklák · "Közép-Ázsia Grand Canyonja" · picnic ebéd</div></div></div>
-          <div class="act"><div class="act-time">délután</div><div class="act-icon">🕌</div><div class="act-content"><div class="act-name">Gozli Ata zarándokhely</div><div class="act-detail">Helyi muzulmán zarándokhelyszín · különleges atmoszféra</div></div></div>
-          <div class="act"><div class="act-time">este</div><div class="act-icon">🏨</div><div class="act-content"><div class="act-name">Balkanabad — Nebitchi hotel</div></div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- NAP 7 TM -->
-    <div class="day-card day-tm">
-      <div class="day-head" onclick="toggleDay(this)">
-        <div class="day-num">7</div>
-        <div class="day-head-info">
-          <div class="day-date">Május 7 · Csütörtök</div>
-          <div class="day-title">Nohur 🥾 + Kow-Ata 🌊 → Ashgabat ✈️</div>
-          <div class="day-sub">Hegyifalu · 34°C barlangitó · repülő Koh Samui-ra</div>
-          <div class="day-tags"><span class="tag tag-nature">🥾 Nohur</span><span class="tag tag-nature">🌊 Kow-Ata</span><span class="tag tag-transit">✈️ ASB→USM</span></div>
-        </div>
-        <div class="chevron">▼</div>
-      </div>
-      <div class="day-body">
-        <div class="activities">
-          <div class="act"><div class="act-time">reggel</div><div class="act-icon">🥾</div><div class="act-content"><div class="act-name">Nohur hegyifalu — gyalogos túra</div><div class="act-detail">Kopet-dag · öreg Chinar fa · törzsi temető kos szarvakkal · picnic</div><span class="act-pill pill-4x4">4x4</span></div></div>
-          <div class="act"><div class="act-time">délután</div><div class="act-icon">🌊</div><div class="act-content"><div class="act-name">Kow-Ata barlangitó</div><div class="act-detail">Föld alatti ásványos tó · 34-37°C · úszni lehet · természetes wellness</div></div></div>
-          <div class="act"><div class="act-time">este</div><div class="act-icon">🚗</div><div class="act-content"><div class="act-name">→ Ashgabat repülőtér</div><span class="act-pill pill-car">🚗 autó</span></div></div>
-          <div class="act"><div class="act-time">éjjel</div><div class="act-icon">✈️</div><div class="act-content"><div class="act-name">✈️ Ashgabat (ASB) → Koh Samui (USM)</div><div class="act-detail">Valószínűleg Bangkok (BKK) átszállással · éjszakai repülés</div><span class="act-pill pill-fly">✈️ ASB → USM</span></div></div>
-        </div>
-        <div class="tip-box"><strong>Fontos:</strong> A program utolsó napja intenzív — Nohur + Kow-Ata után este kell a repülőtérre érni. Az ORG-gal egyeztetni a menetrendet!</div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- ═══ KOH SAMUI ═══ -->
-<div class="section" id="tab-thailand">
-  <div class="sec-head">
-    <h2><span>Máj. 7 – Máj. 13 · 6 nap</span>🇹🇭 Koh Samui</h2>
-    <span class="country-badge th-badge">Pihenés · Beach · Megérdemelt nyaralás</span>
-  </div>
-
-  <!-- Repülő info -->
-  <div class="flight-card">
-    <div class="fc-icon">✈️</div>
-    <div class="fc-main">
-      <div class="fc-route">Ashgabat (ASB) → Koh Samui (USM)</div>
-      <div class="fc-detail">Bangkok (BKK/DMK) átszállással · éjszakai repülés · reggel érkezés Samui-ra</div>
-    </div>
-    <div class="fc-date">Máj. 7 → 8</div>
-  </div>
-
-  <div class="days">
-
-    <div class="day-card day-th open">
-      <div class="day-head" onclick="toggleDay(this)">
-        <div class="day-num">1</div>
-        <div class="day-head-info">
-          <div class="day-date">Május 8 · Péntek</div>
-          <div class="day-title">Érkezés Koh Samuira — pihenés</div>
-          <div class="day-sub">Resort bejelentkezés · strand · semmi program</div>
-          <div class="day-tags"><span class="tag tag-hotel">🛏 Beach resort</span></div>
-        </div>
-        <div class="chevron">▼</div>
-      </div>
-      <div class="day-body">
-        <div class="activities">
-          <div class="act"><div class="act-time">reggel</div><div class="act-icon">✈️</div><div class="act-content"><div class="act-name">Koh Samui (USM) — érkezés</div><div class="act-detail">Bangkok után rövid belföldi · resort transzfer</div></div></div>
-          <div class="act"><div class="act-time">egész nap</div><div class="act-icon">🏖</div><div class="act-content"><div class="act-name">Strand · úszás · pihenés</div><div class="act-detail">Chaweng, Lamai vagy Bophut beach · megérdemelt relaxálás a sivatag után</div></div></div>
-        </div>
-        <div class="tip-box">Koh Samui egyik legjobb strandja: <strong>Bophut (Fisherman's Village)</strong> — csendesebb, este szép sétáló utca halászhajókkal. A turistásabb de jobb strandért: <strong>Chaweng</strong>.</div>
-      </div>
-    </div>
-
-    <div class="day-card day-th">
-      <div class="day-head" onclick="toggleDay(this)">
-        <div class="day-num">2–5</div>
-        <div class="day-head-info">
-          <div class="day-date">Május 9–12</div>
-          <div class="day-title">Koh Samui — szabad program</div>
-          <div class="day-sub">Strand · snorkeling · thai masszázs · Ang Thong Nemzeti Park</div>
-          <div class="day-tags"><span class="tag tag-nature">🤿 snorkel</span><span class="tag tag-food">🍜 thai konyha</span></div>
-        </div>
-        <div class="chevron">▼</div>
-      </div>
-      <div class="day-body">
-        <div class="activities">
-          <div class="act"><div class="act-time">opció</div><div class="act-icon">🏝</div><div class="act-content"><div class="act-name">Ang Thong Nemzeti Park kirándulás</div><div class="act-detail">Szigetcsoport kajakozással · egy napos túra Samui-ból · előre foglalj</div></div></div>
-          <div class="act"><div class="act-time">opció</div><div class="act-icon">🤿</div><div class="act-content"><div class="act-name">Snorkeling / búvárkodás</div><div class="act-detail">Koh Tao a legjobb búvárhelyszín a közelben · ferry-vel ~2 óra</div></div></div>
-          <div class="act"><div class="act-time">opció</div><div class="act-icon">🛵</div><div class="act-content"><div class="act-name">Motoros körtúra a szigeten</div><div class="act-detail">Nagy Buddha szobor · Wat Plai Laem · Namuang vízesés</div></div></div>
-          <div class="act"><div class="act-time">este</div><div class="act-icon">🍜</div><div class="act-content"><div class="act-name">Thai street food + masszázs</div><div class="act-detail">Fisherman's Village péntek esti piac · thai masszázs ~10 USD/óra</div></div></div>
+        <div class="flight-card train">
+          <div class="icon">🚆</div>
+          <div><h3>Samarkand → Tashkent · 767Ф</h3><p>2026.05.06 · SAM → TAS · 17:40 - 20:07</p></div>
         </div>
       </div>
     </div>
 
-    <div class="day-card day-th">
-      <div class="day-head" onclick="toggleDay(this)">
-        <div class="day-num">6</div>
-        <div class="day-head-info">
-          <div class="day-date">Május 13 · Szerda</div>
-          <div class="day-title">Koh Samui → Budapest ✈️</div>
-          <div class="day-sub">Hazaút · USM → BUD</div>
-          <div class="day-tags"><span class="tag tag-transit">✈️ hazaút</span></div>
+    <div class="days">
+      <article class="day-card open">
+        <div class="day-head">
+          <div class="day-num">1</div>
+          <div class="day-info">
+            <div class="day-date">2026. május 2., szombat</div>
+            <div class="day-title">Khiva délelőtt → vonat Bukhara felé</div>
+            <div class="day-sub">Rövid, fókuszált khivai blokk, majd délutáni kötött vonat.</div>
+            <div class="day-tags"><span class="tag tag-unesco">Khiva</span><span class="tag tag-train">126ФА</span><span class="tag tag-hotel">🛏 Bukhara</span></div>
+          </div>
+          <div class="chevron">▼</div>
         </div>
-        <div class="chevron">▼</div>
-      </div>
-      <div class="day-body">
-        <div class="activities">
-          <div class="act"><div class="act-time">nap</div><div class="act-icon">🏖</div><div class="act-content"><div class="act-name">Utolsó délelőtt a strandon</div></div></div>
-          <div class="act"><div class="act-time">este</div><div class="act-icon">✈️</div><div class="act-content"><div class="act-name">✈️ Koh Samui (USM) → Budapest (BUD)</div><div class="act-detail">Bangkok átszállással · valószínűleg éjszakai repülés haza</div><span class="act-pill pill-fly">✈️ USM → BUD</span></div></div>
+        <div class="day-body">
+          <div class="activities">
+            <div class="act"><div class="act-time">reggel</div><div class="act-icon">🕌</div><div><div class="act-title"><div class="act-name">Khiva rövid búcsúkör</div><span class="mini-rate">⭐ 4.7</span></div><div class="act-detail">Ichan-Kala falai, Kalta Minor és egy utolsó séta az óvárosi tengelyen. Itt már nem teljes napos Khiva a cél, hanem egy rövid, emlékezetes zárás.</div><div class="place-box"><div class="place-head"><h4>Ichan-Kala</h4><div class="place-meta"><span class="mini-rate">⭐ 4.7</span><a class="maps-link" href="https://maps.google.com/?q=Itchan+Kala+Khiva" target="_blank" rel="noopener noreferrer">Maps</a><a class="wiki-link" href="https://en.wikipedia.org/wiki/Itchan_Kala" target="_blank" rel="noopener noreferrer">W</a></div></div><p>Khiva fallal körülvett belső városa a Selyemút egyik legjobban megőrzött városi magja. A keskeny utcák, a vályogfalak és a sűrű műemléki réteg miatt egyszerre érzed múzeumnak és élő városi szövetnek.</p><div class="source-links"><a href="https://en.wikipedia.org/wiki/Itchan_Kala" target="_blank" rel="noopener noreferrer">Wikipedia</a><a href="https://app.wanderlog.com/place/details/40715" target="_blank" rel="noopener noreferrer">Rating source</a></div></div><div class="place-box"><div class="place-head"><h4>Kalta Minor</h4><div class="place-meta"><span class="mini-rate">⭐ 4.8</span><a class="maps-link" href="https://maps.google.com/?q=Kalta+Minor+Khiva" target="_blank" rel="noopener noreferrer">Maps</a><a class="wiki-link" href="https://en.wikipedia.org/wiki/Kalta_Minor" target="_blank" rel="noopener noreferrer">W</a></div></div><p>A félbemaradt minaret Khiva egyik legerősebb jelképe. Azért emlékezetes, mert tömzsi arányaival teljesen más képet ad, mint a klasszikus, karcsú közép-ázsiai tornyok.</p><div class="source-links"><a href="https://en.wikipedia.org/wiki/Kalta_Minor" target="_blank" rel="noopener noreferrer">Wikipedia</a></div></div></div></div>
+            <div class="act"><div class="act-time">dél</div><div class="act-icon">🍽</div><div><div class="act-name">Korai ebéd Khivában</div><div class="act-detail">Könnyebb ebéd vagy tea, hogy a vonat előtt ne legyen kapkodás.</div></div></div>
+            <div class="act"><div class="act-time">15:15</div><div class="act-icon">🚆</div><div><div class="act-name">126ФА · Khiva → Bukhara</div><div class="act-detail">A megadott kötött szakasz. Ezzel dől el az egész üzbég rész ritmusa, ezért ezt fix tengelynek érdemes kezelni.</div><span class="act-pill pill-train">15:15 - 21:22</span></div></div>
+            <div class="act"><div class="act-time">21:22</div><div class="act-icon">🏨</div><div><div class="act-name">Érkezés Bukharába</div><div class="act-detail">Check-in, könnyű esti séta maximum a Lyabi-Hauz környékén, de inkább nyugodt lezárás.</div></div></div>
+          </div>
+          <div class="tip-box"><strong>Logika:</strong> Május 2. már átmeneti nap. Khivát itt nem kell túlhúzni, mert Bukhara és Samarkand súlyosabb blokkok lesznek.</div>
+          <details class="city-summary">
+            <summary>Khiva részletesebben</summary>
+            <div class="city-summary-body">
+              <p>Khiva a Hvárezm-régió történelmi oázisvárosa, és azért különösen erős élmény, mert az Itchan Kala falain belül a történelmi városi mag szinte egységesen fennmaradt. Míg Bukhara és Samarkand nagyobb, rétegzettebb és nyitottabb városszövettel dolgozik, Khiva inkább egy koncentrált, zárt világ: néhány fő utcával, udvarokkal, minaretekkel és agyagfalakkal. Emiatt az első benyomás mindig nagyon erős és vizuális.</p>
+              <p>Történetileg Khiva a Khorezm civilizáció és a későbbi khivai kánság világához kötődik. A város a selyemúti kapcsolatokból élt, de földrajzi helyzete miatt mindig egy kicsit peremibb és zártabb karakterű volt, mint Samarkand vagy Bukhara. Épp ez adja az atmoszféráját is: kevésbé “fővárosi”, inkább sűrű, önmagába záródó, sivatagi oázis-logikájú város.</p>
+              <p>Az utazó számára Khiva legnagyobb ereje a kompakt élmény. Rövid idő alatt is nagyon sokat ad, mert a legfontosabb pontok gyalog bejárhatók, és a városképi egység kivételesen erős. Nem annyira a monumentális térélmény dominál, mint Samarkandban, hanem a textúra: a falak, az árkádok, a csempe, az árnyék és a por színe.</p>
+              <ul>
+                <li><strong>Karakter:</strong> fallal körülvett, zárt, nagyon fotózható selyemúti város.</li>
+                <li><strong>Történeti fókusz:</strong> Khorezm világa, khánsági múlt, oázisvárosi védelem.</li>
+                <li><strong>Fő pontok:</strong> Ichan-Kala, Kalta Minor, Kunya Ark, Juma mecset, Islom Khoja.</li>
+                <li><strong>Gasztró:</strong> khorezmi tésztaételek, shivit oshi, tea, könnyebb udvaros ebédek.</li>
+              </ul>
+            </div>
+          </details>
         </div>
+      </article>
+
+      <article class="day-card">
+        <div class="day-head">
+          <div class="day-num">2</div>
+          <div class="day-info">
+            <div class="day-date">2026. május 3., vasárnap</div>
+            <div class="day-title">Bukhara nagy klasszikus nap</div>
+            <div class="day-sub">Poi-Kalon, Ark, Lyabi-Hauz és a bazárok.</div>
+            <div class="day-tags"><span class="tag tag-unesco">★ UNESCO</span><span class="tag tag-hotel">🛏 Bukhara</span></div>
+          </div>
+          <div class="chevron">▼</div>
+        </div>
+        <div class="day-body">
+          <div class="activities">
+            <div class="act"><div class="act-time">reggel</div><div class="act-icon">🕌</div><div><div class="act-title"><div class="act-name">Poi-Kalon együttes</div><span class="mini-rate">⭐ 4.6</span></div><div class="act-detail">Kalon minaret, Kalon mecset és Mir-i-Arab medressa együtt adják Bukhara legerősebb első képét.</div><div class="place-box"><div class="place-head"><h4>Po-i-Kalyan</h4><div class="place-meta"><span class="mini-rate">⭐ 4.6</span><a class="maps-link" href="https://maps.google.com/?q=Poi+Kalyan+Bukhara" target="_blank" rel="noopener noreferrer">Maps</a><a class="wiki-link" href="https://en.wikipedia.org/wiki/Po-i-Kalyan" target="_blank" rel="noopener noreferrer">W</a></div></div><p>Bukhara legismertebb vallási együttese. A minaret, a mecset és a medresze együtt adják azt a városképet, amely miatt Bukhara a közép-ázsiai iszlám építészet egyik kulcsvárosa.</p><div class="source-links"><a href="https://en.wikipedia.org/wiki/Po-i-Kalyan" target="_blank" rel="noopener noreferrer">Wikipedia</a><a href="https://airial.travel/attractions/uzbekistan/bukhara/poi-kalyan-bukhara-uzbekistan-o-tzNr4W" target="_blank" rel="noopener noreferrer">Rating source</a></div></div></div></div>
+            <div class="act"><div class="act-time">délelőtt</div><div class="act-icon">🏰</div><div><div class="act-title"><div class="act-name">Ark citadella</div><span class="mini-rate">⭐ 4.6</span></div><div class="act-detail">A város hatalmi központja, emíri múlt, vastag falak és erős történeti súly.</div><div class="place-box"><div class="place-head"><h4>Ark of Bukhara</h4><div class="place-meta"><span class="mini-rate">⭐ 4.6</span><a class="maps-link" href="https://maps.google.com/?q=Ark+of+Bukhara" target="_blank" rel="noopener noreferrer">Maps</a><a class="wiki-link" href="https://en.wikipedia.org/wiki/Ark_of_Bukhara" target="_blank" rel="noopener noreferrer">W</a></div></div><p>Az Ark évszázadokon át a bukharai emírek erődített központja volt. A város hatalmi és adminisztratív magját mutatja meg, ezért történeti ellenpontja a vallási központoknak.</p><div class="source-links"><a href="https://en.wikipedia.org/wiki/Ark_of_Bukhara" target="_blank" rel="noopener noreferrer">Wikipedia</a></div></div></div></div>
+            <div class="act"><div class="act-time">dél</div><div class="act-icon">🍽</div><div><div class="act-name">Ebéd a Lyabi-Hauz körül</div><div class="act-detail">Ez a rész jó tempóváltás a délelőtti monumentális blokkok után.</div></div></div>
+            <div class="act"><div class="act-time">délután</div><div class="act-icon">🛍</div><div><div class="act-name">Fedett bazárok és kézműves sorok</div><div class="act-detail">Toki bazárok, textil, kerámia, kisebb átjárók. Inkább lassú bolyongás, mint checkpoint-lista.</div></div></div>
+            <div class="act"><div class="act-time">este</div><div class="act-icon">🌙</div><div><div class="act-title"><div class="act-name">Bukhara este</div><span class="mini-rate">⭐ 4.6</span></div><div class="act-detail">A város este sokkal lágyabb, mint nappal. Lyabi-Hauz környéke ilyenkor a legjobb.</div><div class="place-box"><div class="place-head"><h4>Lyabi-Hauz</h4><div class="place-meta"><span class="mini-rate">⭐ 4.6</span><a class="maps-link" href="https://maps.google.com/?q=Lyabi+Hauz+Bukhara" target="_blank" rel="noopener noreferrer">Maps</a><a class="wiki-link" href="https://en.wikipedia.org/wiki/Lyab-i_Hauz" target="_blank" rel="noopener noreferrer">W</a></div></div><p>A történelmi medence köré szervezett tér Bukhara legélhetőbb központja. A régi vízrendszer és a teaházi hangulat miatt este különösen jól működik.</p><div class="source-links"><a href="https://en.wikipedia.org/wiki/Lyab-i_Hauz" target="_blank" rel="noopener noreferrer">Wikipedia</a><a href="https://www.lonelyplanet.com/points-of-interest/lyabi-hauz/443697" target="_blank" rel="noopener noreferrer">Place source</a></div></div></div></div>
+          </div>
+          <details class="city-summary">
+            <summary>Bukhara részletesebben</summary>
+            <div class="city-summary-body">
+              <p>Bukhara a selyemúti világ egyik legfontosabb vallási, kereskedelmi és tudományos központja volt, ezért a város karaktere egyszerre szellemi és nagyon földi. Itt nem csak nagy emlékművek vannak, hanem egy teljes történeti városi rendszer: medreszék, udvarok, bazárok, karavánszeráj-logika, teázós terek és lakható, emberléptékű központok.</p>
+              <p>Ha Samarkand a reprezentatív birodalmi színpad, akkor Bukhara inkább a sűrű, élő szövet, ahol a vallás, az oktatás, a kereskedelem és a mindennapi városi élet rétegei egymásra épülnek. Emiatt Bukhara sokszor kevésbé sokkolóan grandiózus, viszont hosszabb ottlétnél mélyebbre megy: minden sarkon újabb kapu, udvar, boltíves átjáró vagy csendesebb tér nyílik.</p>
+              <p>Történelmileg a város a korai iszlám tudományos világ egyik nagy központja volt, később az emírség politikai magja, és ma is az egyik legerősebben olvasható történeti városszövet Közép-Ázsiában. A vallási tanulás, a kereskedelem és a kézművesség összekapcsolódása ma is érezhető a Toki bazárok, a Po-i-Kalyan és a Lyabi-Hauz környékének ritmusában.</p>
+              <ul>
+                <li><strong>Karakter:</strong> intimebb, rétegzettebb, udvaros és bazáros városi élmény.</li>
+                <li><strong>Történeti fókusz:</strong> emíri központ, vallási oktatás, selyemúti kereskedelem.</li>
+                <li><strong>Fő pontok:</strong> Po-i-Kalyan, Ark, Lyabi-Hauz, Toki bazárok, Samanid mausoleum.</li>
+                <li><strong>Miért jó két napra:</strong> egy nap a nagy tengelyekre, egy nap a hangulatra és az apróbb rétegekre.</li>
+                <li><strong>Gasztró:</strong> plov, tandir-húsok, shashlik, édességek, teaházas udvarok.</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <article class="day-card">
+        <div class="day-head">
+          <div class="day-num">3</div>
+          <div class="day-info">
+            <div class="day-date">2026. május 4., hétfő</div>
+            <div class="day-title">Bukhara második nap</div>
+            <div class="day-sub">A kimaradt pontok és kevésbé sietős városi ritmus.</div>
+            <div class="day-tags"><span class="tag tag-food">lassabb nap</span><span class="tag tag-hotel">🛏 Bukhara</span></div>
+          </div>
+          <div class="chevron">▼</div>
+        </div>
+        <div class="day-body">
+          <div class="activities">
+            <div class="act"><div class="act-time">reggel</div><div class="act-icon">🕍</div><div><div class="act-title"><div class="act-name">Samanid mausoleum + Bolo Hauz kör</div><span class="mini-rate">⭐ 4.8</span></div><div class="act-detail">Jó ellenpontja az előző napi nagy monumentális tengelynek, intimebb és rétegzettebb városi rész.</div><div class="place-box"><div class="place-head"><h4>Ismail Samani Mausoleum</h4><div class="place-meta"><span class="mini-rate">⭐ 4.8</span><a class="maps-link" href="https://maps.google.com/?q=Ismail+Samani+Mausoleum+Bukhara" target="_blank" rel="noopener noreferrer">Maps</a><a class="wiki-link" href="https://en.wikipedia.org/wiki/Samanid_Mausoleum" target="_blank" rel="noopener noreferrer">W</a></div></div><p>A 10. századi mauzóleum az egyik legkorábbi és legfinomabb iszlám sírépítmény a régióban. A terrakotta téglaminták miatt kifejezetten aprólékos, közelről is erős épület.</p><div class="source-links"><a href="https://en.wikipedia.org/wiki/Samanid_Mausoleum" target="_blank" rel="noopener noreferrer">Wikipedia</a><a href="https://www.lonelyplanet.com/points-of-interest/ismail-samani-mausoleum/443691" target="_blank" rel="noopener noreferrer">Place source</a></div></div><div class="place-box"><div class="place-head"><h4>Bolo Hauz Mosque</h4><div class="place-meta"><span class="mini-rate">⭐ 4.8</span><a class="maps-link" href="https://maps.google.com/?q=Bolo+Hauz+Mosque+Bukhara" target="_blank" rel="noopener noreferrer">Maps</a><a class="wiki-link" href="https://en.wikipedia.org/wiki/Bolo_Hauz_Mosque" target="_blank" rel="noopener noreferrer">W</a></div></div><p>A faoszlopos előcsarnokáról híres mecset az Ark mellett áll. Könnyedebb, elegánsabb városi pont, ami jól lazítja az előző nap monumentális élményét.</p><div class="source-links"><a href="https://en.wikipedia.org/wiki/Bolo_Hauz_Mosque" target="_blank" rel="noopener noreferrer">Wikipedia</a></div></div></div></div>
+            <div class="act"><div class="act-time">délelőtt</div><div class="act-icon">🚶</div><div><div class="act-name">Szabad városi séta</div><div class="act-detail">Itt érdemes levegőt hagyni: fotózás, tea, kisebb udvarok, visszatérés a legerősebb pontokhoz.</div></div></div>
+            <div class="act"><div class="act-time">délután</div><div class="act-icon">🍽</div><div><div class="act-name">Hosszabb ebéd + könnyű délután</div><div class="act-detail">Másnap hajnalban vonat, ezért ez legyen inkább nyugodtabb nap.</div></div></div>
+            <div class="act"><div class="act-time">este</div><div class="act-icon">🧳</div><div><div class="act-name">Korai pakolás</div><div class="act-detail">A 05:17-es vonat miatt itt előre kell dolgozni.</div></div></div>
+          </div>
+          <div class="tip-box"><strong>Tempó:</strong> Bukhara akkor erős, ha az egyik nap nagy látványpont, a másik nap pedig hagy időt a városi hangulatra.</div>
+        </div>
+      </article>
+
+      <article class="day-card">
+        <div class="day-head">
+          <div class="day-num">4</div>
+          <div class="day-info">
+            <div class="day-date">2026. május 5., kedd</div>
+            <div class="day-title">Hajnali vonat Samarkandba</div>
+            <div class="day-sub">Korai indulás, délutántól már Samarkand fókusz.</div>
+            <div class="day-tags"><span class="tag tag-train">711ФА</span><span class="tag tag-hotel">🛏 Samarkand</span></div>
+          </div>
+          <div class="chevron">▼</div>
+        </div>
+        <div class="day-body">
+          <div class="activities">
+            <div class="act"><div class="act-time">05:17</div><div class="act-icon">🚆</div><div><div class="act-name">711ФА · Bukhara → Samarkand</div><div class="act-detail">Nagyon korai kötött indulás, ezért a nap eleje praktikus legyen, ne romantikus.</div><span class="act-pill pill-train">05:17 - 07:38</span></div></div>
+            <div class="act"><div class="act-time">reggel</div><div class="act-icon">🏨</div><div><div class="act-name">Samarkand check-in / csomagleadás</div><div class="act-detail">Rövid átállás után a fókusz már a város ikonikus tereire mehet.</div></div></div>
+            <div class="act"><div class="act-time">délelőtt</div><div class="act-icon">🏛</div><div><div class="act-title"><div class="act-name">Registan első blokk</div><span class="mini-rate">⭐ 4.8</span></div><div class="act-detail">Nem kell túlbonyolítani: az első erős samarkandi sokkot itt kapjátok meg.</div><div class="place-box"><div class="place-head"><h4>Registan</h4><div class="place-meta"><span class="mini-rate">⭐ 4.8</span><a class="maps-link" href="https://maps.google.com/?q=Registan+Samarkand" target="_blank" rel="noopener noreferrer">Maps</a><a class="wiki-link" href="https://en.wikipedia.org/wiki/Registan" target="_blank" rel="noopener noreferrer">W</a></div></div><p>A három medresze által keretezett tér Samarkand ikonja. Itt ér össze a timurida reprezentáció, a vallási oktatás és a központi városi szimbolika.</p><div class="source-links"><a href="https://en.wikipedia.org/wiki/Registan" target="_blank" rel="noopener noreferrer">Wikipedia</a></div></div></div></div>
+            <div class="act"><div class="act-time">délután</div><div class="act-icon">🕌</div><div><div class="act-title"><div class="act-name">Gur-e-Amir</div><span class="mini-rate">⭐ 4.8</span></div><div class="act-detail">Timur mauzóleuma jó második pont a Registan után, mert vizuálisan és történetileg is súlyos.</div><div class="place-box"><div class="place-head"><h4>Gur-e-Amir</h4><div class="place-meta"><span class="mini-rate">⭐ 4.8</span><a class="maps-link" href="https://maps.google.com/?q=Gur-e+Amir+Samarkand" target="_blank" rel="noopener noreferrer">Maps</a><a class="wiki-link" href="https://en.wikipedia.org/wiki/Gur-e_Amir" target="_blank" rel="noopener noreferrer">W</a></div></div><p>Timur síremléke a város egyik legfontosabb történeti pontja. A sötétkék kupola és a gazdagon díszített belső tér miatt teljesen más hangulatú, mint a nyitott Registan.</p><div class="source-links"><a href="https://en.wikipedia.org/wiki/Gur-e_Amir" target="_blank" rel="noopener noreferrer">Wikipedia</a></div></div></div></div>
+            <div class="act"><div class="act-time">este</div><div class="act-icon">✨</div><div><div class="act-name">Registan este</div><div class="act-detail">Ha belefér, este vissza kell menni. Samarkandnál ez nem felesleges ismétlés, hanem második arc.</div></div></div>
+          </div>
+          <details class="city-summary">
+            <summary>Samarkand részletesebben</summary>
+            <div class="city-summary-body">
+              <p>Samarkand Közép-Ázsia egyik legerősebb történelmi neve, és ezen nagyon is látszik, hogy a város nem egyszerűen régi, hanem szimbolikus főváros volt. A timurida korszak alatt Samarkand a reprezentáció, a tudomány, az építészet és a birodalmi önbemutatás központjává vált. Ezért itt minden egy fokkal nagyobb, ünnepélyesebb és vizuálisan telítettebb, mint Bukharában.</p>
+              <p>A város legerősebb élménye a monumentalitás: a Registan nyitott tere, a kupolák, a csempeborítások, a mauzóleumok tengelye és az a tudat, hogy ez egy tudatosan megkomponált birodalmi kirakat volt. Samarkand nem annyira a lassú, medinás bolyongás városa, inkább egy olyan hely, ahol egyik ikonikus pont követi a másikat, és mindegyiknek súlya van.</p>
+              <p>Történelmi rétegként a selyemúti csomópont, a timurida csúcskorszak és az iszlám művészet nagy periódusai egyszerre vannak jelen. Ezért a város nem csak szép, hanem erősen “jelent valamit”: hatalmat, tudást, dinasztiát és kulturális önbizalmat. Rövid időre is hatalmas élmény, de pont emiatt jó, hogy külön két samarkandi nap is van a tervben.</p>
+              <ul>
+                <li><strong>Karakter:</strong> monumentális, reprezentatív, erősen vizuális város.</li>
+                <li><strong>Történeti fókusz:</strong> Timur és a timurida korszak, UNESCO-s világörökségi tengely.</li>
+                <li><strong>Fő pontok:</strong> Registan, Gur-e-Amir, Shah-i-Zinda, Bibi-Khanym, Siab Bazaar.</li>
+                <li><strong>Miért fontos:</strong> ez az út legikonikusabb, legtöbb “nagy kép” élményt adó városa.</li>
+                <li><strong>Gasztró:</strong> samarkandi plov, samsa, bazáros kenyerek, szárított gyümölcsök.</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <article class="day-card">
+        <div class="day-head">
+          <div class="day-num">5</div>
+          <div class="day-info">
+            <div class="day-date">2026. május 6., szerda</div>
+            <div class="day-title">Samarkand nap + esti vonat Tashkentbe</div>
+            <div class="day-sub">A nagy samarkandi zárás, majd kötött esti továbbutazás.</div>
+            <div class="day-tags"><span class="tag tag-unesco">★ Samarkand</span><span class="tag tag-train">767Ф</span></div>
+          </div>
+          <div class="chevron">▼</div>
+        </div>
+        <div class="day-body">
+          <div class="activities">
+            <div class="act"><div class="act-time">reggel</div><div class="act-icon">🕌</div><div><div class="act-title"><div class="act-name">Shah-i-Zinda</div><span class="mini-rate">⭐ 4.8</span></div><div class="act-detail">A leginkább emlékezetes samarkandi helyszín lehet, ezért ezt reggel érdemes kezdeni.</div><div class="place-box"><div class="place-head"><h4>Shah-i-Zinda</h4><div class="place-meta"><span class="mini-rate">⭐ 4.8</span><a class="maps-link" href="https://maps.google.com/?q=Shah-i-Zinda+Samarkand" target="_blank" rel="noopener noreferrer">Maps</a><a class="wiki-link" href="https://en.wikipedia.org/wiki/Shah-i-Zinda" target="_blank" rel="noopener noreferrer">W</a></div></div><p>A mauzóleumokból álló nekropolisz Samarkand egyik legszebb helye. A keskeny, emelkedő tengely és a szinte egymásra felelő türkiszkék homlokzatok miatt sokkal intimebb, mint a város nagy terei.</p><div class="source-links"><a href="https://en.wikipedia.org/wiki/Shah-i-Zinda" target="_blank" rel="noopener noreferrer">Wikipedia</a><a href="https://wanderlog.com/place/details/6824/%E5%A4%8F%E4%BC%8A%E8%BE%9B%E8%BE%BE%E9%99%B5%E5%A2%93%E7%BE%A4" target="_blank" rel="noopener noreferrer">Rating source</a></div></div></div></div>
+            <div class="act"><div class="act-time">délelőtt</div><div class="act-icon">🏗</div><div><div class="act-title"><div class="act-name">Bibi-Khanym + Siab bazár környéke</div><span class="mini-rate">⭐ 4.7</span></div><div class="act-detail">Monumentális térérzet és hétköznapibb városi szövet egy blokkban.</div><div class="place-box"><div class="place-head"><h4>Bibi-Khanym Mosque</h4><div class="place-meta"><span class="mini-rate">⭐ 4.7</span><a class="maps-link" href="https://maps.google.com/?q=Bibi-Khanym+Mosque+Samarkand" target="_blank" rel="noopener noreferrer">Maps</a><a class="wiki-link" href="https://en.wikipedia.org/wiki/Bibi-Khanym_Mosque" target="_blank" rel="noopener noreferrer">W</a></div></div><p>A Timur által építtetett óriásmecset az uralkodói reprezentáció tiszta építészeti gesztusa. A részben rekonstruált tömeg ma is jól érzékelteti az egykori méretet és ambíciót.</p><div class="source-links"><a href="https://en.wikipedia.org/wiki/Bibi-Khanym_Mosque" target="_blank" rel="noopener noreferrer">Wikipedia</a></div></div><div class="place-box"><div class="place-head"><h4>Siab Bazaar</h4><div class="place-meta"><span class="mini-rate">⭐ 4.6</span><a class="maps-link" href="https://maps.google.com/?q=Siab+Bazaar+Samarkand" target="_blank" rel="noopener noreferrer">Maps</a><a class="wiki-link" href="https://en.wikipedia.org/wiki/Siab_Bazaar" target="_blank" rel="noopener noreferrer">W</a></div></div><p>A város mindennapi gasztronómiai arca: kenyerek, fűszerek, szárított gyümölcsök és bazárforgalom. Jó ellenpontja a timurida monumentalitásnak.</p><div class="source-links"><a href="https://en.wikipedia.org/wiki/Siab_Bazaar" target="_blank" rel="noopener noreferrer">Wikipedia</a></div></div></div></div>
+            <div class="act"><div class="act-time">délután</div><div class="act-icon">🍽</div><div><div class="act-name">Korai vacsora / állomási ráfordulás</div><div class="act-detail">Az esti vonat miatt itt már át kell fordulni közlekedési módba.</div></div></div>
+            <div class="act"><div class="act-time">17:40</div><div class="act-icon">🚆</div><div><div class="act-name">767Ф · Samarkand → Tashkent</div><div class="act-detail">Ez visz át az üzbég szakasz utolsó városába.</div><span class="act-pill pill-train">17:40 - 20:07</span></div></div>
+            <div class="act"><div class="act-time">este</div><div class="act-icon">🏨</div><div><div class="act-name">Tashkent érkezés</div><div class="act-detail">Check-in és rövid éjszakai pihenés a másnapi repülő előtt.</div></div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="day-card">
+        <div class="day-head">
+          <div class="day-num">6</div>
+          <div class="day-info">
+            <div class="day-date">2026. május 7., csütörtök</div>
+            <div class="day-title">Tashkent nap + éjszakai indulás Bangkokba</div>
+            <div class="day-sub">Rövid városblokk, majd HY531.</div>
+            <div class="day-tags"><span class="tag tag-hotel">Tashkent</span><span class="tag tag-train">✈ HY531</span></div>
+          </div>
+          <div class="chevron">▼</div>
+        </div>
+        <div class="day-body">
+          <div class="activities">
+            <div class="act"><div class="act-time">reggel</div><div class="act-icon">☕</div><div><div class="act-name">Laza délelőtt Tashkentben</div><div class="act-detail">Ez már ne legyen újabb fullra tömött sightseeing nap, inkább átmenet a hosszú repülős szakasz előtt.</div></div></div>
+            <div class="act"><div class="act-time">délelőtt</div><div class="act-icon">🏙</div><div><div class="act-title"><div class="act-name">Rövid városi kör</div><span class="mini-rate">⭐ 4.9</span></div><div class="act-detail">Amir Timur tér, metró vagy Chorsu bazár közül 1-2 könnyebb pont elég.</div><div class="place-box"><div class="place-head"><h4>Amir Temur Square</h4><div class="place-meta"><span class="mini-rate">⭐ 4.9</span><a class="maps-link" href="https://maps.google.com/?q=Amir+Temur+Square+Tashkent" target="_blank" rel="noopener noreferrer">Maps</a><a class="wiki-link" href="https://en.wikipedia.org/wiki/Amir_Timur_Square" target="_blank" rel="noopener noreferrer">W</a></div></div><p>A modern Tashkent reprezentatív központja, ahol a timurida emlékezet már széles sugárutak és szovjet-posztszovjet fővárosi terek között jelenik meg. Jó rövid összefoglalása annak, mennyire más Tashkent hangulata.</p><div class="source-links"><a href="https://en.wikipedia.org/wiki/Amir_Timur_Square" target="_blank" rel="noopener noreferrer">Wikipedia</a><a href="https://yandex.eu/maps/org/amir_temur_square/208410677141/" target="_blank" rel="noopener noreferrer">Rating source</a></div></div><div class="place-box"><div class="place-head"><h4>Chorsu Bazaar</h4><div class="place-meta"><span class="mini-rate">⭐ 4.6</span><a class="maps-link" href="https://maps.google.com/?q=Chorsu+Bazaar+Tashkent" target="_blank" rel="noopener noreferrer">Maps</a><a class="wiki-link" href="https://en.wikipedia.org/wiki/Chorsu_Bazaar" target="_blank" rel="noopener noreferrer">W</a></div></div><p>A kupolás piac a város hétköznapi, ehető arcát mutatja. Rövid időre is jó választás, mert egyszerre piacélmény és gasztronómiai áttekintés.</p><div class="source-links"><a href="https://en.wikipedia.org/wiki/Chorsu_Bazaar" target="_blank" rel="noopener noreferrer">Wikipedia</a></div></div></div></div>
+            <div class="act"><div class="act-time">kora este</div><div class="act-icon">🧳</div><div><div class="act-name">Reptéri ráhangolás</div><div class="act-detail">A hosszú továbbutazás miatt legyen idő vacsorára, csomagrendezésre, tartalékra.</div></div></div>
+            <div class="act"><div class="act-time">22:30</div><div class="act-icon">✈</div><div><div class="act-name">Uzbekistan Airways HY531 · Tashkent → Bangkok</div><div class="act-detail">Az üzbég szakasz záró repülése, másnap reggeli bangkoki érkezéssel.</div><span class="act-pill pill-fly">22:30 - 06:40</span></div></div>
+          </div>
+          <div class="tip-box"><strong>Lezárás:</strong> Tashkent itt már inkább légzőpárna, mint fő városfókusz. Az erősebb vizuális és történeti súlyt Bukhara és Samarkand már megadta.</div>
+          <details class="city-summary">
+            <summary>Tashkent részletesebben</summary>
+            <div class="city-summary-body">
+              <p>Tashkent az út többi városához képest teljesen más világ: nem klasszikus, sűrű történelmi oázisváros, hanem modern főváros, amelyen a szovjet várostervezés, a széles sugárutak, a parkos terek és az új reprezentatív központok is erősen látszanak. Emiatt nem ugyanazt a selyemúti hangulatot adja, mint Bukhara vagy Samarkand, hanem inkább azt mutatja meg, hogyan néz ki a mai Üzbegisztán nagyvárosi arca.</p>
+              <p>Történetileg Tashkent is régi város, de a 20. századi földrengés, a szovjet újjáépítés és a fővárosi szerep nagyon átformálta. Ezért itt kevésbé a sűrű műemléki mag dominál, hanem a tágasság, az infrastruktúra, a metró és a fővárosi hétköznapiság. Ettől jó lezárása az üzbég blokknak: megmutatja a jelenkori országot is, nem csak a történeti csúcspontokat.</p>
+              <p>Utazóként Tashkent nem feltétlenül a “wow” város, hanem a levegővétel, az átmenet és a kontraszt városa. A Chorsu bazár, a metróállomások és az Amir Temur tér együtt elég jó rövid metszetet adnak arról, hogy Üzbegisztán nem csak múlt, hanem működő, modern fővárosi jelen is.</p>
+              <ul>
+                <li><strong>Karakter:</strong> tágas, modern, fővárosi, jól járható város.</li>
+                <li><strong>Történeti fókusz:</strong> régi városi múlt + erős szovjet és posztszovjet újrarendeződés.</li>
+                <li><strong>Fő pontok:</strong> Amir Temur Square, Chorsu Bazaar, metróállomások, széles sugárutak.</li>
+                <li><strong>Miért jó a végére:</strong> légzőpárna az intenzív történelmi városok után.</li>
+                <li><strong>Gasztró:</strong> plov, grillsorok, modernebb üzbég konyha, városias éttermek.</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="view" data-view="samui">
+    <div class="section-head">
+      <h2><span>2026. május 8 – május 13</span>Koh Samui</h2>
+      <span class="country-pill th">Pihenős lezárás</span>
+    </div>
+    <div class="summary-grid">
+      <article class="summary-card th">
+        <h3>✈ Érkezési logika</h3>
+        <p>A te menetrended szerint 2026. május 8-án Bangkok Airways PG115 visz Bangkokból Koh Samuira. Ez már egyértelműen nem részletes itiner-szakasz, hanem pihenős levezetés az intenzív közép-ázsiai rész után.</p>
+        <ul>
+          <li><strong>PG115:</strong> BKK → USM · 09:15 - 10:45</li>
+          <li><strong>Máj. 8.:</strong> érkezés, check-in, strand, semmi túlvállalás</li>
+        </ul>
+      </article>
+      <article class="summary-card th">
+        <h3>🏖 Koh Samui ritmusa</h3>
+        <p>Itt nem kell percre lebontott program. A jó logika inkább az, hogy legyen 1-2 fixebb ötlet, és a többi maradjon tényleg pihenős. A sziget itt a tempóváltás szerepét kapja.</p>
+        <ul>
+          <li><strong>Szabad napok:</strong> 2026.05.09–05.12</li>
+          <li><strong>Opciók:</strong> strand, masszázs, könnyű hajós kirándulás, Fisherman's Village</li>
+        </ul>
+      </article>
+      <article class="summary-card th">
+        <h3>✈ Hazaút</h3>
+        <p>A zárás több szakaszos, de tiszta: Koh Samui → Bangkok → Isztambul → Budapest. Ez már tisztán logisztikai nap, nem külön programnap.</p>
+        <ul>
+          <li><strong>USM → BKK:</strong> TK7563 · 19:45 - 21:15</li>
+          <li><strong>BKK → IST:</strong> TK53 · 23:15 - 05:30</li>
+          <li><strong>IST → BUD:</strong> TK1035 · 07:10 - 08:05</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="view" data-view="food">
+    <div class="section-head">
+      <h2><span>Üzbegisztán fókuszú gasztrólista</span>Éttermek és kulinária</h2>
+      <span class="country-pill uz">Kiemelt üzbég szakasz</span>
+    </div>
+
+    <section class="card" style="margin-bottom:16px">
+      <h2 class="section-title">🍲 Üzbég kulinária részletesebben</h2>
+      <p style="font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:12px">Az üzbég konyha a selyemúti kereskedelem, a nomád húskultúra és a perzsa-török városi konyha találkozása. Az alapkarakterét a rizses-húsos egytálételek, a kemencében sült kenyerek, a töltött vagy leveles tészták és a nyárson sült húsok adják. Nem egy csípős vagy túlfűszerezett konyha, inkább mélyen sós, köményes, hagymás, húsos és nagyon kenyérközpontú. Az étkezés ritmusa is fontos: tea, kenyér, saláta, aztán a főétel, és gyakran lassabb, közösségibb asztal, mint amit egy nyugati gyors városnézős naptól várnál.</p>
+      <p style="font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:12px">Régiónként is érezhető a különbség. Khiva és általában Hvárezm felé erősebb a tésztás vonal, itt a helyi identitást jobban hozzák a kapros vagy kézzel húzott tészták. Bukhara inkább teaházasabb, udvarosabb, nyugodtabb ritmusú gasztróélmény, ahol a nagy látnivalók közé jól ülnek be a hosszabb ebédek és a grillek. Samarkand a plov és a bazáros bőség terepe, Tashkent pedig már modernebb, nagyvárosiasabb, ahol a klasszikus üzbég fogások mellett könnyebben találsz letisztultabb, kortárs tálalást is.</p>
+      <p style="font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:12px">Ha csak pár dolgot akarsz biztosan kipróbálni ezen az úton, akkor a jó plov, egy rendes shashlik, egy kemencés samsa, a lepeshka kenyér és legalább egy bazáros tea-szárított gyümölcs kör kötelező. Khivában külön figyelj a helyi tésztafogásokra, Samarkandban a plovra, Tashkentben pedig arra, hogyan fordítják városiasabb stílusba ugyanazokat az alapízeket.</p>
+      <div class="dish-grid">
+        <article class="dish-card">
+          <h4>Plov</h4>
+          <p>Az üzbég nemzeti fogás: rizs, répa, hagyma és hús lassan együtt főzve. Mély, olajos, melegfűszeres, ünnepi karakterű étel.</p>
+        </article>
+        <article class="dish-card">
+          <h4>Shashlik</h4>
+          <p>Nyárson sült hús, általában bárány vagy marha. Füstös, szaftos, egyszerűen fűszerezett, kenyérrel és hagymával a legjobb.</p>
+        </article>
+        <article class="dish-card">
+          <h4>Samsa</h4>
+          <p>Kemencében sült töltött tészta, gyakran hússal vagy hagymával. A külseje levelesebb, a belseje sós és telt.</p>
+        </article>
+        <article class="dish-card">
+          <h4>Lagman / Shivit oshi</h4>
+          <p>Hosszú tésztás fogások, Khiva környékén különösen erősek. A shivit oshi kapros-zöld tészta, frissebb, könnyebb ízvilággal.</p>
+        </article>
+        <article class="dish-card">
+          <h4>Lepeshka</h4>
+          <p>A kerek üzbég kenyér majdnem minden étkezés része. Enyhén füstös, kemencés ízű, kívül tartásosabb, belül puhább.</p>
+        </article>
+        <article class="dish-card">
+          <h4>Szárított gyümölcs és tea</h4>
+          <p>A bazárok természetes lezárása: barack, mazsola, dió és zöld tea. Édesebb, könnyebb ellensúlya a húsos fogásoknak.</p>
+        </article>
       </div>
-    </div>
+    </section>
 
-  </div>
-</div>
+    <section class="card" style="margin-bottom:16px">
+      <h2 class="section-title">🐪 Türkmén kulinária részletesebben</h2>
+      <p style="font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:12px">A türkmen konyha kevésbé ismert, mint az üzbég, de pont ezért érdekes: erősen őrzi a nomád-pásztorkultúra és a sivatagos éghajlat logikáját. A fő hangsúly a húson, a tésztán, a tejtermékeken és a laktató, egyszerű felépítésű fogásokon van. Itt általában kevésbé látványosan “ünnepi” a konyha, mint Üzbegisztánban, viszont sokkal direktebb, földközelibb és robusztusabb.</p>
+      <p style="font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:12px">A türkmén ízvilág jellemzően nem túl csípős és nem túl savas. Inkább a birka, a marha, a hagyma, a sárgarépa, a tészta és a kenyér adja az alapot, sokszor levesesebb, pároltabb vagy gőzölt irányban. A közép-ázsiai közös családból ismerős lehet a plov, a manty vagy a shashlik, de Türkmenisztánban ezek sokszor egyszerűbb, kevésbé “étteremre komponált” változatban jelennek meg.</p>
+      <p style="font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:12px">Ha a guide-os szakaszban lesz lehetőséged helyi fogásokat kóstolni, akkor érdemes figyelni a türkmen plovra, a mantyra, a húsos levesekre és a hagyományos kenyerekre. A tejtermékes és fermentált italos vonal is fontos lehet, bár ez utazónak már megosztóbb terep. Itt kevésbé a fine dining a lényeg, inkább az, hogy milyen a mindennapi türkmen asztal logikája.</p>
+      <div class="dish-grid">
+        <article class="dish-card">
+          <h4>Türkmén plov</h4>
+          <p>A közép-ázsiai plov türkmen változata általában egyszerűbb, nehezebb és nagyon laktató. Kevésbé ünnepi, inkább földközeli, húsos-répás-rizses alapétel.</p>
+        </article>
+        <article class="dish-card">
+          <h4>Manty</h4>
+          <p>Gőzölt, hússal töltött batyu. Puha, telt, szaftos fogás, amit a hagymás töltelék és a tésztaburok együtt tesz igazán nehézzé és kielégítővé.</p>
+        </article>
+        <article class="dish-card">
+          <h4>Shorba / húslevesek</h4>
+          <p>Levesesebb, melegítő fogások hússal és zöldséggel. Ízre visszafogottabbak, inkább a tartalmasságuk a fontos.</p>
+        </article>
+        <article class="dish-card">
+          <h4>Çörek és kenyerek</h4>
+          <p>A helyi kenyerek az étkezés központi részei. Vastagabb, kemencés, lisztesebb karakterű kísérők a húsételek mellé.</p>
+        </article>
+        <article class="dish-card">
+          <h4>Shashlik</h4>
+          <p>Nyárson sült hús, egyszerű fűszerezéssel. A türkmen vonal általában kevésbé “szószos”, inkább a hús és a sütés ízére épít.</p>
+        </article>
+        <article class="dish-card">
+          <h4>Fermentált italok</h4>
+          <p>Egyes helyeken találkozhatsz helyi, savanykásabb, tejtermékes italokkal. Ezek kulturálisan fontosak, de nem minden utazónak lesznek elsőre könnyűek.</p>
+        </article>
+      </div>
+    </section>
 
-<!-- ═══ PRAKTIKUS INFÓK ═══ -->
-<div class="section" id="tab-notes">
-  <div class="sec-head">
-    <h2><span>Tennivalók és figyelmeztetések</span>Praktikus infók</h2>
-  </div>
+    <div class="restaurants-grid">
+      <section class="restaurant-city">
+        <h3>Khiva</h3>
+        <div class="restaurant-row">
+          <article class="restaurant-card">
+            <div class="restaurant-top">
+              <div class="rate-badge">⭐ 3.8</div>
+              <div>
+                <div class="restaurant-name"><a href="https://maps.google.com/?q=Khorezm+Art+Restaurant+Khiva" target="_blank" rel="noopener noreferrer">Khorezm Art Restaurant</a></div>
+                <div class="restaurant-meta">Óváros · vacsora · regionális fogások · Ichan-Kala közelében</div>
+              </div>
+            </div>
+            <p>Jó választás a rövid khivai blokkra, mert rögtön az óvárosi hangulathoz kapcsol. Khorezmi tésztaételekhez és könnyebb teraszos vacsorához működik jól.</p>
+          </article>
+        </div>
+      </section>
 
-  <div class="notes-grid">
-    <div class="note-card warn">
-      <h3>🔴 Azonnali tennivalók</h3>
-      <ul>
-        <li><strong>LOI vízum TM</strong> — azonnal igényelni az ORG-on keresztül (3-4 hét!)</li>
-        <li><strong>Darwaza tábor</strong> — előre foglalni</li>
-        <li><strong>railway.uz</strong> — Khiva→Bukhara, Bukhara→Szamarkand vonatjegyek</li>
-        <li><strong>ASB→USM repülő</strong> — Máj.1 vagy Máj.7 döntés véglegesítése</li>
-      </ul>
+      <section class="restaurant-city">
+        <h3>Bukhara</h3>
+        <div class="restaurant-row">
+          <article class="restaurant-card">
+            <div class="restaurant-top">
+              <div class="rate-badge">⭐ 4.6</div>
+              <div>
+                <div class="restaurant-name"><a href="https://maps.google.com/?q=Ayvan+Restaurant+Bukhara" target="_blank" rel="noopener noreferrer">Ayvan Restaurant</a></div>
+                <div class="restaurant-meta">Lyabi-Hauz környéke · vacsora · udvaros bukharai hangulat</div>
+              </div>
+            </div>
+            <p>Teaházas-udvaros közeg, jó ritmussal egy hosszabb bukharai este végére. Érdemes plovot, grillsorokat és teás desszertet nézni.</p>
+          </article>
+          <article class="restaurant-card">
+            <div class="restaurant-top">
+              <div class="rate-badge">⭐ 4.5</div>
+              <div>
+                <div class="restaurant-name"><a href="https://maps.google.com/?q=Old+Bukhara+Restaurant+Bukhara" target="_blank" rel="noopener noreferrer">Old Bukhara</a></div>
+                <div class="restaurant-meta">Bukhara óváros · ebéd/vacsora · klasszikus üzbég fogások</div>
+              </div>
+            </div>
+            <p>Praktikus választás a nagyobb látnivalók közé. Jó hely plovra, samsára és hagyományos húsos fogásokra, kevésbé formális hangulattal.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="restaurant-city">
+        <h3>Samarkand</h3>
+        <div class="restaurant-row">
+          <article class="restaurant-card">
+            <div class="restaurant-top">
+              <div class="rate-badge">⭐ 4.6</div>
+              <div>
+                <div class="restaurant-name"><a href="https://maps.google.com/?q=Platan+Restaurant+Samarkand" target="_blank" rel="noopener noreferrer">Platan</a></div>
+                <div class="restaurant-meta">Samarkand centrum · vacsora · nyugodtabb, erősebb konyha</div>
+              </div>
+            </div>
+            <p>Erősebb esti opció, ha a monumentális nap után kényelmesebb, csendesebb vacsorát szeretnétek. Jó választás húsokra és szezonális fogásokra.</p>
+          </article>
+          <article class="restaurant-card">
+            <div class="restaurant-top">
+              <div class="rate-badge">⭐ 4.5</div>
+              <div>
+                <div class="restaurant-name"><a href="https://maps.google.com/?q=Samarkand+Restaurant+Samarkand" target="_blank" rel="noopener noreferrer">Samarkand Restaurant</a></div>
+                <div class="restaurant-meta">Klasszikus városi opció · plov és grillsorok</div>
+              </div>
+            </div>
+            <p>Ha inkább egy egyértelmű, helyi klasszikus kell, ez praktikusabb. Samarkandi plov és samsa kipróbálására jó megálló.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="restaurant-city">
+        <h3>Tashkent</h3>
+        <div class="restaurant-row">
+          <article class="restaurant-card">
+            <div class="restaurant-top">
+              <div class="rate-badge">⭐ 4.9</div>
+              <div>
+                <div class="restaurant-name"><a href="https://maps.google.com/?q=Afsona+Tashkent" target="_blank" rel="noopener noreferrer">Afsona</a></div>
+                <div class="restaurant-meta">modern üzbég · vacsora · Taras Shevchenko utca</div>
+              </div>
+            </div>
+            <p>Az egyik legjobb modern városi átmenet a klasszikus üzbég ízek és a letisztultabb tálalás között. Jó utolsó nagyobb vacsora az éjszakai repülés előtt.</p>
+          </article>
+        </div>
+      </section>
     </div>
-    <div class="note-card warn">
-      <h3>💵 Pénz — Türkmenisztán</h3>
-      <ul>
-        <li><strong>Csak USD készpénz</strong> — kártya nem fogadott</li>
-        <li><strong>2008 utáni bankjegyek</strong> — régi, gyűrött nem fogadott</li>
-        <li>Vízum: <strong>85+4 USD</strong> repülőtéren</li>
-        <li>Migrációs adó: <strong>10+4 USD</strong> repülőtéren</li>
-        <li>PCR teszt: <strong>33 USD</strong> (változhat)</li>
-        <li>Tipp guide-nak + sofőrnek: <strong>~10-20 USD/nap</strong></li>
-      </ul>
+  </section>
+
+  <section class="view" data-view="practical">
+    <div class="section-head">
+      <h2><span>Utazási keret és kritikus pontok</span>Praktikus</h2>
     </div>
-    <div class="note-card info-c">
-      <h3>🇺🇿 Üzbegisztán praktikák</h3>
-      <ul>
-        <li><strong>Nincs vízum</strong> — magyaroknak nem szükséges</li>
-        <li>Fizetés: <strong>USD vagy UZS</strong>, kártya sok helyen működik</li>
-        <li><strong>Offline térkép</strong> — Maps.Me letöltés előre</li>
-        <li>Taxi: <strong>Yandex Go app</strong> — olcsó és megbízható</li>
-        <li>Vonat: <strong>railway.uz</strong> — foglalj 1-2 héttel előre</li>
-      </ul>
+    <div class="note-grid">
+      <article class="note-card warn">
+        <h3>🔴 Kritikus tennivalók</h3>
+        <ul>
+          <li><strong>Türkmen guide + belépés</strong> legyen véglegesítve.</li>
+          <li><strong>Üzbég vonatok</strong>: 126ФА, 711ФА, 767Ф foglalás.</li>
+          <li><strong>HY531 + PG115</strong> csatlakozási ellenőrzés.</li>
+        </ul>
+      </article>
+      <article class="note-card info">
+        <h3>🇺🇿 Üzbegisztán</h3>
+        <ul>
+          <li><strong>Nincs vízum</strong> magyar útlevéllel.</li>
+          <li><strong>Yandex Go</strong> és <strong>railway.uz</strong> marad alap app.</li>
+          <li><strong>Bukhara/Samarkand</strong> legyen a fő energiafókusz, ne Tashkent.</li>
+        </ul>
+      </article>
+      <article class="note-card warn">
+        <h3>🇹🇲 Türkmenisztán</h3>
+        <ul>
+          <li><strong>USD készpénz</strong> továbbra is fontos.</li>
+          <li><strong>Guide-vezérelt ritmus</strong>, kevés saját improvizáció.</li>
+          <li><strong>Net és admin</strong> kiszámíthatatlanabb, mint UZ-ban.</li>
+        </ul>
+      </article>
+      <article class="note-card good">
+        <h3>✈ Hosszú repülős blokkok</h3>
+        <ul>
+          <li><strong>05.07:</strong> Tashkent → Bangkok éjjeli indulás.</li>
+          <li><strong>05.08:</strong> azonnali továbbmenet Samuira.</li>
+          <li><strong>05.13:</strong> több szegmenses hazautazás, külön program nélkül.</li>
+        </ul>
+      </article>
+      <article class="note-card good">
+        <h3>🎒 Csomagolás</h3>
+        <ul>
+          <li><strong>Réteges csomagolás</strong> a türkmen és thai szakasz különbsége miatt.</li>
+          <li><strong>Kényelmes cipő</strong> főleg Bukhara és Samarkand hosszú sétáihoz.</li>
+          <li><strong>Külön repülős napcsomag</strong> a hosszú átszállásokhoz.</li>
+        </ul>
+      </article>
     </div>
-    <div class="note-card info-c">
-      <h3>🇹🇲 Türkmenisztán szabályok</h3>
-      <ul>
-        <li><strong>Guide kötelező</strong> — minden programhoz</li>
-        <li><strong>Dróntilalom</strong> — be sem szabad hozni</li>
-        <li>Fényképezés: <strong>kormányépületek</strong> tilos</li>
-        <li>Internet: <strong>nagyon korlátozott</strong>, VPN ajánlott</li>
-        <li>Alkohol: nehezen kapható, drága</li>
-        <li>Útlevél: <strong>regisztrációhoz átveszik</strong> néhány órára</li>
-      </ul>
-    </div>
-    <div class="note-card good">
-      <h3>🎒 Csomagolás — sivatag</h3>
-      <ul>
-        <li>Fejlámpa — Darwaza éjszakára kötelező</li>
-        <li>Szél elleni könnyű kabát — sivatag éjjel hideg</li>
-        <li>Naptej + fejfedő — 35-40°C nappal</li>
-        <li>Kényelmes túracipő — Yangikala, Nohur</li>
-        <li>Fürdőruha — Kow-Ata barlangitóhoz</li>
-        <li>Powerbank — ritkán van töltési lehetőség</li>
-      </ul>
-    </div>
-    <div class="note-card good">
-      <h3>📱 Alkalmazások</h3>
-      <ul>
-        <li><strong>Maps.Me</strong> — offline térkép UZ+TM</li>
-        <li><strong>Yandex Go</strong> — taxi Üzbegisztánban</li>
-        <li><strong>railway.uz</strong> — üzbég vonatok</li>
-        <li><strong>Google Translate</strong> — orosz/türkmén offline</li>
-        <li>VPN — TM-ban szükséges lehet</li>
-      </ul>
-    </div>
-  </div>
+  </section>
 </div>
 
 <script>
-function showTab(id) {
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('tab-' + id).classList.add('active');
-  event.target.classList.add('active');
+const tabs = Array.from(document.querySelectorAll('.tab-btn'));
+const views = Array.from(document.querySelectorAll('.view'));
+const dayCards = Array.from(document.querySelectorAll('.day-card'));
+
+function activateTab(id){
+  tabs.forEach((tab)=>tab.classList.toggle('active', tab.dataset.tab===id));
+  views.forEach((view)=>view.classList.toggle('active', view.dataset.view===id));
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 
-function toggleDay(head) {
-  const card = head.parentElement;
-  card.classList.toggle('open');
-}
+tabs.forEach((tab)=>{
+  tab.addEventListener('click', ()=>activateTab(tab.dataset.tab));
+});
 
-// Auto-open first card in each section
-document.querySelectorAll('.day-card:first-of-type').forEach(c => c.classList.add('open'));
+document.querySelectorAll('.day-head').forEach((head)=>{
+  head.addEventListener('click', ()=>{
+    head.parentElement.classList.toggle('open');
+  });
+});
 </script>
 </body>
 </html>
