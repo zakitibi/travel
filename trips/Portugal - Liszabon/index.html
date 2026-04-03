@@ -29,6 +29,7 @@
     const tabs = [
       { id: "overview", label: "📋 Áttekintés" },
       ...tripData.days.map((day) => ({ id: day.id, label: day.tabLabel })),
+      { id: "lisbon", label: "🏙 Lisszabon" },
       { id: "restaurants", label: "🍽 Éttermek" },
       { id: "sights", label: "🏛 Látnivalók" },
       { id: "practical", label: "🧳 Praktikus" }
@@ -98,11 +99,11 @@
                 <div class="external-map-card">
                   <div class="external-map-top">
                     <h3>📍 Interaktív Lisszabon térkép</h3>
-                    <a href="https://www.google.com/maps/d/u/0/viewer?mid=1gCj9l6CrDXGf4GnceNOyfBLcOAV-yfWT&femb=1&ll=38.72364841781629%2C-9.126722049999945&z=12" target="_blank" rel="noreferrer">Megnyitás külön</a>
+                    <a href="https://www.google.com/maps/d/u/0/viewer?mid=1LKjnh7CuSdteliDT6VWZ0b7OfRRXYzo&femb=1&ll=38.71702104698881%2C-9.309141899999984&z=11" target="_blank" rel="noreferrer">Megnyitás külön</a>
                   </div>
                   <iframe
                     class="external-map-frame"
-                    src="https://www.google.com/maps/d/embed?mid=1gCj9l6CrDXGf4GnceNOyfBLcOAV-yfWT&ehbc=2E312F"
+                    src="https://www.google.com/maps/d/embed?mid=1LKjnh7CuSdteliDT6VWZ0b7OfRRXYzo&ehbc=2E312F"
                     title="Google My Maps - Lisszabon"
                     loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -265,34 +266,43 @@
         <section class="view" data-view="restaurants">
           <h2 class="section-title">🍽 Éttermek</h2>
           ${intro ? `
-            <section class="card section-intro">
-              <h3>${intro.title}</h3>
-              ${intro.paragraphs.map((paragraph) => `<p>${paragraph}</p>`).join("")}
-              ${(intro.sections || []).map((section) => `
-                <div class="intro-subsection">
-                  <h4>${section.heading}</h4>
-                  <ul class="plain-list">
-                    ${section.items.map((item) => `<li>${item}</li>`).join("")}
-                  </ul>
-                </div>
-              `).join("")}
-              <ul class="plain-list">
-                ${intro.highlights.map((item) => `<li>${item}</li>`).join("")}
-              </ul>
-              ${intro.dishBox ? `
-                <section class="dish-box">
-                  <h4>${intro.dishBox.title}</h4>
-                  <div class="dish-grid">
-                    ${intro.dishBox.items.map((dish) => `
-                      <article class="dish-card">
-                        <h5>${dish.name}</h5>
-                        <p>${dish.description}</p>
-                        <div class="dish-flavor"><strong>Ízvilág:</strong> ${dish.flavor}</div>
-                      </article>
-                    `).join("")}
+            <section class="card section-intro context-shell">
+              <details class="context-accordion" open>
+                <summary class="context-summary">
+                  <div>
+                    <h3>${intro.title}</h3>
+                    <p class="context-subtitle">Rövid háttér a portugál konyháról, régiós fókuszokkal és kóstolandó fogásokkal.</p>
                   </div>
-                </section>
-              ` : ""}
+                </summary>
+                <div class="context-section-body">
+                  ${intro.paragraphs.map((paragraph) => `<p>${paragraph}</p>`).join("")}
+                  ${(intro.sections || []).map((section) => `
+                    <div class="intro-subsection">
+                      <h4>${section.heading}</h4>
+                      <ul class="plain-list">
+                        ${section.items.map((item) => `<li>${item}</li>`).join("")}
+                      </ul>
+                    </div>
+                  `).join("")}
+                  <ul class="plain-list">
+                    ${intro.highlights.map((item) => `<li>${item}</li>`).join("")}
+                  </ul>
+                  ${intro.dishBox ? `
+                    <section class="dish-box">
+                      <h4>${intro.dishBox.title}</h4>
+                      <div class="dish-grid">
+                        ${intro.dishBox.items.map((dish) => `
+                          <article class="dish-card">
+                            <h5>${dish.name}</h5>
+                            <p>${dish.description}</p>
+                            <div class="dish-flavor"><strong>Ízvilág:</strong> ${dish.flavor}</div>
+                          </article>
+                        `).join("")}
+                      </div>
+                    </section>
+                  ` : ""}
+                </div>
+              </details>
             </section>
           ` : ""}
           <div class="restaurant-groups">
@@ -318,6 +328,106 @@
               </section>
             `).join("")}
           </div>
+        </section>
+      `;
+    }
+
+    function renderLisbonGuide() {
+      const guide = tripData.lisbonGuide;
+      return `
+        <section class="view" data-view="lisbon">
+          <h2 class="section-title">🏙 Lisszabon</h2>
+          ${guide.context ? `
+            <section class="card section-intro context-shell">
+              <details class="context-accordion" open>
+                <summary class="context-summary">
+                  <div>
+                    <h3>${guide.context.title}</h3>
+                    <p class="context-subtitle">${guide.context.subtitle}</p>
+                  </div>
+                </summary>
+                <div class="context-stats">
+                  ${guide.context.stats.map((item) => `<span class="city-stat">${item}</span>`).join("")}
+                </div>
+                <div class="context-sections">
+                  ${guide.context.sections.map((section) => `
+                    <details class="context-section" open>
+                      <summary>${section.heading}</summary>
+                      <div class="context-section-body">
+                        ${section.paragraphs.map((paragraph) => `<p>${paragraph}</p>`).join("")}
+                        <div class="city-sources">
+                          ${(section.sources || []).map((source) => `<a class="source-icon" href="${source.url}" target="_blank" rel="noreferrer" title="${source.label}">${source.icon || "↗"}</a>`).join("")}
+                        </div>
+                      </div>
+                    </details>
+                  `).join("")}
+                </div>
+              </details>
+            </section>
+          ` : ""}
+          <section class="card section-intro context-shell">
+            <details class="context-accordion" open>
+              <summary class="context-summary">
+                <div>
+                  <h3>${guide.title}</h3>
+                  <p class="context-subtitle">Gyakorlati szerkezeti tippek és plusz lisszaboni ötletek a mostani útvonalhoz igazítva.</p>
+                </div>
+              </summary>
+              <div class="context-section-body">
+                ${guide.intro.map((paragraph) => `<p>${paragraph}</p>`).join("")}
+              </div>
+            </details>
+          </section>
+          <div class="group-grid">
+            <section class="card">
+              <h3>✍️ Travel tippek</h3>
+              <ul class="plain-list">
+                ${guide.tips.map((item) => `<li>${item}</li>`).join("")}
+              </ul>
+            </section>
+            <section class="card">
+              <h3>➕ Extra látnivalók, ha még belefér</h3>
+              <div class="resource-grid">
+                ${guide.extraSights.map((item) => `
+                  <article class="list-card">
+                    <h3><a href="${item.maps}" target="_blank" rel="noreferrer">${item.name}</a></h3>
+                    <p>${item.why}</p>
+                    <div class="meta">${item.fit}</div>
+                    <div class="meta-links">
+                      <a href="${item.maps}" target="_blank" rel="noreferrer">Google Maps</a>
+                      <a href="${item.wiki}" target="_blank" rel="noreferrer">Wikipedia</a>
+                    </div>
+                  </article>
+                `).join("")}
+              </div>
+            </section>
+          </div>
+          <section class="card" style="margin-top:16px;">
+            <div class="external-map-top">
+              <h3>${guide.sourceMap.title}</h3>
+              <a href="${guide.sourceMap.url}" target="_blank" rel="noreferrer">Megnyitás külön</a>
+            </div>
+            <p class="guide-lead">${guide.sourceMap.note}</p>
+            <iframe
+              class="external-map-frame"
+              src="${guide.sourceMap.embed}"
+              title="Google My Maps - Lisszabon"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </section>
+          <section class="card" style="margin-top:16px;">
+            <h3>🔗 Hasznos linkek</h3>
+            <div class="resource-grid">
+              ${guide.links.map((item) => `
+                <article class="list-card">
+                  <div class="resource-head">
+                    <h3>${item.label}</h3>
+                    <a class="resource-icon" href="${item.url}" target="_blank" rel="noreferrer" aria-label="${item.label}">↗</a>
+                  </div>
+                </article>
+              `).join("")}
+            </div>
+          </section>
         </section>
       `;
     }
@@ -385,6 +495,7 @@
     views.innerHTML = [
       renderOverview(),
       ...tripData.days.map(renderDay),
+      renderLisbonGuide(),
       renderRestaurants(),
       renderSights(),
       renderPractical()

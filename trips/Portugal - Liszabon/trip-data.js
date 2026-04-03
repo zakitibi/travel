@@ -45,6 +45,160 @@ const tripData = {
       "Április 7 már csak lezáró nap és esti hazautazás, észak-portugál kitérő nélkül."
     ]
   },
+  lisbonGuide: {
+    title: "🏙 Lisszabon – travel tippek és extra látnivalók",
+    context: {
+      title: "🏛 Lisszabon háttérkép",
+      subtitle: "Kultúra, politika, gazdaság, történelem és földrajzi adottságok egy helyen.",
+      stats: [
+        "Főváros: Portugália",
+        "~575 739 lakos (2024, város)",
+        "~3,0 millió lakos (metrórégió)",
+        "Terület: 100,05 km²",
+        "Főváros 1256 óta",
+        "A Tejo északi partján"
+      ],
+      sections: [
+        {
+          heading: "🌍 Földrajzi adottságok",
+          paragraphs: [
+            "Lisszabon a Tejo-torkolat északi oldalán fekszik, közel az Atlanti-óceánhoz. A város egyik alapélménye éppen ebből jön: egyszerre folyóparti és óceáni karakterű, ezért a fény, a szél és a kilátók szerepe sokkal erősebb, mint sok más európai fővárosban.",
+            "A városszövet dombokra és teraszokra épül. A klasszikus hét domb mítosza kulturálisan is fontos, mert jól magyarázza, miért ilyen lépcsőzött, miradourókkal teli és fizikailag fárasztóbb a város, mint amit egy sima térképen a távolságok sugallnak.",
+            "A Tejo széles tölcsértorkolata stratégiai természetes kikötőt adott Lisszabonnak. Britannica szerint ez volt az egyik oka annak, hogy a város már korán kereskedelmi és tengeri központtá tudott válni, később pedig a portugál felfedezések egyik fő bázisa lett."
+          ],
+          sources: [
+            { label: "Wikipedia Lisbon", url: "https://en.wikipedia.org/wiki/Lisbon", icon: "W" },
+            { label: "Britannica Lisbon", url: "https://www.britannica.com/place/Lisbon", icon: "B" }
+          ]
+        },
+        {
+          heading: "🏺 Történelem",
+          paragraphs: [
+            "Lisszabon Európa egyik legrégebbi fővárosa. A város római előzményeiig, sőt még korábbi településrétegekig vezethető vissza; a római korban Olisipo néven ismerték. A késő antikvitás után vizigót, majd mór uralom alá került, ami különösen az Alfama utcavilágán és a városi topográfia régebbi rétegein hagyott nyomot.",
+            "1147-ben Afonso Henriques seregei foglalták vissza a várost, és 1256-ban lett Portugália fővárosa. A 15–16. században Lisszabon a felfedezések korának egyik vezető európai kikötő- és kereskedelmi városa lett, innen indultak ki a portugál atlanti és indiai-óceáni tengeri útvonalak.",
+            "A város egyik legnagyobb töréspontja az 1755-ös földrengés, szökőár és tűzvész volt. Ez nemcsak hatalmas pusztítást okozott, hanem új városképet is eredményezett: a mai Baixa szabályos, racionális utcahálózata és reprezentatív terei ebből az újjáépítési korszakból származnak."
+          ],
+          sources: [
+            { label: "Wikipedia Lisbon", url: "https://en.wikipedia.org/wiki/Lisbon", icon: "W" },
+            { label: "Britannica History of Lisbon", url: "https://www.britannica.com/place/Lisbon/History", icon: "H" },
+            { label: "Britannica Modern Lisbon", url: "https://www.britannica.com/place/Lisbon/Evolution-of-the-modern-city", icon: "M" }
+          ]
+        },
+        {
+          heading: "🏛 Politika és állami szerep",
+          paragraphs: [
+            "Lisszabon Portugália politikai központja: itt működik a kormány, az Országgyűlés, a legfontosabb bíróságok és az államfő hivatalos rezidenciája is. Emiatt a város nemcsak turisztikai vagy kulturális értelemben fontos, hanem az ország teljes döntéshozatali rendszerének központja.",
+            "A fővárosi szerep a történeti folytonosság miatt is erős. Az állami intézmények, az egyetemek, a diplomáciai képviseletek és a nagy országos médiumok koncentrációja miatt Lisszabon súlya Portugálián belül aránytalanul nagy.",
+            "Utazóként ez abban is látszik, hogy a reprezentatív terek, minisztériumi negyedek, nagy közlekedési csomópontok és kulturális intézmények nem különülnek el teljesen a történeti városrészekről: a mindennapi állami-fővárosi funkció és a történeti látvány városszerkezetileg is egymásra épül."
+          ],
+          sources: [
+            { label: "Wikipedia Lisbon", url: "https://en.wikipedia.org/wiki/Lisbon", icon: "W" },
+            { label: "Britannica Lisbon", url: "https://www.britannica.com/place/Lisbon", icon: "B" }
+          ]
+        },
+        {
+          heading: "💶 Gazdaság",
+          paragraphs: [
+            "Lisszabon Portugália legfontosabb gazdasági központja. A város és a tágabb metróövezet koncentrálja az ország vállalati, pénzügyi, szolgáltatási és turisztikai aktivitásának jelentős részét. A városi gazdaság súlya ma már elsősorban nem az iparra, hanem a szolgáltatásokra, a kereskedelemre, a pénzügyre, a logisztikára és a turizmusra épül.",
+            "Britannica szerint a korábbi halászati és ipari karaktert a 20. század végétől egyre inkább a szolgáltató szektor váltotta fel. Az Expo '98 és a folyóparti rehabilitáció látványosan formálta át a város önképét és gazdasági profilját is: modern infrastruktúra, új városnegyedek és erősebb nemzetközi pozíció alakult ki.",
+            "A turizmus különösen fontos tényező, de a város ennél többről szól: a kikötő, a regionális vállalati központok, a technológiai és kreatív szektorok, valamint a nagyvárosi szolgáltatások együtt adják azt a gazdasági sűrűséget, amit a látogató is érez a város ritmusán."
+          ],
+          sources: [
+            { label: "Britannica People & Economy", url: "https://www.britannica.com/place/Lisbon/People", icon: "B" },
+            { label: "Wikipedia Lisbon", url: "https://en.wikipedia.org/wiki/Lisbon", icon: "W" },
+            { label: "AML municipalities", url: "https://www.aml.pt/en/municipios/", icon: "A" }
+          ]
+        },
+        {
+          heading: "🎭 Kultúra és városi karakter",
+          paragraphs: [
+            "Lisszabon kulturális identitásának egyik kulcsa a fado, a saudade hangulata, a kilátók és a negyedek közti erős karakterkülönbség. Alfama, Bairro Alto, Chiado és Belém teljesen más arcot mutatnak, mégis ugyanannak a városi történetnek a részei.",
+            "A város egyszerre nagyon régi és meglepően modern. A kolostorok, manuelin emlékek, a földrengés utáni Baixa, a 19. századi kávéházak, a folyóparti új fejlesztések és a mai kreatív helyek, mint az LX Factory, nem zárják ki egymást, hanem rétegenként rakódnak egymásra.",
+            "Gasztronómiailag is erős kulturális központ: a pastel de nata, a bacalhau-fogások, a petiscos, a borbárok és a kisebb tabernák mellett a városnak nagyon erős kávéházi kultúrája is van. Az utazó számára ezért Lisszabon nemcsak látványosságok sora, hanem egy saját ritmusú, erősen atmoszférikus főváros."
+          ],
+          sources: [
+            { label: "Britannica Lisbon", url: "https://www.britannica.com/place/Lisbon", icon: "B" },
+            { label: "Wikipedia Lisbon", url: "https://en.wikipedia.org/wiki/Lisbon", icon: "W" }
+          ]
+        }
+      ]
+    },
+    intro: [
+      "A megadott Mindig Úton cikk alapján Lisszabonban az egyik legfontosabb gyakorlati tanulság, hogy a fő látnivalók ugyan nem kezelhetetlenül sokan vannak, de eléggé szétszórva helyezkednek el. Emiatt a napokat érdemes negyedenként és logikai tengelyenként összerakni, nem pusztán földrajzi neveket kipipálni.",
+      "A cikk erősen kiemeli, hogy 2 nap alatt a fő pontok ugyan megfoghatók, de a város hangulatához valójában 3–4 nap illik jobban. Ez jól egybevág a te mostani verzióddal: Belém és a történelmi belváros külön teljes napot kap, Sintra külön áll, és marad egy pufferes lisszaboni nap is.",
+      "Az Utazzunk Együtt 4 napos útiterve ezt tovább erősíti: az első nap Alfama és a vár, a második Belém és a modern vibrálás, a harmadik Sintra mellé akár Cascais is, a negyedik pedig Chiado, Santa Justa és a kilátók. Ez jól illeszkedik a mostani struktúrához, ezért a még reálisan beleférő pontokat ebből is átemeltem.",
+      "A két külső forrás alapján a legfontosabb pluszok a mi tervünkhöz: Castelo de São Jorge, Santa Justa, A Brasileira / Chiado, a 28-as villamos hangulata, az opcionális Cascais és a nagyon praktikus közlekedési tanácsok, például a Viva Viagem kártya. Az Utazzunk Együtt külön jól fogja meg azt is, hogy Lisszabon nem csak nevezetességek listája: a dombos városszövet, a kilátók, a fado-hangulat és a folyóparti terek együtt adják a város igazi karakterét."
+    ],
+    tips: [
+      "Zsebtolvajok: a zsúfolt villamosokon, turistás tereken és közlekedési csomópontokban fokozottan figyelni kell, a táskát érdemes mindig elöl tartani.",
+      "Pastel de nata: a Pastéis de Belém nem csak kipipálandó név, hanem valódi minőségi megálló, ezért jó, hogy a reggeli blokk elején van.",
+      "Viva Viagem: a cikk alapján ez a legpraktikusabb újratölthető közlekedési kártya, ha több metró-, villamos- és vasúti utat használtok.",
+      "Lisboa Card: ha sok kötött látnivalót és tömegközlekedést használtok, a városkártya reális opció lehet.",
+      "Közlekedés: a cikk alapján több pontra Uber/Bolt praktikusabb lehet, mert a fő látnivalók nem mindig vannak egymástól kényelmes gyalogtávra.",
+      "Sintra-nap: a korai indulás tényleg kritikus, mert később sokkal zsúfoltabb és lassabb lesz minden.",
+      "28-as villamos: inkább hangulat-élmény, mint gyors közlekedési eszköz; csúcsidőben zsúfolt és figyelni kell az értékekre.",
+      "Santa Justa: a cikk alapján maga a lift gyakran soros attrakció, ezért ha csak a kilátás kell, a gyalogos feljutás vagy a Glória sikló utáni séta sokszor jobb kompromisszum.",
+      "Lisszabon dombos és macskaköves: kényelmes cipővel számolj, mert a napi séta fizikailag többet kivesz, mint amit a térképen a rövid távok sugallnak."
+    ],
+    extraSights: [
+      {
+        name: "Castelo de São Jorge",
+        why: "A cikk külön kiemeli, hogy a várból fantasztikus kilátás nyílik a Tejóra, a Ponte 25 de Abrilra és az egész városra, ezért erős első vagy második napos panorámapont.",
+        fit: "Az Alfama-blokkba simán beépíthető, mert történetileg és földrajzilag is oda tartozik.",
+        maps: "https://www.google.com/maps/search/Castelo+de+S%C3%A3o+Jorge+Lisbon",
+        wiki: "https://en.wikipedia.org/wiki/Castle_of_S%C3%A3o_Jorge"
+      },
+      {
+        name: "Christo Rei",
+        why: "A forrásoldal szerint az egyik legerősebb panorámapont a városra és a hídra, viszont külön átjutást igényel a túlpartra.",
+        fit: "Csak opcionális április 6-i extra programpontként fér bele, ha nem akarsz teljesen laza napot.",
+        maps: "https://www.google.com/maps/search/Christo+Rei+Almada",
+        wiki: "https://en.wikipedia.org/wiki/Christ_the_King_(Almada)"
+      },
+      {
+        name: "28-as villamos vonala",
+        why: "Nem egyetlen látványosság, hanem egy mozgó városképi élmény: Alfama, Graça és a régi dombos Lisszabon hangulatának esszenciája.",
+        fit: "A d2 vagy d4 nap rövid szakaszaként jól használható, de csúcsidőben zsúfolt és zsebtolvajos.",
+        maps: "https://www.google.com/maps/search/Tram+28+Lisbon",
+        wiki: "https://en.wikipedia.org/wiki/Trams_in_Lisbon"
+      },
+      {
+        name: "Elevador de Santa Justa",
+        why: "A Baixa–Chiado tengely egyik legismertebb vizuális eleme, jól illik a belvárosi sétába.",
+        fit: "Baixa–Chiado blokkba röviden beleférhet, ha nem túl hosszú a sor.",
+        maps: "https://www.google.com/maps/search/Santa+Justa+Lift+Lisbon",
+        wiki: "https://en.wikipedia.org/wiki/Santa_Justa_Lift"
+      },
+      {
+        name: "Cascais",
+        why: "Az Utazzunk Együtt cikk szerint Sintra után jó tengerparti ellenpont lehet: kikötő, strandok és lazább atlanti hangulat.",
+        fit: "Csak akkor fér bele, ha a sintrai nap nagyon korán indul és a fő kastélypontok után még marad energia.",
+        maps: "https://www.google.com/maps/search/Cascais+Portugal",
+        wiki: "https://en.wikipedia.org/wiki/Cascais"
+      },
+      {
+        name: "A Brasileira és Chiado kávéházi közege",
+        why: "A cikk ezt mint klasszikus elegáns, kulturális lisszaboni hangulatot emeli ki, Fernando Pessoa vonalával együtt.",
+        fit: "Az április 6-i laza napba tökéletesen illik rövid kávés-blokknak.",
+        maps: "https://www.google.com/maps/search/A+Brasileira+Lisbon",
+        wiki: "https://en.wikipedia.org/wiki/A_Brasileira"
+      }
+    ],
+    links: [
+      { label: "Mindig Úton – Lisszabon látnivalók", url: "https://mindiguton.hu/lisszabon-latnivalok/" },
+      { label: "Utazzunk Együtt – 4 napos lisszaboni útiterv", url: "https://utazzunkegyutt.hu/lisszabon-es-kornyeke-4-napos-utiterv-a-portugal-fovarosban/" },
+      { label: "Lisboa Card", url: "https://www.lisboacard.org/" },
+      { label: "Jerónimos hivatalos jegyek", url: "https://www.patrimoniocultural.gov.pt/" },
+      { label: "Parques de Sintra", url: "https://www.parquesdesintra.pt/en/" },
+      { label: "Google My Maps – Lisszabon", url: "https://www.google.com/maps/d/u/0/viewer?mid=1LKjnh7CuSdteliDT6VWZ0b7OfRRXYzo&femb=1&ll=38.71702104698881%2C-9.309141899999984&z=11" }
+    ],
+    sourceMap: {
+      title: "🗺 Lisszabon interaktív térkép",
+      url: "https://www.google.com/maps/d/u/0/viewer?mid=1LKjnh7CuSdteliDT6VWZ0b7OfRRXYzo&femb=1&ll=38.71702104698881%2C-9.309141899999984&z=11",
+      embed: "https://www.google.com/maps/d/embed?mid=1LKjnh7CuSdteliDT6VWZ0b7OfRRXYzo&ehbc=2E312F",
+      note: "A lisszaboni látnivalókhoz most ez a Google My Maps térkép van integrálva. Innen gyorsan átlátható Belém, Alfama, Baixa–Chiado és a többi releváns pont."
+    }
+  },
   sectionIntros: {
     restaurants: {
       title: "🇵🇹 Portugál kulinária röviden",
@@ -55,6 +209,16 @@ const tripData = {
             name: "Bacalhau",
             description: "Sózott tőkehalból készülő gyűjtőfogalom, rengeteg verzióval.",
             flavor: "sósabb, karakteres, olívaolajos, gyakran hagymás-fokhagymás"
+          },
+          {
+            name: "Bacalhau à Brás",
+            description: "Tőkehal tojással, hagymával és vékony sült krumplival összeforgatva.",
+            flavor: "selymesebb, tojásos, sós, komfortos és nagyon portugál"
+          },
+          {
+            name: "Bacalhau com natas",
+            description: "Krémes, sütőben készült tőkehalas fogás tejszínesebb mártással.",
+            flavor: "lágyabb, gazdagabb, krémesebb és kevésbé rusztikus"
           },
           {
             name: "Pastel de nata",
@@ -85,6 +249,11 @@ const tripData = {
             name: "Arroz de marisco",
             description: "Tenger gyümölcseivel főzött szaftos rizses fogás.",
             flavor: "mélyen tengeri, sós-umamis, sűrű és szaftos"
+          },
+          {
+            name: "Cataplana de marisco",
+            description: "Fedeles rézedényben főzött tenger gyümölcsei ragu vagy sűrűbb egytálétel.",
+            flavor: "intenzíven tengeri, szaftos, fokhagymás, fehérboros"
           },
           {
             name: "Polvo",
@@ -123,20 +292,21 @@ const tripData = {
           heading: "Mit kell megkóstolni?",
           items: [
             "Pastel de nata vagy a klasszikus Pastéis de Belém.",
-            "Legalább egy bacalhau fogás, mert ez a portugál konyha egyik alappillére.",
+            "Legalább egy bacalhau fogás, ideálisan bacalhau à brás vagy bacalhau com natas formában.",
             "Lisszabonban valamilyen jó petiscos vagy taberna-vacsora is erősen ajánlott.",
-            "Caldo verde, sardinhas assadas, arroz de marisco vagy polipétel, ha az adott hely kínálata jó.",
+            "Caldo verde, sardinhas assadas, arroz de marisco, cataplana de marisco vagy polipétel, ha az adott hely kínálata jó.",
             "Sintrában egy travesseiros vagy queijadas is férjen bele."
           ]
         }
       ],
       paragraphs: [
         "A portugál konyha egyszerre atlanti, mediterrán és birodalmi örökségű: a hal, a tenger gyümölcsei, az olívaolaj, a kenyér, a rizs, a sertés és a lassan főzött, rusztikus fogások adják az alapját. A felfedezések korával együtt rengeteg fűszer, cukor és új alapanyag érkezett be, ezért a portugál étkezés egyszerre tud egyszerű és történetileg meglepően gazdag lenni.",
-        "A legismertebb történeti vonal a bacalhau, vagyis a sózott tőkehal kultúrája, amely a tengeri kereskedelemmel és a hosszú tárolhatósággal fonódott össze. Ugyanilyen fontos az édességek világa is: sok klasszikus portugál desszert kolostori eredetű, tojássárgájára és cukorra épülő receptekkel.",
-        "Amit ezen az úton régiónként érdemes kiemelni: Lisszabonban a pastel de nata, a petiscos és az egyszerűbb tabernaételek; Belémben az ikonikus sütis megállókat; Sintrában pedig az édességeket és a könnyebb központi étkezéseket."
+        "A legismertebb történeti vonal a bacalhau, vagyis a sózott tőkehal kultúrája, amely a tengeri kereskedelemmel és a hosszú tárolhatósággal fonódott össze. A megadott cikk külön is kiemeli, hogy legalább egy jó bacalhau à brás vagy bacalhau com natas verziót érdemes kipróbálni. Ugyanilyen fontos az édességek világa is: sok klasszikus portugál desszert kolostori eredetű, tojássárgájára és cukorra épülő receptekkel.",
+        "A forrásoldal gasztróblokkja alapján a lisszaboni rövid úton különösen érdemes figyelni a grillezett szardíniára, a bifanára és a tenger gyümölcseis fogásokra is. Ha a menün van cataplana de marisco vagy arroz de marisco, az jó jel arra, hogy egy hely a tengeri vonalban is erős lehet.",
+        "Amit ezen az úton régiónként érdemes kiemelni: Lisszabonban a pastel de nata, a petiscos, a bacalhau-fogások és az egyszerűbb tabernaételek; Belémben az ikonikus sütis megállókat; Sintrában pedig az édességeket és a könnyebb központi étkezéseket."
       ],
       highlights: [
-        "Jellegzetes portugál ételek: bacalhau, caldo verde, sardinhas assadas, bifana, francesinha, arroz de marisco, polvo.",
+        "Jellegzetes portugál ételek: bacalhau, bacalhau à brás, bacalhau com natas, caldo verde, sardinhas assadas, bifana, cataplana de marisco, arroz de marisco, polvo.",
         "Kötelezően megkóstolandó: pastel de nata, jó kenyér + olívaolaj, legalább egy tőkehalas fogás és egy jó lisszaboni taberna-vacsora.",
         "Desszertvonal: Pastéis de Belém, Sintrában travesseiros vagy queijadas, és általában a portugál tojáskrémes-kolostori édességek világa.",
         "Borfronton a portugál asztali vörös és fehér borok is erősek, még rövid lisszaboni úton is."
@@ -203,7 +373,8 @@ const tripData = {
             "Lisszabon Európa egyik legrégebbi fővárosa, története a római Olissipótól a mór korszakon át a középkori portugál királyságig húzódik. A város 1147-ben került vissza keresztény uralom alá, majd 1256-ban lett Portugália fővárosa.",
             "A mai város karakterét egyszerre határozza meg a dombos topográfia, a Tejo-part, a felfedezések kora és az 1755-ös nagy földrengés utáni újjáépítés. Baixa rácsos szerkezete, Belém emlékei és Alfama réteges utcavilága ezért ennyire eltérő hangulatú.",
             "A rövid utazó számára Lisszabon legerősebb tengelye általában Belém történelmi zónája, Alfama kilátói és a Baixa–Chiado városi mag. Ezek együtt adják a város történelmi, vallási és mindennapi arcát.",
-            "Gasztronómiailag Lisszabon egyszerre tradicionális és könnyen fogyasztható város: a pastel de nata, a tőkehalételek, a grillezett szardínia, a petiscos és a borbárok világa gyorsan érthető. Belémben a Pastéis de Belém a legismertebb ikon, míg Alfamában és Bairro Altóban a kisebb, hangulatos tabernák adják a karakteresebb esti élményt."
+            "Gasztronómiailag Lisszabon egyszerre tradicionális és könnyen fogyasztható város: a pastel de nata, a tőkehalételek, a grillezett szardínia, a petiscos és a borbárok világa gyorsan érthető. Belémben a Pastéis de Belém a legismertebb ikon, míg Alfamában és Bairro Altóban a kisebb, hangulatos tabernák adják a karakteresebb esti élményt.",
+            "A mostani források alapján a város legjobb ritmusa az, ha nem mindent egy napra zsúfolsz: Alfama és a vár lassabb bolyongást kér, Belémben időt vesznek el a sorok, Chiadóban pedig a kávéházi és kilátós megállók adják meg az ízét. Emiatt a 4 napos bontás itt tényleg erősebb, mint egy sűrített weekend-logika."
           ],
           highlights: [
             "Belém: Jerónimos kolostor, Belém-torony és a Padrão dos Descobrimentos együtt mutatják meg a felfedezések korát.",
@@ -245,36 +416,41 @@ const tripData = {
       schedule: [
         { time: "09:00", title: "☕ Pastéis de Belém", detail: "Ikonikus pastel de nata, reggel a legrövidebb a sor.", placeBox: {
           title: "Belém negyed",
-          text: "Belém Lisszabon történelmi folyóparti zónája, amely a portugál felfedezések korának legerősebb emlékhelyeit sűríti össze. Itt koncentrálódik a Jerónimos kolostor, a Belém-torony és a Padrão dos Descobrimentos világa, ezért ez a város egyik legfontosabb történeti negyede.",
+          text: "Belém Lisszabon történelmi folyóparti zónája, amely a portugál felfedezések korának legerősebb emlékhelyeit sűríti össze. Itt koncentrálódik a Jerónimos kolostor, a Belém-torony és a Padrão dos Descobrimentos világa, ezért ez a város egyik legfontosabb történeti negyede. Az Utazzunk Együtt cikk logikája szerint ez külön fél- vagy teljes napot ér, mert a látnivalók nagyok, a sorok hosszúak lehetnek, és a negyed önmagában is erős folyóparti atmoszférát ad.",
           highlights: [
             "monumentális folyóparti történelmi zóna",
             "Jerónimos és Belém-torony ugyanabban a tengelyben",
-            "Pastéis de Belém miatt gasztronómiailag is ikonikus"
+            "Pastéis de Belém miatt gasztronómiailag is ikonikus",
+            "a Tejo-parti séták és a felfedezések kori emlékművek miatt vizuálisan is az egyik legerősebb liszaboni kör"
           ],
           wikipedia: "https://en.wikipedia.org/wiki/Bel%C3%A9m,_Lisbon",
           maps: "https://www.google.com/maps/search/Bel%C3%A9m+Lisbon"
         } },
-        { time: "09:30", title: "🏛 Jerónimos kolostor", detail: "UNESCO látnivaló, online jegy kötelezően ajánlott.", maps: "https://www.google.com/maps/search/Jer%C3%B3nimos+Monastery+Lisbon", wikipedia: "https://hu.wikipedia.org/wiki/Jer%C3%B3nimos-kolostor", googleRating: "4.5", price: "10€/fő" },
-        { time: "11:00", title: "🗼 Belém-torony", detail: "Folyóparti séta és rövid fotóblokk.", maps: "https://www.google.com/maps/search/Torre+de+Bel%C3%A9m+Lisbon", wikipedia: "https://hu.wikipedia.org/wiki/Bel%C3%A9m-torony", googleRating: "4.6", price: "8€/fő" },
+        { time: "09:30", title: "🏛 Jerónimos kolostor", detail: "UNESCO látnivaló, online jegy kötelezően ajánlott; később a sor nagyon meg tud nőni.", maps: "https://www.google.com/maps/search/Jer%C3%B3nimos+Monastery+Lisbon", wikipedia: "https://hu.wikipedia.org/wiki/Jer%C3%B3nimos-kolostor", googleRating: "4.5", price: "10€/fő" },
+        { time: "11:00", title: "🗼 Belém-torony", detail: "Folyóparti séta és rövid fotóblokk; belülről kisebb, inkább a külső látványa és a pozíciója erős.", maps: "https://www.google.com/maps/search/Torre+de+Bel%C3%A9m+Lisbon", wikipedia: "https://hu.wikipedia.org/wiki/Bel%C3%A9m-torony", googleRating: "4.6", price: "8€/fő" },
         { time: "13:00", title: "🍽 Ebéd: Solar dos Presuntos", detail: "Klasszikus portugál húsos hely a belvárosban." },
-        { time: "15:00", title: "🏘 Alfama negyed", detail: "São Jorge vár környéke és kilátók.", placeBox: {
+        { time: "15:00", title: "🏘 Alfama negyed", detail: "São Jorge vár környéke, kilátók és régi utcák.", placeBox: {
           title: "Alfama",
-          text: "Alfama Lisszabon legrégebbi és legkarakteresebb negyede, amely a mór korszakot és a középkori utcahálózatot őrzi a leglátványosabban. Szűk utcák, lépcsők, kis terek, kilátópontok és a fado hangulata miatt ez a város leginkább atmoszférikus része.",
+          text: "Alfama Lisszabon legrégebbi és legkarakteresebb negyede, amely a mór korszakot és a középkori utcahálózatot őrzi a leglátványosabban. Szűk utcák, lépcsők, kis terek, kilátópontok és a fado hangulata miatt ez a város leginkább atmoszférikus része. Az Utazzunk Együtt cikk ezt a történelmi szívet emeli ki az első nap kulcspontjaként: itt érdemes tényleg bolyongni, nem csak egyik pinről a másikra menni, mert az élmény nagy része épp az utcákban és a miradourók közti átmenetekben van.",
           highlights: [
             "középkori, réteges utcaszövet",
             "São Jorge-vár környéke és több miradouro",
-            "a fado és a régi lisszaboni hangulat fő terepe"
+            "a fado és a régi lisszaboni hangulat fő terepe",
+            "a vár felől a Tejo és a városi tetők látványa különösen erős"
           ],
           wikipedia: "https://hu.wikipedia.org/wiki/Alfama",
           maps: "https://www.google.com/maps/search/Alfama+Lisbon"
         } },
-        { time: "17:30", title: "🚶 Baixa–Chiado séta", detail: "Praça do Comércio és Rua Augusta.", placeBox: {
+        { time: "16:15", title: "🏰 Castelo de São Jorge", detail: "Ha a tempó jó, ez nagyon erős panorámapont az Alfama fölött; a várfalakról különösen jó a Tejo és a Ponte 25 de Abril iránya.", maps: "https://www.google.com/maps/search/Castelo+de+S%C3%A3o+Jorge+Lisbon", wikipedia: "https://en.wikipedia.org/wiki/Castle_of_S%C3%A3o_Jorge", googleRating: "4.4", price: "15€/fő" },
+        { time: "17:45", title: "🚶 Baixa–Chiado séta", detail: "Praça do Comércio, Rua Augusta és Santa Justa tengelye.", placeBox: {
           title: "Baixa–Chiado",
-          text: "Baixa a nagy 1755-ös földrengés utáni újjáépített városmag, szabályosabb utcahálózattal, reprezentatív terekkel és kereskedelmi tengelyekkel. Chiado ehhez képest elegánsabb, kulturálisabb és kávéházasabb réteg, így a két negyed együtt mutatja meg a modern nagyvárosi Lisszabon központját.",
+          text: "Baixa a nagy 1755-ös földrengés utáni újjáépített városmag, szabályosabb utcahálózattal, reprezentatív terekkel és kereskedelmi tengelyekkel. Chiado ehhez képest elegánsabb, kulturálisabb és kávéházasabb réteg, így a két negyed együtt mutatja meg a modern nagyvárosi Lisszabon központját. Az Utazzunk Együtt külön kiemeli itt a Santa Justát, A Brasileira környékét és a kilátók felé vezető átmeneteket, ezért ez a blokk nem csak kötelező séta, hanem jó lezárása is egy történelmibb napnak.",
           highlights: [
             "Praça do Comércio mint folyóparti főtér",
             "Rua Augusta és az árkádos, klasszikus belvárosi séta",
-            "Chiado: könyves, kávéházas, urbánusabb városi hangulat"
+            "Chiado: könyves, kávéházas, urbánusabb városi hangulat",
+            "Santa Justa mint rövid, ikonikus városi fotópont",
+            "A Brasileira és Pessoa-szobor környéke a lazább, kávézós levezetéshez is jó"
           ],
           wikipedia: "https://en.wikipedia.org/wiki/Baixa_(Lisbon)",
           maps: "https://www.google.com/maps/search/Baixa+Chiado+Lisbon"
@@ -283,7 +459,8 @@ const tripData = {
       ],
       daySights: [
         { name: "Jerónimos kolostor", googleRating: "4.5", price: "10€/fő", text: "Belém legfontosabb történelmi pontja, manuelin stílusú UNESCO-helyszín.", wikipedia: "https://hu.wikipedia.org/wiki/Jer%C3%B3nimos-kolostor", maps: "https://www.google.com/maps/search/Jer%C3%B3nimos+Monastery+Lisbon" },
-        { name: "Belém-torony", googleRating: "4.6", price: "8€/fő", text: "Folyóparti erőd és rövid, erős fotós megálló a Jerónimos után.", wikipedia: "https://hu.wikipedia.org/wiki/Bel%C3%A9m-torony", maps: "https://www.google.com/maps/search/Torre+de+Bel%C3%A9m+Lisbon" }
+        { name: "Belém-torony", googleRating: "4.6", price: "8€/fő", text: "Folyóparti erőd és rövid, erős fotós megálló a Jerónimos után.", wikipedia: "https://hu.wikipedia.org/wiki/Bel%C3%A9m-torony", maps: "https://www.google.com/maps/search/Torre+de+Bel%C3%A9m+Lisbon" },
+        { name: "Castelo de São Jorge", googleRating: "4.4", price: "15€/fő", text: "Alfama fölötti vár és panorámapont, ha a nap ritmusa engedi.", wikipedia: "https://en.wikipedia.org/wiki/Castle_of_S%C3%A3o_Jorge", maps: "https://www.google.com/maps/search/Castelo+de+S%C3%A3o+Jorge+Lisbon" }
       ]
     },
     {
@@ -309,31 +486,33 @@ const tripData = {
       ],
       schedule: [
         { time: "08:00", title: "🚆 Rossio → Sintra", detail: "Kb. 40 perc vonat, reggeli indulással." },
-        { time: "09:30", title: "🏰 Palácio Nacional da Pena", detail: "A nap legfontosabb pontja, online időponttal.", maps: "https://www.google.com/maps/search/Pena+Palace+Sintra", wikipedia: "https://en.wikipedia.org/wiki/Pena_Palace", googleRating: "4.4", price: "20€/fő", placeBox: {
+        { time: "09:30", title: "🏰 Palácio Nacional da Pena", detail: "A nap legfontosabb pontja, online időponttal; kései indulásnál itt jön a legnagyobb csúszás.", maps: "https://www.google.com/maps/search/Pena+Palace+Sintra", wikipedia: "https://en.wikipedia.org/wiki/Pena_Palace", googleRating: "4.4", price: "20€/fő", placeBox: {
           title: "Pena-palota",
-          text: "A Pena Sintra legismertebb helye, színes romantikus palota és egyben erős panorámapont is. Itt a korai idősáv sokat számít, mert később gyorsan telítődik a környék és a bejutás is lassabb lesz.",
+          text: "A Pena Sintra legismertebb helye, színes romantikus palota és egyben erős panorámapont is. Itt a korai idősáv sokat számít, mert később gyorsan telítődik a környék és a bejutás is lassabb lesz. Az Utazzunk Együtt ezt a nap első, fixen időzített elemének tekinti, és ebben teljesen igaza van: ha Pena elcsúszik, az egész sintrai nap borul.",
           highlights: [
             "a sintrai nap fő programpontja",
             "romantikus 19. századi palota",
-            "időpontra vett jeggyel működik a legjobban"
+            "időpontra vett jeggyel működik a legjobban",
+            "a park és a panoráma miatt nem csak gyors fotóstop"
           ],
           wikipedia: "https://en.wikipedia.org/wiki/Pena_Palace",
           maps: "https://www.google.com/maps/search/Pena+Palace+Sintra"
         } },
         { time: "12:00", title: "🌳 Quinta da Regaleira", detail: "Iniciatikus kút és kert.", maps: "https://www.google.com/maps/search/Quinta+da+Regaleira+Sintra", wikipedia: "https://en.wikipedia.org/wiki/Quinta_da_Regaleira", googleRating: "4.8", price: "8€/fő", placeBox: {
           title: "Quinta da Regaleira",
-          text: "A Regaleira a sintrai nap misztikusabb ellenpontja: kert, villa, föld alatti hangulat és az ikonikus iniciatikus kút együtt adják az élményt. A Penához képest kevésbé monumentális, de sokkal játékosabb és felfedezős hely.",
+          text: "A Regaleira a sintrai nap misztikusabb ellenpontja: kert, villa, föld alatti hangulat és az ikonikus iniciatikus kút együtt adják az élményt. A Penához képest kevésbé monumentális, de sokkal játékosabb és felfedezős hely. A forráscikkek alapján ez az a pont, ahol érdemes lassítani, mert a hely varázsa pont a kertrészletekben, alagutakban és a szimbolikus építészeti elemekben jön ki.",
           highlights: [
             "iniciatikus kút és szimbolikus kert",
             "erős második nagy stop a Pena után",
-            "gyalogos bolyongásra ideális"
+            "gyalogos bolyongásra ideális",
+            "nem csak egy épület, hanem teljes felfedezős parkélmény"
           ],
           wikipedia: "https://en.wikipedia.org/wiki/Quinta_da_Regaleira",
           maps: "https://www.google.com/maps/search/Quinta+da+Regaleira+Sintra"
         } },
         { time: "13:30", title: "🍽 Ebéd Sintra központban", detail: "Rövid, könnyű ebéd." },
-        { time: "15:00", title: "🌊 Cabo da Roca opció", detail: "Ha a tempó bírja, beleférhet." },
-        { time: "17:30", title: "🚆 Vissza Lisszabonba", detail: "Este már pihenős lezárás." }
+        { time: "15:00", title: "🌊 Cabo da Roca vagy Cascais opció", detail: "Ha a tempó bírja, rövid atlanti kitérő is beleférhet." },
+        { time: "17:30", title: "🚆 Vissza Lisszabonba", detail: "Cascaisból a Cais do Sodré felé menő vonat is kényelmes visszaút lehet." }
       ],
       daySights: [
         { name: "Pena kastély", googleRating: "4.4", price: "20€/fő", text: "Sintra zászlóshajója, erős korai idősávval működik a legjobban.", wikipedia: "https://en.wikipedia.org/wiki/Pena_Palace", maps: "https://www.google.com/maps/search/Pena+Palace+Sintra" },
@@ -398,19 +577,21 @@ const tripData = {
           maps: "https://www.google.com/maps/search/LX+Factory+Lisbon",
           wikipedia: "https://en.wikipedia.org/wiki/LX_Factory"
         } },
-        { time: "11:30", title: "🚶 Bica + kilátóblokk", detail: "Miradouro São Pedro de Alcântara környéke.", placeBox: {
+        { time: "11:30", title: "🚋 Bica + 28-as villamos hangulat", detail: "Miradouro São Pedro de Alcântara környéke és rövid régi villamosos blokk.", placeBox: {
           title: "Bica és a kilátók",
-          text: "Bica a meredek, sárga siklóval és szűk utcákkal együtt a fotogén lisszaboni városkép egyik röviden is élvezhető része. A São Pedro de Alcântara kilátó ehhez hozzáad egy könnyen elérhető panorámát a város fölött.",
+          text: "Bica a meredek, sárga siklóval és szűk utcákkal együtt a fotogén lisszaboni városkép egyik röviden is élvezhető része. A São Pedro de Alcântara kilátó ehhez hozzáad egy könnyen elérhető panorámát a város fölött. A megadott cikk alapján a 28-as villamos vonala is jól illik ehhez a régi, dombos lisszaboni hangulathoz.",
           highlights: [
             "klasszikus lisszaboni siklós utcakép",
             "jó átmenet a laza nap és a városi séta között",
-            "kilátóval együtt rövid blokkban is működik"
+            "kilátóval együtt rövid blokkban is működik",
+            "a régi villamosos városkép röviden is átélhető"
           ],
           maps: "https://www.google.com/maps/search/Bica+Lisbon",
           wikipedia: "https://en.wikipedia.org/wiki/Bica_funicular"
         } },
-        { time: "13:00", title: "🍽 Ebéd Chiado / Bairro Alto környékén", detail: "Nyugodt, nem túlvállalt ebéd." },
-        { time: "15:00", title: "🛍 Szabad blokk", detail: "Time Out Market, vásárlás vagy pihenés." },
+        { time: "13:00", title: "☕ Chiado + A Brasileira", detail: "Kávés és elegáns belvárosi blokk, Fernando Pessoa-hangulattal." },
+        { time: "14:00", title: "🍽 Ebéd Chiado / Bairro Alto környékén", detail: "Nyugodt, nem túlvállalt ebéd." },
+        { time: "15:30", title: "🛍 Szabad blokk", detail: "Time Out Market, Santa Justa, vásárlás vagy rövid Christo Rei opció jó időben." },
         { time: "17:30", title: "🧳 Pakolás + autós nap előkészítése", detail: "Bérlés, útvonal, parkolás, jegyek." },
         { time: "20:00", title: "🍽 Korai vacsora Lisszabonban", detail: "Másnap hosszú északi autóút jön." }
       ]
@@ -451,7 +632,7 @@ const tripData = {
         {
           name: "Solar dos Presuntos",
           type: "Ebéd · Baixa · klasszikus portugál húsételek",
-          description: "Stabil, megbízható lisszaboni húsos választás a belvárosban.",
+          description: "Stabil, megbízható lisszaboni húsos választás a belvárosban. Itt a portugál klasszikusok mellé érdemes figyelni arra is, van-e jó bacalhau vagy szezonális tengeri ajánlat.",
           tags: ["🐷 sertés", "🥩 marha", "🍗 csirke"],
           googleRating: "4.2",
           priceLevel: "€€€",
@@ -461,7 +642,7 @@ const tripData = {
         {
           name: "Taberna Sal Grosso",
           type: "Vacsora · Alfama · foglalós hely",
-          description: "Kis, autentikus, erős vacsorahely Alfamában.",
+          description: "Kis, autentikus, erős vacsorahely Alfamában. A cikk gasztrólogikája alapján itt kifejezetten jó irány lehet a bacalhau, a petiscos és a karakteresebb portugál tányérok keresése.",
           tags: ["🐷 sertés", "🥩 marha", "❌ hal nincs"],
           googleRating: "4.6",
           priceLevel: "€€",
@@ -471,7 +652,7 @@ const tripData = {
         {
           name: "Pastéis de Belém",
           type: "Reggeli / kávé · ikonikus",
-          description: "A kötelező nata megálló Belémben.",
+          description: "A kötelező nata megálló Belémben. A külső cikkek alapján is ez a legbiztosabb, klasszikus pastel de nata pont a rövid lisszaboni úton.",
           tags: ["☕ kávé", "🥮 sütemény"],
           googleRating: "4.6",
           priceLevel: "€",
@@ -484,6 +665,9 @@ const tripData = {
   sights: [
     { name: "Jerónimos kolostor", googleRating: "4.5", when: "2. nap · Ápr. 4", price: "10€/fő", detail: "Belém, UNESCO. A lisszaboni nap legerősebb történelmi pontja.", wikipedia: "https://hu.wikipedia.org/wiki/Jer%C3%B3nimos-kolostor", maps: "https://www.google.com/maps/search/Jer%C3%B3nimos+Monastery+Lisbon" },
     { name: "Belém-torony", googleRating: "4.6", when: "2. nap · Ápr. 4", price: "8€/fő", detail: "Folyóparti erőd, rövid sétával jól összeköthető a Jerónimosszal.", wikipedia: "https://hu.wikipedia.org/wiki/Bel%C3%A9m-torony", maps: "https://www.google.com/maps/search/Torre+de+Bel%C3%A9m+Lisbon" },
+    { name: "Castelo de São Jorge", googleRating: "4.4", when: "2. nap · Ápr. 4", price: "15€/fő", detail: "Lisszabon legmagasabb pontjának vára, erős kilátással a Tejóra és a városra.", wikipedia: "https://en.wikipedia.org/wiki/Castle_of_S%C3%A3o_Jorge", maps: "https://www.google.com/maps/search/Castelo+de+S%C3%A3o+Jorge+Lisbon" },
+    { name: "Cristo Rei", googleRating: "4.6", when: "4. nap · Ápr. 6 opció", price: "8€/fő", detail: "A túlpartról ad különösen erős panorámát a városra és a Ponte 25 de Abril hídra.", wikipedia: "https://en.wikipedia.org/wiki/Christ_the_King_(Almada)", maps: "https://www.google.com/maps/search/Christo+Rei+Almada" },
+    { name: "Santa Justa lift", googleRating: "4.0", when: "2. vagy 4. nap", price: "6€/fő", detail: "Ikonikus belvárosi vaslift Baixa és Chiado határán, rövid fotós megállónak jó.", wikipedia: "https://en.wikipedia.org/wiki/Santa_Justa_Lift", maps: "https://www.google.com/maps/search/Santa+Justa+Lift+Lisbon" },
     { name: "Pena kastély", googleRating: "4.4", when: "3. nap · Ápr. 5", price: "20€/fő", detail: "Sintra zászlóshajója, korai idősávval a legjobb.", wikipedia: "https://en.wikipedia.org/wiki/Pena_Palace", maps: "https://www.google.com/maps/search/Pena+Palace+Sintra" },
     { name: "Quinta da Regaleira", googleRating: "4.8", when: "3. nap · Ápr. 5", price: "8€/fő", detail: "Titokzatos kert, iniciatikus kút, rövid sintrai párosítás a Penával.", wikipedia: "https://en.wikipedia.org/wiki/Quinta_da_Regaleira", maps: "https://www.google.com/maps/search/Quinta+da+Regaleira+Sintra" }
   ],
@@ -499,9 +683,13 @@ const tripData = {
     {
       title: "🚆 Közlekedés",
       items: [
-        "Lisszabonban gyalog + tömegközlekedés bőven elég.",
+        "Lisszabonban gyalog + tömegközlekedés bőven elég, de a dombok és a macskakő miatt a rövid szakaszok is fárasztóbbak tudnak lenni.",
+        "Viva Viagem kártya az egyik legpraktikusabb megoldás többféle közlekedési eszközhöz; metróra, villamosra és több vasúti vonalra is jól használható.",
         "Sintrába a Rossióból induló vonat a legegyszerűbb.",
-        "A reptérre taxi, Uber vagy Bolt a legkényelmesebb esti megoldás."
+        "A reptérre taxi, Uber vagy Bolt a legkényelmesebb esti megoldás.",
+        "A 28-as villamos inkább élmény, mint gyors közlekedés.",
+        "A Santa Justa liftnél sokszor hosszú a sor; ha csak a kilátás számít, a környező utcák felől gyalog is fel lehet jutni.",
+        "Sintra és Cascais egy napba csak korai indulással fér bele kényelmesen."
       ]
     },
     {

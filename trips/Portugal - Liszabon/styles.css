@@ -767,6 +767,138 @@ a {
   gap: 16px;
 }
 
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.guide-lead {
+  margin: 0 0 12px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.resource-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.resource-icon {
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(35, 61, 123, 0.08);
+  border: 1px solid rgba(35, 61, 123, 0.16);
+  color: var(--blue);
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.resource-icon:hover {
+  background: rgba(35, 61, 123, 0.14);
+  text-decoration: none;
+}
+
+.context-shell {
+  padding: 0;
+  overflow: hidden;
+}
+
+.context-accordion,
+.context-section {
+  border: 0;
+}
+
+.context-accordion summary,
+.context-section summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+.context-accordion summary::-webkit-details-marker,
+.context-section summary::-webkit-details-marker {
+  display: none;
+}
+
+.context-summary {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 18px 12px;
+  background: linear-gradient(180deg, rgba(31, 90, 62, 0.08), rgba(31, 90, 62, 0.03));
+  border-bottom: 1px solid var(--line);
+}
+
+.context-summary h3 {
+  margin: 0 0 6px;
+  font-size: 17px;
+}
+
+.context-subtitle {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13.5px;
+  line-height: 1.45;
+}
+
+.context-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 14px 18px 8px;
+}
+
+.context-sections {
+  display: grid;
+  gap: 10px;
+  padding: 8px 18px 18px;
+}
+
+.context-section {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: linear-gradient(180deg, #fffdfa, #f6f0e7);
+  overflow: hidden;
+}
+
+.context-section summary {
+  padding: 12px 14px;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--green);
+  background: rgba(31, 90, 62, 0.05);
+  border-bottom: 1px solid transparent;
+}
+
+.context-section[open] summary {
+  border-bottom-color: var(--line);
+}
+
+.context-section-body {
+  padding: 12px 14px 14px;
+}
+
+.context-section-body p {
+  margin: 0 0 10px;
+  font-size: 13.6px;
+  line-height: 1.62;
+  color: var(--muted);
+}
+
+.context-section-body p:last-of-type {
+  margin-bottom: 12px;
+}
+
 .restaurant-groups {
   display: grid;
   grid-template-columns: 1fr;
