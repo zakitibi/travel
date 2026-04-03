@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🗺 🇵🇹 Portugália 2026 – Portugal</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero-top">
+        <div class="hero-copy">
+          <h1 id="hero-title"></h1>
+          <p id="hero-subtitle"></p>
+        </div>
+        <div class="flight-pills" id="flight-pills"></div>
+      </div>
+      <div class="route" id="route"></div>
+    </header>
+
+    <nav class="tabs" id="tabs"></nav>
+
+    <main id="views"></main>
+  </div>
+
+  <script src="./trip-data.js"></script>
+  <script>
+    const tabs = [
+      { id: "overview", label: "📋 Áttekintés" },
+      ...tripData.days.map((day) => ({ id: day.id, label: day.tabLabel })),
+      { id: "restaurants", label: "🍽 Éttermek" },
+      { id: "sights", label: "🏛 Látnivalók" },
+      { id: "practical", label: "🧳 Praktikus" }
+    ];
+
+    const heroTitle = document.getElementById("hero-title");
+    const heroSubtitle = document.getElementById("hero-subtitle");
+    const flightPills = document.getElementById("flight-pills");
+    const route = document.getElementById("route");
+    const tabsEl = document.getElementById("tabs");
+    const views = document.getElementById("views");
+
+    heroTitle.textContent = tripData.title;
+    heroSubtitle.textContent = `${tripData.subtitle} · Frissítve: ${tripData.updatedAt}`;
+
+    tripData.flights.forEach((flight) => {
+      const pill = document.createElement("div");
+      pill.className = "flight-pill";
+      pill.innerHTML = `
+        <strong>${flight.title}</strong>
+        <div>${flight.body}</div>
+        <div>${flight.links.map((link) => `<a href="${link.url}" target="_blank" rel="noreferrer">${link.label}</a>`).join(" · ")}</div>
+      `;
+      flightPills.appendChild(pill);
+    });
+
+    tripData.route.forEach((item) => {
+      const node = document.createElement("span");
+      if (item.separator) {
+        node.className = "route-sep";
+        node.innerHTML = item.separator
+          .replaceAll("→", '<span class="sep-arrow">→</span>')
+          .replaceAll("✈", '<span class="sep-icon">✈</span>')
+          .replaceAll("🚆", '<span class="sep-icon">🚆</span>')
+          .replaceAll("🚗", '<span class="sep-icon">🚗</span>');
+      } else {
+        node.className = `route-stop ${item.cls}`;
+        node.textContent = item.label;
+      }
+      route.appendChild(node);
+    });
+
+    function renderOverview() {
+      return `
+        <section class="view is-active" data-view="overview">
+          <div class="overview-grid">
+            <div class="card">
+              <h2 class="section-title">📅 Útvonal áttekintés</h2>
+              <div class="timeline">
+                ${tripData.days.map((day) => `
+                  <article class="timeline-item">
+                    <div class="timeline-meta">
+                      <div class="timeline-day">${day.dayLabel} · ${day.dateLabel}</div>
+                      <div class="timeline-stay">${day.stay}</div>
+                    </div>
+                    <h3>${day.title}</h3>
+                    <ul class="timeline-list">
+                      ${day.bullets.map((item) => `<li>${item}</li>`).join("")}
+                    </ul>
+                  </article>
+                `).join("")}
+              </div>
+            </div>
+            <div class="stack">
+              <section class="card">
+                <h2 class="section-title">🗺 Áttekintő térkép</h2>
+                <div class="external-map-card">
+                  <div class="external-map-top">
+                    <h3>📍 Interaktív Lisszabon térkép</h3>
+                    <a href="https://www.google.com/maps/d/u/0/viewer?mid=1gCj9l6CrDXGf4GnceNOyfBLcOAV-yfWT&femb=1&ll=38.72364841781629%2C-9.126722049999945&z=12" target="_blank" rel="noreferrer">Megnyitás külön</a>
+                  </div>
+                  <iframe
+                    class="external-map-frame"
+                    src="https://www.google.com/maps/d/embed?mid=1gCj9l6CrDXGf4GnceNOyfBLcOAV-yfWT&ehbc=2E312F"
+                    title="Google My Maps - Lisszabon"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+              </section>
+              <section class="card">
+                <h2 class="section-title">⚠️ Most fontos</h2>
+                <ul class="badge-list">
+                  ${tripData.overview.urgent.map((item) => `<li><span class="badge gold">FOGLALÁS</span><strong>${item}</strong></li>`).join("")}
+                </ul>
+              </section>
+              <section class="card">
+                <h2 class="section-title">💡 Szerkezeti megjegyzések</h2>
+                <ul class="plain-list">
+                  ${tripData.overview.notes.map((item) => `<li>${item}</li>`).join("")}
+                </ul>
+              </section>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function renderDay(day) {
+      const mapStops = day.mapStops || [];
+      const stopSpacing = mapStops.length > 1 ? 240 / (mapStops.length - 1) : 0;
+      return `
+        <section class="view" data-view="${day.id}">
+          <article class="day-card">
+            <header class="day-header">
+              <div class="day-header-top">
+                <div class="day-label">${day.dayLabel}</div>
+                <div class="day-date">${day.dateLabel}</div>
+              </div>
+              <h2>${day.title}</h2>
+              <p class="day-subtitle">${day.subtitle}</p>
+            </header>
+            <div class="day-body">
+              <div class="schedule">
+                ${day.schedule.map((item) => `
+                  <div class="schedule-row">
+                    <div class="schedule-time">${item.time}</div>
+                    <div>
+                      <h3 class="schedule-title">
+                        ${item.maps ? `<a href="${item.maps}" target="_blank" rel="noreferrer">${item.title}</a>` : item.title}
+                      </h3>
+                      <p class="schedule-detail">${item.detail}</p>
+                      ${item.meta ? `<p class="schedule-meta">${item.meta}</p>` : ""}
+                      ${(item.wikipedia || item.googleRating || item.price) ? `
+                        <div class="schedule-links">
+                          ${item.wikipedia ? `<a class="wiki-icon" href="${item.wikipedia}" target="_blank" rel="noreferrer" aria-label="Wikipedia">W</a>` : ""}
+                          ${item.googleRating ? `<span>⭐ ${item.googleRating}</span>` : ""}
+                          ${item.price ? `<span>${item.price}</span>` : ""}
+                        </div>
+                      ` : ""}
+                      ${item.placeBox ? `
+                        <article class="place-box">
+                          <div class="place-box-top">
+                            <h4>${item.placeBox.title}</h4>
+                            <div class="place-box-links">
+                              ${item.placeBox.wikipedia ? `<a class="wiki-icon" href="${item.placeBox.wikipedia}" target="_blank" rel="noreferrer" aria-label="Wikipedia">W</a>` : ""}
+                              ${item.placeBox.maps ? `<a class="wiki-icon" href="${item.placeBox.maps}" target="_blank" rel="noreferrer" aria-label="Google Maps">↗</a>` : ""}
+                            </div>
+                          </div>
+                          <p>${item.placeBox.text}</p>
+                          ${(item.placeBox.highlights || []).length ? `
+                            <ul class="place-box-list">
+                              ${item.placeBox.highlights.map((point) => `<li>${point}</li>`).join("")}
+                            </ul>
+                          ` : ""}
+                        </article>
+                      ` : ""}
+                    </div>
+                  </div>
+                `).join("")}
+              </div>
+              <aside class="mini-block">
+                ${mapStops.length ? `
+                  <section class="day-map">
+                    <h4>${day.mapTitle || "Napi útvonal"}</h4>
+                    <svg viewBox="0 0 300 92" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${day.title}">
+                      <line x1="30" y1="38" x2="270" y2="38" stroke="#ccbca5" stroke-width="3" stroke-linecap="round"/>
+                      ${mapStops.map((stop, index) => {
+                        const x = 30 + index * stopSpacing;
+                        return `
+                          <circle cx="${x}" cy="38" r="${index === 0 || index === mapStops.length - 1 ? 9 : 7}" fill="${stop.color}" />
+                          <text x="${x}" y="63" text-anchor="middle" font-size="10" font-weight="700" fill="#1f1a17">${stop.label}</text>
+                          ${stop.note ? `<text x="${x}" y="77" text-anchor="middle" font-size="8" fill="#6d655d">${stop.note}</text>` : ""}
+                        `;
+                      }).join("")}
+                    </svg>
+                  </section>
+                ` : ""}
+                <section class="card">
+                  <h3>${day.stay}</h3>
+                  <ul class="plain-list">
+                    ${day.bullets.map((item) => `<li>${item}</li>`).join("")}
+                  </ul>
+                </section>
+                <div class="note-box">${day.note}</div>
+                ${day.guides ? day.guides.map((guide) => `
+                  <article class="guide-card">
+                    <h4>${guide.title}</h4>
+                    <p>${guide.text}</p>
+                    <a href="${guide.url}" target="_blank" rel="noreferrer">${guide.linkLabel || "Megnyitás"}</a>
+                  </article>
+                `).join("") : ""}
+                ${day.daySights ? `
+                  <section class="day-sights">
+                    <h4 class="day-sights-title">🏛 Napi látnivalók összefoglalva</h4>
+                    ${day.daySights.map((sight) => `
+                      <article class="guide-card">
+                        <h4>${sight.name} (⭐ ${sight.googleRating})</h4>
+                        <p>${sight.text}</p>
+                        <div class="meta-links">
+                          ${sight.wikipedia ? `<a href="${sight.wikipedia}" target="_blank" rel="noreferrer">Wikipedia</a>` : ""}
+                          ${sight.maps ? `<a href="${sight.maps}" target="_blank" rel="noreferrer">Google Maps</a>` : ""}
+                          ${sight.price ? `<span>${sight.price}</span>` : ""}
+                        </div>
+                      </article>
+                    `).join("")}
+                  </section>
+                ` : ""}
+              </aside>
+            </div>
+            ${day.citySummaries ? day.citySummaries.map((city) => `
+              <section class="city-summary-band">
+                <div class="city-summary-top">
+                  <div>
+                    <h3 class="city-summary-title">${city.title}</h3>
+                    <p class="city-summary-sub">${city.subtitle || ""}</p>
+                  </div>
+                  <div class="city-summary-stats">
+                    ${(city.stats || []).map((stat) => `<span class="city-stat">${stat}</span>`).join("")}
+                  </div>
+                </div>
+                <div class="city-summary-grid">
+                  <div>
+                    ${(city.paragraphs || []).map((paragraph) => `<p>${paragraph}</p>`).join("")}
+                  </div>
+                  <div>
+                    <ul class="city-highlights">
+                      ${(city.highlights || []).map((item) => `<li>${item}</li>`).join("")}
+                    </ul>
+                  </div>
+                </div>
+                <div class="city-sources">
+                  ${(city.sources || []).map((source) => `<a class="source-icon" href="${source.url}" target="_blank" rel="noreferrer" title="${source.label}">${source.icon || "↗"}</a>`).join("")}
+                </div>
+              </section>
+            `).join("") : ""}
+          </article>
+        </section>
+      `;
+    }
+
+    function renderRestaurants() {
+      const intro = tripData.sectionIntros?.restaurants;
+      return `
+        <section class="view" data-view="restaurants">
+          <h2 class="section-title">🍽 Éttermek</h2>
+          ${intro ? `
+            <section class="card section-intro">
+              <h3>${intro.title}</h3>
+              ${intro.paragraphs.map((paragraph) => `<p>${paragraph}</p>`).join("")}
+              ${(intro.sections || []).map((section) => `
+                <div class="intro-subsection">
+                  <h4>${section.heading}</h4>
+                  <ul class="plain-list">
+                    ${section.items.map((item) => `<li>${item}</li>`).join("")}
+                  </ul>
+                </div>
+              `).join("")}
+              <ul class="plain-list">
+                ${intro.highlights.map((item) => `<li>${item}</li>`).join("")}
+              </ul>
+              ${intro.dishBox ? `
+                <section class="dish-box">
+                  <h4>${intro.dishBox.title}</h4>
+                  <div class="dish-grid">
+                    ${intro.dishBox.items.map((dish) => `
+                      <article class="dish-card">
+                        <h5>${dish.name}</h5>
+                        <p>${dish.description}</p>
+                        <div class="dish-flavor"><strong>Ízvilág:</strong> ${dish.flavor}</div>
+                      </article>
+                    `).join("")}
+                  </div>
+                </section>
+              ` : ""}
+            </section>
+          ` : ""}
+          <div class="restaurant-groups">
+            ${tripData.restaurants.map((group) => `
+              <section class="card">
+                <h3>${group.city}</h3>
+                <div class="restaurant-row">
+                  ${group.items.map((item) => `
+                    <article class="list-card">
+                      <div class="restaurant-head">
+                        <div class="rating-badge">⭐ ${item.googleRating}</div>
+                        <div class="restaurant-head-copy">
+                          <h3><a href="${item.url}" target="_blank" rel="noreferrer">${item.name}</a></h3>
+                          <p class="restaurant-meta-line">${item.type} · ${item.priceLevel}</p>
+                        </div>
+                      </div>
+                      <div class="food-tags">${item.tags.map((tag) => `<span class="food-tag">${tag}</span>`).join("")}</div>
+                      <p>${item.description}</p>
+                      <div class="meta">${item.meta}</div>
+                    </article>
+                  `).join("")}
+                </div>
+              </section>
+            `).join("")}
+          </div>
+        </section>
+      `;
+    }
+
+    function renderSights() {
+      const intro = tripData.sectionIntros?.sights;
+      return `
+        <section class="view" data-view="sights">
+          <h2 class="section-title">🏛 Látnivalók</h2>
+          ${intro ? `
+            <section class="card section-intro">
+              <h3>${intro.title}</h3>
+              ${intro.paragraphs.map((paragraph) => `<p>${paragraph}</p>`).join("")}
+              <ul class="plain-list">
+                ${intro.highlights.map((item) => `<li>${item}</li>`).join("")}
+              </ul>
+            </section>
+          ` : ""}
+          <div class="group-grid">
+            ${tripData.sights.map((sight) => `
+              <article class="list-card">
+                <h3>${sight.name} (⭐ ${sight.googleRating})</h3>
+                <p>${sight.detail}</p>
+                <div class="meta">${sight.when} · ${sight.price}</div>
+                <div class="meta-links">
+                  ${sight.wikipedia ? `<a href="${sight.wikipedia}" target="_blank" rel="noreferrer">Wikipedia</a>` : ""}
+                  ${sight.maps ? `<a href="${sight.maps}" target="_blank" rel="noreferrer">Google Maps</a>` : ""}
+                </div>
+              </article>
+            `).join("")}
+          </div>
+        </section>
+      `;
+    }
+
+    function renderPractical() {
+      const intro = tripData.sectionIntros?.practical;
+      return `
+        <section class="view" data-view="practical">
+          <h2 class="section-title">🧳 Praktikus</h2>
+          ${intro ? `
+            <section class="card section-intro">
+              <h3>${intro.title}</h3>
+              ${intro.paragraphs.map((paragraph) => `<p>${paragraph}</p>`).join("")}
+              <ul class="plain-list">
+                ${intro.highlights.map((item) => `<li>${item}</li>`).join("")}
+              </ul>
+            </section>
+          ` : ""}
+          <div class="group-grid">
+            ${tripData.practical.map((group) => `
+              <article class="card">
+                <h3>${group.title}</h3>
+                <ul class="plain-list">
+                  ${group.items.map((item) => `<li>${item}</li>`).join("")}
+                </ul>
+              </article>
+            `).join("")}
+          </div>
+          <p class="footer-note">A <code>Portugal</code> út most már külön adatfájlból és külön stílusból épül fel, így később az itinerary-t főleg a <code>trip-data.js</code> szerkesztésével tudod módosítani.</p>
+        </section>
+      `;
+    }
+
+    views.innerHTML = [
+      renderOverview(),
+      ...tripData.days.map(renderDay),
+      renderRestaurants(),
+      renderSights(),
+      renderPractical()
+    ].join("");
+
+    tabsEl.innerHTML = tabs.map((tab, index) => `
+      <button class="tab-btn ${index === 0 ? "is-active" : ""}" data-tab="${tab.id}">${tab.label}</button>
+    `).join("");
+
+    const tabButtons = Array.from(document.querySelectorAll(".tab-btn"));
+    const viewEls = Array.from(document.querySelectorAll(".view"));
+
+    function activateTab(id) {
+      tabButtons.forEach((button) => button.classList.toggle("is-active", button.dataset.tab === id));
+      viewEls.forEach((view) => view.classList.toggle("is-active", view.dataset.view === id));
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    tabsEl.addEventListener("click", (event) => {
+      const button = event.target.closest(".tab-btn");
+      if (!button) return;
+      activateTab(button.dataset.tab);
+    });
+  </script>
+</body>
+</html>
